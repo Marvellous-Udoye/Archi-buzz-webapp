@@ -215,7 +215,7 @@ const Community = () => {
                         >
                           <Button
                             cssStyle={{ backgroundColor: post.hashtagsColor[tagIndex] }}
-                            styles={`py-[6px] px-[13px] rounded-[16px] text-[13px]`}>
+                            styles={`text-[12px] py-[6px] px-[13px] rounded-[16px] text-[13px]`}>
                             <p>{tags}</p>
                           </Button>
                         </div>
@@ -237,7 +237,7 @@ const Community = () => {
                 profilePicture={account.authorsPicture}
               >
                 <Button
-                  styles={`active:bg-[#CC8400] transition ease duration-100ms px-[13px] py-[6px] rounded-[16px] flex gap-1 text-[#fff]`}
+                  styles={`${isAccountFollowing[accountIndex] ? 'bg-[#D8D8D8] text-black' : 'bg-[#FFA809] text-white active:bg-[#CC8400] transition ease duration-100ms'} px-[13px] py-[6px] rounded-[16px] flex gap-1 text-[#fff]`}
                   handleClick={() => handleAccountFollowClick(accountIndex)}
                 >
                   <p>{isAccountFollowing[accountIndex] ? 'Following' : 'Follow'}</p>

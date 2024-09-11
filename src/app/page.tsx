@@ -8,6 +8,140 @@ import guideTrill2 from "../../public/assets/images/guide-trill-2.png"
 import guideTrill3 from "../../public/assets/images/guide-trill-3.png"
 import archibuzzLogo from "../../public/icons/archibuzz-logo.svg"
 
+import { cn } from "@/lib/utils";
+import Marquee from "@/components/magicui/marquee";
+
+const reviews = [
+  {
+    name: "Jack",
+    username: "@jack",
+    body: "I've never seen anything like this before. It's amazing. I love it.",
+    img: "https://avatar.vercel.sh/jack",
+  },
+  {
+    name: "Jill",
+    username: "@jill",
+    body: "I don't know what to say. I'm speechless. This is amazing.",
+    img: "https://avatar.vercel.sh/jill",
+  },
+  {
+    name: "John",
+    username: "@john",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/john",
+  },
+  {
+    name: "Jane",
+    username: "@jane",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jane",
+  },
+  {
+    name: "Jenny",
+    username: "@jenny",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jenny",
+  },
+  {
+    name: "James",
+    username: "@james",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/james",
+  },
+];
+
+const firstRow = reviews.slice(0, reviews.length / 2);
+const secondRow = reviews.slice(reviews.length / 2);
+
+const ReviewCard = ({
+  img,
+  name,
+  username,
+  body,
+}: {
+  img: string;
+  name: string;
+  username: string;
+  body: string;
+}) => {
+  return (
+    <figure
+      className={cn(
+        "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+        // light styles
+        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+        // dark styles
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+      )}
+    >
+      <div className="flex flex-row items-center gap-2">
+        <img className="rounded-full" width="32" height="32" alt="" src={img} />
+        <div className="flex flex-col">
+          <figcaption className="text-sm font-medium dark:text-white">
+            {name}
+          </figcaption>
+          <p className="text-xs font-medium dark:text-white/40">{username}</p>
+        </div>
+      </div>
+      <blockquote className="mt-2 text-sm">{body}</blockquote>
+    </figure>
+  );
+};
+
+export function MarqueeDemo() {
+  return (
+    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <Marquee pauseOnHover className="[--duration:20s]">
+        {firstRow.map((review) => (
+          <ReviewCard key={review.username} {...review} />
+        ))}
+      </Marquee>
+      <Marquee reverse pauseOnHover className="[--duration:20s]">
+        {secondRow.map((review) => (
+          <ReviewCard key={review.username} {...review} />
+        ))}
+      </Marquee>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
+    </div>
+  );
+}
+
+import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
+
+export function HeroVideoDialogDemo() {
+  return (
+    <div className="relative flex justify-center items-center w-full h-full object-cover rounded-lg">
+      <HeroVideoDialog
+        className="dark:hidden block"
+        animationStyle="from-center"
+        videoSrc="/video/2024-07-21 15-33-10.mp4"
+        thumbnailSrc="/video/3d-rendering-abstract-building.png"
+        thumbnailAlt="Hero Video"
+      />
+      <HeroVideoDialog
+        className="hidden dark:block"
+        animationStyle="from-center"
+        videoSrc="/video/2024-07-21 15-33-10.mp4"
+        thumbnailSrc="/video/3d-rendering-abstract-building.png"
+        thumbnailAlt="Hero Video"
+      />
+    </div>
+  );
+}
+
+import TypingAnimation from "@/components/magicui/typing-animation";
+
+export async function TextRevealDemo() {
+  return (
+    <TypingAnimation
+      className="text-[64px] font-bold text-left text-black dark:text-white"
+      text={<>
+        Empower Your <span style={{ color: "#FFA500" }}>Architectural Vision</span> with <span style={{ color: "#808080" }}>AI</span> Innovation
+      </>}
+    />
+  );
+}
 
 const Home = () => {
   return (
@@ -15,11 +149,7 @@ const Home = () => {
       <section className="pt-[100px] pb-[193px] bg-gradient-to-b from-white/40 to-white/10">
         <div className="flex gap-[55px] container max-w-[1440px] mx-auto">
           <div className="flex flex-col gap-5 w-full max-w-[789px]">
-            <h1 className="text-[64px] font-bold leading-[76.78px]">
-              Empower Your{" "}
-              <span className="text-[#FFA500]">Architectural Vision </span>with{" "}
-              <span className="text-[#808080]">AI</span> Innovation
-            </h1>
+            <TextRevealDemo />
             <p className="text-xl font-medium leading-10">
               Join a community of architects, designers, and AI enthusiasts
               transforming the future of architecture and design. Learn,
@@ -49,21 +179,14 @@ const Home = () => {
               Join our Community
             </Button>
           </div>
-          <Image src={heroPic} alt="This is a pic" />
+          <Image src={heroPic} alt="This is a pic" className="h-[30rem]" />
         </div>
       </section>
 
       <section className="pb-[193px]">
         <div className="flex items-center gap-[55px] container max-w-[1440px] mx-auto">
-          <div className="w-[800px] h-[720px] rounded-lg">
-            <video
-              className="w-full h-full object-cover rounded-lg"
-              controls
-              poster="/assets/images/video-poster.png"
-            >
-              <source src="your-video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          <div className="w-[800px] rounded-lg">
+            <HeroVideoDialogDemo />
           </div>
           <div className="flex flex-col gap-5 w-full max-w-[625px]">
             <h1 className="text-5xl font-bold leading-[58.56px]">
@@ -113,15 +236,15 @@ const Home = () => {
             <div className="w-[95.83px] border-[4.67px] border-[#FFA500]"></div>
           </div>
           <p className="max-w-[741.25px] mx-auto text-base text-center leading-8 font-medium">
-          Discover our range of innovative tools and resources designed to integrate AI into your architectural and design processes. Explore our products and elevate your design process today!
+            Discover our range of innovative tools and resources designed to integrate AI into your architectural and design processes. Explore our products and elevate your design process today!
           </p>
           <div className="max-w-[1019.27px] flex flex-col items-center gap-4 mx-auto">
-          <p className="h-[166.67px] w-[166.67px] bg-[#FFD280] rounded-full flex items-center justify-center mx-auto">
-              <p className="h-[125px] w-[125px] bg-[#FFBB40] rounded-full flex items-center justify-center">
-                <p className="h-[83.33px] w-[83.33px] bg-[#FFA500] rounded-full flex items-center justify-center text-[53.33px] text-white font-bold leading-[106.67px]">
+            <p className="h-[166.67px] w-[166.67px] bg-[#FFD280] rounded-full flex items-center justify-center mx-auto">
+              <span className="h-[125px] w-[125px] bg-[#FFBB40] rounded-full flex items-center justify-center">
+                <span className="h-[83.33px] w-[83.33px] bg-[#FFA500] rounded-full flex items-center justify-center text-[53.33px] text-white font-bold leading-[106.67px]">
                   1
-                </p>
-              </p>
+                </span>
+              </span>
             </p>
             <h2 className="text-[40px] text-[#FFA500] leading-[47.95px] font-normal">
               Archi<span className="text-[#808080]">Buzz</span>
@@ -206,17 +329,18 @@ const Home = () => {
           >
             Get started
           </Button>
+          <MarqueeDemo />
         </div>
       </section>
       <section className="pt-8 pb-16 bg-[#FFE4B2]">
         <div className="grid gap-10 container max-w-[1440px] mx-auto">
           <div className="text-center grid gap-4">
             <p className="h-[166.67px] w-[166.67px] bg-[#FFD280] rounded-full flex items-center justify-center mx-auto">
-              <p className="h-[125px] w-[125px] bg-[#FFBB40] rounded-full flex items-center justify-center">
-                <p className="h-[83.33px] w-[83.33px] bg-[#FFA500] rounded-full flex items-center justify-center text-[53.33px] text-white font-bold leading-[106.67px]">
+              <span className="h-[125px] w-[125px] bg-[#FFBB40] rounded-full flex items-center justify-center">
+                <span className="h-[83.33px] w-[83.33px] bg-[#FFA500] rounded-full flex items-center justify-center text-[53.33px] text-white font-bold leading-[106.67px]">
                   2
-                </p>
-              </p>
+                </span>
+              </span>
             </p>
             <h2 className="text-[40px] text-[#FFA500] leading-[106.67px] font-normal">
               Archi<span className="text-[#808080]">Guide</span>
@@ -262,10 +386,10 @@ const Home = () => {
         </div>
       </section>
       <div className="relative">
-          <Image src={guideTrill1} alt="" width={1736} height={90} className="absolute -top-[45px]"/>
-          <Image src={guideTrill2} alt="" width={1736} height={90} className="absolute -top-[22.5px]"/>
-          <Image src={guideTrill3} alt="" width={1606} height={90} className="absolute top-[22.25px]"/>
-          <div className="h-[144.5px]"></div>
+        <Image src={guideTrill1} alt="" width={1736} height={90} className="absolute -top-[45px]" />
+        <Image src={guideTrill2} alt="" width={1736} height={90} className="absolute -top-[22.5px]" />
+        <Image src={guideTrill3} alt="" width={1606} height={90} className="absolute top-[22.25px]" />
+        <div className="h-[144.5px]"></div>
       </div>
       <footer className="pb-4">
         <div className="max-w-[1250px] mx-auto grid gap-16">
@@ -292,8 +416,8 @@ const Home = () => {
             </ul>
             <form className="grid gap-5 p-5  rounded-[20px] max-w-[340px] w-full bg-[#FFE4B2]">
               <p className="text-base text-center leading-8 font-bold">Get tips and resources sent to your inbox</p>
-              <input type="text" className="w-full p-[10px] rounded-[20px]" placeholder="Name"/>
-              <input type="text" className="w-full p-[10px] rounded-[20px]" placeholder="Email"/>
+              <input type="text" className="w-full p-[10px] rounded-[20px]" placeholder="Name" />
+              <input type="text" className="w-full p-[10px] rounded-[20px]" placeholder="Email" />
               <Button styles="bg-[#FFA809] text-[13.33px] font-medium text-white py-[12px] px-[20px] rounded-[16.67px] h-14 mx-auto">Get updates</Button>
             </form>
           </div>
