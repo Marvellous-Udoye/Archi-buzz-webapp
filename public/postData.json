@@ -1,0 +1,121 @@
+[
+  {
+    "data": "post",
+    "name": "Olivia Jewel",
+    "profilePicture": "/images/Image-60.png",
+    "hashtags": [
+      "Artistic",
+      "Modern Design",
+      "Interior"
+    ],
+    "hashtagsColor": [
+      "#0000004D",
+      "#808080",
+      "#A52A2A80"
+    ],
+    "timePosted": "1 hr",
+    "postPicture": "/images/3d-rendering-abstract-building 3 post.png"
+  },
+  {
+    "data": "post",
+    "name": "John Doe",
+    "profilePicture": "/images/Image-60.png",
+    "hashtags": [
+      "Architecture",
+      "3D Modeling",
+      "Urban Planning"
+    ],
+    "hashtagsColor": [
+      "#0000004D",
+      "#808080",
+      "#A52A2A80"
+    ],
+    "timePosted": "12 hrs",
+    "postPicture": "/images/building-with-lot-windows-words-word-top.png"
+  },
+  {
+    "data": "post",
+    "name": "Cody Fisher",
+    "profilePicture": "/images/Image-60.png",
+    "hashtags": [
+      "Photography",
+      "Minimalism",
+      "Public Spaces"
+    ],
+    "hashtagsColor": [
+      "#0000004D",
+      "#808080",
+      "#A52A2A80"
+    ],
+    "timePosted": "24 mins",
+    "postPicture": "/images/18132521.png"
+  },
+  {
+    "data": "post",
+    "name": "Ralph Edwards",
+    "profilePicture": "/images/Image-60.png",
+    "hashtags": [
+      "Painting",
+      "Classicism",
+      "Landscape"
+    ],
+    "hashtagsColor": [
+      "#0000004D",
+      "#808080",
+      "#A52A2A80"
+    ],
+    "timePosted": "2 wks",
+    "postPicture": "/images/938.png"
+  },
+  {
+    "data": "post",
+    "name": "Savannah Nyugen",
+    "profilePicture": "/images/Image-60.png",
+    "hashtags": [
+      "Sculpture",
+      "Ceramics",
+      "Art Deco"
+    ],
+    "hashtagsColor": [
+      "#0000004D",
+      "#808080",
+      "#A52A2A80"
+    ],
+    "timePosted": "5 mins",
+    "postPicture": "/images/18132521.png"
+  },
+  {
+    "data": "post",
+    "name": "Kristin Watson",
+    "profilePicture": "/images/Image-60.png",
+    "hashtags": [
+      "Industrial Design",
+      "Avant-garde",
+      "Public Art"
+    ],
+    "hashtagsColor": [
+      "#0000004D",
+      "#808080",
+      "#A52A2A80"
+    ],
+    "timePosted": "8 hrs",
+    "postPicture": "/images/3d-rendering-abstract-building 3 post.png"
+  },
+  {
+    "data": "post",
+    "name": "Ebenezer Lucius",
+    "profilePicture": "/images/Image-60.png",
+    "hashtags": [
+      "Digital Art",
+      "Postmodernism",
+      "Installations"
+    ],
+    "hashtagsColor": [
+      "#0000004D",
+      "#808080",
+      "#A52A2A80"
+    ],
+    "timePosted": "3 months",
+    "postPicture": "/images/938.png"
+  }
+]
