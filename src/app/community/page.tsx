@@ -89,17 +89,17 @@ const Community = () => {
     <div className={`max-w-[1266px] mx-auto mt-[30px]`}>
 
       <div className={`${styles.filter} flex flex-col gap-[33px]`}>
-        <div className='flex items-center justify-between'>
-          <div className='flex items-center relative'>
+        <div className={`${styles.search_input_ctn} flex items-center`}>
+          <div className={`${styles.search_input} flex items-center relative`}>
             <input
               id='Search'
               value={search}
-              className="outline-none rounded-tl-[16px] rounded-bl-[16px] py-2.5 pl-14 border-t-[0.8px] border-l-[0.8px] border-b-[0.8px] border-black flex justify-center items-center font-[500] text-[16px] leading-[32px]"
+              className="outline-none rounded-tl-[16px] rounded-bl-[16px] py-2.5 pl-14 border-t-[0.8px] border-l-[0.8px] border-b-[0.8px] border-black flex items-center font-[500] text-[16px] leading-[32px]"
               type='text'
               onChange={(e) => setSearch(e.target.value)}
               placeholder='Search for a post...'
             />
-            <svg className="absolute top-1/2 left-5 -translate-y-1/2" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+            <svg className={`${styles.search_icon} absolute top-1/2 left-5 -translate-y-1/2`} xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M7.95866 0.541016C3.93158 0.541016 0.666992 3.8056 0.666992 7.83268C0.666992 11.8598 3.93158 15.1243 7.95866 15.1243C9.74696 15.1243 11.3857 14.48 12.6538 13.4117L15.85 16.608C16.0941 16.852 16.4899 16.852 16.7339 16.608C16.978 16.3639 16.978 15.9682 16.7339 15.7241L13.5377 12.5279C14.6059 11.2597 15.2503 9.62095 15.2503 7.83268C15.2503 3.80561 11.9858 0.541016 7.95866 0.541016ZM1.91699 7.83268C1.91699 4.49596 4.62194 1.79102 7.95866 1.79102C11.2954 1.79102 14.0003 4.49596 14.0003 7.83268C14.0003 9.49833 13.3271 11.0055 12.2365 12.0991L12.2365 12.0991C11.142 13.1965 9.63011 13.8743 7.95866 13.8743C4.62194 13.8743 1.91699 11.1694 1.91699 7.83268Z" fill="black" />
             </svg>
             <div className="flex items-center bg-[#FFE4B2] h-[54px] p-3.5 rounded-tr-[16px] rounded-br-[16px] border-[0.8px] border-black">
@@ -109,7 +109,7 @@ const Community = () => {
             </div>
           </div>
 
-          <Button styles='flex items-center justify-center gap-1 bg-[#D8D8D8] h-[54px] px-4 py-2 outline-none rounded-[16px]'>
+          <Button styles='flex items-center justify-center gap-1 bg-[#D8D8D8] h-[54px] px-4 py-2 rounded-[16px]'>
             For You
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
               <path d="M5.5 8.16602L10.5 13.166L15.5 8.16602" stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
@@ -117,13 +117,13 @@ const Community = () => {
           </Button>
         </div>
 
-        <div className='flex justify-between'>
+        <div className={`${styles.page_ctrl} flex justify-between`}>
           <span className='flex items-end leading-8 gap-[30px] font-[500] text-[16px] cursor-pointer'>
             <p
               className={`py-1 ${activeTab === 'Post' ? 'text-[#FFA500] border-b-[2px] border-[#FFA500]' : ''}`}
               onClick={() => handleTabClick('Post')}
             >
-              Post
+              Posts
             </p>
             <p
               className={`py-1 ${activeTab === 'People' ? 'text-[#FFA500] border-b-[2px] border-[#FFA500]' : ''}`}
@@ -132,7 +132,7 @@ const Community = () => {
               People
             </p>
           </span>
-          <Button styles={`${styles.refresh_button} bg-[#fff] px-[13px] py-[6px] rounded-[5px] border-[0.83px] border-black leading-[26px] text-[13px]`}>
+          <Button styles={`${styles.refresh_button} bg-[#fff] px-[12px] py-[6px] rounded-[5px] border-[0.83px] border-black leading-[26px] text-[13px]`}>
             <p>Refresh feed</p>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" className="bi bi-arrow-repeat" viewBox="0 0 16 16">
               <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"></path>
@@ -145,19 +145,19 @@ const Community = () => {
       <div className={`${styles.community_ctn} flex max-w-[1266px] justify-between`}>
         {activeTab === 'Post' ? (
           <main className={`${styles.feed} flex flex-col gap-[11px]`}>
-            <section className='flex flex-col gap-[30px] p-[13px] rounded-[16px] bg-[#F6F5F5]'>
+            <section className={`${styles.post_feed} flex flex-col gap-[30px] p-[13px] rounded-[16px] bg-[#F6F5F5]`}>
               {postData.map((post, index) => (
-                <div key={index} className='shadow-custom p-4 rounded-[12px] bg-white '>
+                <div key={index} className={`${styles.post_card} shadow-custom rounded-[12px] bg-white `}>
                   <Image
                     src={post.postPicture}
                     alt='Picture of post'
                     width={675}
                     height={100}
-                    className='w-full rounded-[8px] mb-[13px]'
+                    className='w-full rounded-tr-[8px] rounded-tl-[8px]'
                   />
 
-                  <div className='p-2 flex flex-col gap-[17.5px]'>
-                    <div className='flex items-center justify-between'>
+                  <div className={`${styles.post_details} px-2 pb-3 flex flex-col gap-[17.5px] mt-[21px]`}>
+                    <div className={`${styles.post_btns} flex items-center justify-between`}>
                       <Button
                         styles={`${isPostFollowing[index] ? 'bg-[#D8D8D8] text-black' : 'bg-[#FFA809] text-white active:bg-[#CC8400] transition ease duration-100ms'} py-[6px] px-[13px] rounded-[16px] `}
                         handleClick={() => handleFollowClick(index)}
@@ -194,14 +194,14 @@ const Community = () => {
                       </div>
                     </div>
 
-                    <div className='flex items-center justify-between'>
+                    <div className={`${styles.post_info} flex items-center justify-between`}>
                       <div className='flex gap-[13px]'>
                         <Image
                           src={post.profilePicture}
                           alt="Author's Picture"
                           width={50}
                           height={50}
-                          className='rounded-full'
+                          className={`${styles.profile_picture} rounded-full`}
                         />
                         <p className='text-[32px] font-[500]'>{post.name}</p>
                       </div>
@@ -209,13 +209,12 @@ const Community = () => {
                       <span className='text-[13px] font-[500] leading-[26px]'>{post.timePosted} ago</span>
                     </div>
 
-                    <div className='flex items-center gap-[5px] text-white'>
+                    <div className={`${styles.post_hashtags} flex items-center gap-[5px] text-white`}>
                       {post.hashtags.map((tags, tagIndex) => (
-                        <div key={tagIndex}
-                        >
+                        <div key={tagIndex}>
                           <Button
                             cssStyle={{ backgroundColor: post.hashtagsColor[tagIndex] }}
-                            styles={`text-[12px] py-[6px] px-[13px] rounded-[16px] text-[13px]`}>
+                            styles={`py-[6px] px-[13px] rounded-[16px] text-[13px]`}>
                             <p>{tags}</p>
                           </Button>
                         </div>
@@ -228,11 +227,11 @@ const Community = () => {
             </section>
           </main>
         ) : (
-          <div className='flex flex-col gap-4 w-full max-w-[700px]'>
+          <section className={`${styles.people_feed} ${styles.suggestions_ctn} flex flex-col gap-4 w-full max-w-[700px] p-[13px] rounded-[16px] bg-[#F6F5F5]`}>
             {accountData.map((account, accountIndex) => (
               <AccountCard
                 key={accountIndex}
-                styles='shadow-custom rounded-[16px] p-4'
+                styles={`${styles.account_card} shadow-custom rounded-[16px] p-4`}
                 text={account.accountName}
                 profilePicture={account.authorsPicture}
               >
@@ -241,23 +240,24 @@ const Community = () => {
                   handleClick={() => handleAccountFollowClick(accountIndex)}
                 >
                   <p>{isAccountFollowing[accountIndex] ? 'Following' : 'Follow'}</p>
-                  {!isAccountFollowing[accountIndex] && <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-                    <path d="M5.66797 10.833H10.668M10.668 10.833H15.668M10.668 10.833V5.83301M10.668 10.833V15.833" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>}
+                  {!isAccountFollowing[accountIndex] &&
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                      <path d="M5.66797 10.833H10.668M10.668 10.833H15.668M10.668 10.833V5.83301M10.668 10.833V15.833" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>}
                 </Button>
               </AccountCard>
             ))}
-          </div>
+          </section>
         )}
 
         <aside className={`${styles.hubs_and_suggestions} flex flex-col gap-4 bg-[#F6F5F5] rounded-[16px]`}>
-          <div className='flex flex-col gap-[33px] p-[13px] '>
-            <div className='flex flex-col gap-[13px]'>
+          <div className={`${styles.hubs} flex flex-col p-[13px] `}>
+            <div className={`${styles.hubs_header} flex flex-col gap-[13px]`}>
               <p className='text-[40px] font-[500]'>Hubs</p>
               <p className='text-[16px] font-[500] leading-[32px]'>Join or create your own community and try and get to the top 4.</p>
             </div>
 
-            <div className='text-center text-[16px] font=[500] leading-8'>
+            <div className='text-center text-[16px] font=[500] leading-8 my-[33px]'>
               <p>Top 4 Most Populous Hubs🎉</p>
               <p>These are the hubs with the most members.</p>
             </div>
@@ -266,11 +266,11 @@ const Community = () => {
               {hubsData.map((hub, hubIndex) => (
                 <HubsCard
                   key={hubIndex}
-                  styles='shadow-custom rounded-[16px] p-4'
+                  styles={`${styles.hubs_card} shadow-custom rounded-[16px] p-4`}
                   text={`${hubIndex + 1}.  ${hub.hubName}`}
                   numbers={hub.members}
                 >
-                  <Button styles='bg-[#FFE4B2] px-[13px] py-[6px] rounded-[16px] flex gap-1'>
+                  <Button styles={`${styles.join_hub} bg-[#FFE4B2] px-[13px] py-[6px] rounded-[16px] flex gap-1`}>
                     <p>Join</p>
                     <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
                       <path d="M5.66797 10.1665H10.668M10.668 10.1665H15.668M10.668 10.1665V5.1665M10.668 10.1665V15.1665" stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
@@ -281,36 +281,37 @@ const Community = () => {
             </div>
 
             <Button
-              styles='bg-[#FFA809] mt-[46px] w-full p-4 rounded-[8px] shadow-custom leading-8'
+              styles={`${styles.create_hub} bg-[#FFA809] mt-[46px] w-full p-4 rounded-[8px] shadow-custom leading-8`}
             >
               <p>Create Hub</p>
             </Button>
           </div>
 
-          <div className='flex flex-col gap-[33px] p-[13px]'>
-            <p className='text-[40px] font-[500]'>Suggested accounts</p>
+          {activeTab === "Post" &&
+            <div className={`${styles.suggestions} flex flex-col gap-[33px] p-[13px] `}>
+              <p className={`${styles.suggestions_header} text-[40px] font-[500]`}>Suggested accounts</p>
 
-            <div className='flex flex-col gap-4'>
-              {accountData.map((account, accountIndex) => (
-                <AccountCard
-                  key={accountIndex}
-                  styles='shadow-custom rounded-[16px] p-4'
-                  text={account.accountName}
-                  profilePicture={account.authorsPicture}
-                >
-                  <Button
-                    styles={`${isAccountFollowing[accountIndex] ? 'bg-[#D8D8D8] text-black' : 'bg-[#FFA809] text-white active:bg-[#CC8400] transition ease duration-100ms'} px-[13px] py-[6px] rounded-[16px] flex gap-1 text-[#fff]`}
-                    handleClick={() => handleAccountFollowClick(accountIndex)}
+              <div className={`${styles.suggestions_ctn} flex flex-col gap-4`}>
+                {accountData.map((account, accountIndex) => (
+                  <AccountCard
+                    key={accountIndex}
+                    styles={`${styles.account_card} shadow-custom rounded-[16px] p-4`}
+                    text={account.accountName}
+                    profilePicture={account.authorsPicture}
                   >
-                    <p>{isAccountFollowing[accountIndex] ? 'Following' : 'Follow'}</p>
-                    {!isAccountFollowing[accountIndex] && <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-                      <path d="M5.66797 10.833H10.668M10.668 10.833H15.668M10.668 10.833V5.83301M10.668 10.833V15.833" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>}
-                  </Button>
-                </AccountCard>
-              ))}
-            </div>
-          </div>
+                    <Button
+                      styles={`${isAccountFollowing[accountIndex] ? 'bg-[#D8D8D8] text-black' : 'bg-[#FFA809] text-white active:bg-[#CC8400] transition ease duration-100ms'} px-[13px] py-[6px] rounded-[16px] flex gap-1 text-[#fff]`}
+                      handleClick={() => handleAccountFollowClick(accountIndex)}
+                    >
+                      <p>{isAccountFollowing[accountIndex] ? 'Following' : 'Follow'}</p>
+                      {!isAccountFollowing[accountIndex] && <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                        <path d="M5.66797 10.833H10.668M10.668 10.833H15.668M10.668 10.833V5.83301M10.668 10.833V15.833" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>}
+                    </Button>
+                  </AccountCard>
+                ))}
+              </div>
+            </div>}
         </aside>
       </div>
     </div>
