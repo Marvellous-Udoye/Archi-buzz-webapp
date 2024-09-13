@@ -3,7 +3,6 @@
 .signup_page {
   background-image: url('/images/3d-rendering-abstract-building 4.png');
 
-
   @media (max-width: 700px) {
     background-image: none;
     background-color: #DEDEDE;
@@ -106,6 +105,29 @@
   }
 }
 
+.form Input {
+  @media (max-width: 700px) {
+    font-size: 14px;
+    padding: 12px 12px 12px 50px;
+    border-radius: 10px;
+  }
+}
+
+.form Button {
+  @media (max-width: 700px) {
+    font-size: 12px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+}
+
+.form fieldset svg {
+  @media (max-width: 700px) {
+    max-width: 20px;
+    max-height: 10px;
+  }
+}
+
 .form label {
   line-height: 24px;
   font-size: 12px;
@@ -113,7 +135,7 @@
 
 .password_info {
   @media (max-width: 700px) {
-    font-size: 8px;
+    font-size: 10px;
   }
 }
 
@@ -153,12 +175,21 @@
 .google_btn {
   @media (max-width: 700px) {
     gap: 4px;
+    font-size: 12px;
+    padding: 12px;
+  }
+}
+
+.google_btn p {
+  @media (max-width: 700px) {
+    font-size: 12px;
   }
 }
 
 .google_btn svg {
   @media (max-width: 700px) {
-    transform: scale(.5);
+    width: 20px;
+    height: 20px;
   }
 }
 

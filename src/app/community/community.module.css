@@ -1,71 +1,287 @@
-.community_ctn {
-    @media (min-width: 651px) and (max-width: 1250px) {
-        flex-direction: column;
-        gap: 40px;
-        padding: 16px 30px 26px 30px;
-    }
-
-    @media (max-width: 650px) {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    @media (min-width: 1251px) {
-        padding-top: 12px;
-    }
-}
-
-.filter {
-    @media (min-width: 1251px) {
-        max-width: 700px;
-        width: 100%;
-    }
-
-    @media (min-width: 651px) and (max-width: 1250px) {
-        padding: 0 30px;
-    }
-}
-
-.feed {
-    @media (min-width: 1251px) {
-        max-width: 700px;
-        width: 100%;
-    }
-}
-
 .hubs_and_suggestions {
-    height: fit-content;
+  height: fit-content;
+}
 
-    @media (min-width: 1251px) {
-        max-width: 528px;
-        width: 100%;
-    }
+.post_hashtags Button {
+  font-size: 12px;
+}
+
+.search_input_ctn {
+  @media (min-width: 501px) {
+    justify-content: space-between;
+  }
 }
 
 .refresh_button {
-    color: black;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
+  color: black;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
 }
 
 .refresh_button svg {
-    display: inline;
-    width: 1.3rem;
-    height: 1.3rem;
-    color: white;
+  display: inline;
+  width: 1.3rem;
+  height: 1.3rem;
+  color: white;
 }
 
 .refresh_button:active svg {
-    animation: spin_357 0.3s linear;
+  animation: spin_357 0.1s linear;
 }
 
 @keyframes spin_357 {
-    from {
-        transform: rotate(0deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
 
-    to {
-        transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------Large Screens------------ */
+
+@media (min-width: 1251px) {
+  .community_ctn {
+    padding-top: 12px;
+  }
+
+  .filter {
+    max-width: 700px;
+    width: 100%;
+  }
+
+  .feed {
+    max-width: 700px;
+    width: 100%;
+  }
+
+  .hubs_and_suggestions {
+    max-width: 528px;
+    width: 100%;
+  }
+}
+
+/* -----------Medium Screens------------ */
+
+@media (min-width: 651px) and (max-width: 1250px) {
+  .community_ctn {
+    flex-direction: column;
+    gap: 40px;
+    padding: 16px 30px 26px 30px;
+  }
+
+  .filter {
+    padding: 0 30px;
+  }
+}
+
+.hubs_header {
+  @media (max-width: 1250px) {
+    gap: 0;
+    text-align: center;
+  }
+}
+
+
+/* -------------Small Screens----------- */
+
+@media (max-width: 650px) {
+  .community_ctn {
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 16px 26px 16px;
+  }
+
+  .filter {
+    padding: 16px 16px 0 16px;
+  }
+
+  .page_ctrl {
+    background-color: #F6F5F5;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    padding: 16px;
+  }
+
+  .page_ctrl p {
+    font-size: 12px;
+    line-height: 24px;
+  }
+
+  .post_feed {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    padding-top: 0;
+  }
+
+  .post_details {
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .post_btns Button {
+    border-radius: 8px;
+    gap: 0;
+    padding: 3px 10px;
+    font-size: 12px;
+  }
+
+  .post_btns Button svg,
+  .account_card Button svg {
+    transform: scale(.8);
+  }
+
+  .post_btns div:last-child svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .post_btns div:last-child {
+    padding: 4px 0;
+  }
+
+  .post_info p {
+    font-size: 16px;
+  }
+
+  .post_info span {
+    font-size: 7px;
+  }
+
+  .post_info div {
+    gap: 6px;
+  }
+
+  .profile_picture {
+    width: 25px;
+    height: 25px;
+  }
+
+  .post_hashtags {
+    gap: 2px;
+  }
+
+  .people_feed {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    padding-top: 0;
+  }
+
+  .hubs_card {
+    padding: 10px;
+  }
+
+  .post_hashtags Button {
+    font-size: 9px;
+    border-radius: 8px;
+    padding: 3px 6px;
+  }
+
+  .hubs_header p:first-child {
+    font-size: 24px;
+  }
+
+  .hubs_header p:last-child {
+    font-size: 12px;
+  }
+
+  .hubs div:nth-child(2) p {
+    font-size: 12px;
+    line-height: 24px;
+  }
+
+  .hubs div:nth-child(3) p,
+  .hubs div:nth-child(3) span {
+    font-size: 12px;
+    line-height: 24px;
+  }
+
+  .join_hub {
+    font-size: 12px;
+    gap: 0;
+    padding: 4px 8px;
+    border-radius: 10px;
+  }
+
+  .create_hub {
+    border-radius: 3px;
+    margin-top: 40px;
+    padding: 10px 0;
+    font-size: 12px;
+    line-height: 24px;
+  }
+
+  .suggestions {
+    gap: 20px;
+  }
+
+  .suggestions img {
+    transform: scale(.8);
+    margin-right: 15px;
+  }
+
+  .account_card {
+    padding: 10px;
+  }
+
+  .suggestions Button,
+  .people_feed Button {
+    padding: 4px 8px;
+    gap: 0;
+    border-radius: 10px;
+  }
+
+  .suggestions_ctn p {
+    font-size: 12px;
+  }
+
+  .suggestions_header {
+    font-size: 24px;
+    text-align: center;
+  }
+
+}
+
+/* -----------Smaller screens----------- */
+
+@media (max-width: 500px) {
+  .search_input_ctn {
+
+    max-width: 87%;
+    justify-content: space-between;
+  }
+
+  .search_icon {
+    width: 12px;
+    height: 12px;
+
+  }
+
+  .search_input_ctn div:last-child {
+    height: 46px;
+    width: 46px;
+  }
+
+  .search_input_ctn Button {
+    font-size: 12px;
+    padding: 8px 12px;
+    gap: 0;
+    white-space: nowrap;
+    height: 46px;
+  }
+
+  .search_input input {
+    padding-left: 40px;
+    font-size: 12px;
+    line-height: 24px;
+  }
+}
+
+/* ------------Very Small Screens------------ */
+.search_input input {
+  @media (max-width: 375px) {
+    width: 70%;
+  }
 }

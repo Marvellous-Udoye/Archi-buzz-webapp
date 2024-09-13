@@ -5,6 +5,7 @@ import Input from "../component/common/archi-input";
 import Button from "../component/common/archi-button";
 import styles from './form.module.css';
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type validationError = {
   email?: string
@@ -19,6 +20,7 @@ const SignUp = () => {
   const [showpassword, setShowPassword] = useState(false)
   const [errors, setErrors] = useState<validationError>({})
   const [errorMessage, setErrorMessage] = useState(false)
+  const route = useRouter()
 
   useEffect(() => {
     if (password.length >= 8) {
@@ -83,7 +85,7 @@ const SignUp = () => {
     if (!valid) {
       setErrors(newError)
     } else {
-
+      route.push('/')
     }
   }
 
@@ -118,7 +120,7 @@ const SignUp = () => {
                   <path fillRule="evenodd" clipRule="evenodd" d="M1.5 3C1.5 2.30964 2.05964 1.75 2.75 1.75H18.75C19.4404 1.75 20 2.30964 20 3V13C20 13.6904 19.4404 14.25 18.75 14.25H2.75C2.05964 14.25 1.5 13.6904 1.5 13V3ZM2.75 0.25C1.23122 0.25 0 1.48122 0 3V13C0 14.5188 1.23122 15.75 2.75 15.75H18.75C20.2688 15.75 21.5 14.5188 21.5 13V3C21.5 1.48122 20.2688 0.25 18.75 0.25H2.75ZM6.1801 4.38558C5.84076 4.14804 5.37311 4.23057 5.13558 4.5699C4.89804 4.90924 4.98057 5.37689 5.3199 5.61442L10.3199 9.11442C10.5781 9.29519 10.9219 9.29519 11.1801 9.11442L16.1801 5.61442C16.5194 5.37689 16.602 4.90924 16.3644 4.5699C16.1269 4.23057 15.6592 4.14804 15.3199 4.38558L10.75 7.58451L6.1801 4.38558Z" fill="black" />
                 </svg>
               </Input>
-              {errors.email && <p className="ml-1 font-[500] text-[12px] text-[#FF0000]">{errors.email}</p>}
+              {errors.email && <p className="ml-1 font-[500] text-[10px] text-[#FF0000]">{errors.email}</p>}
             </fieldset>
 
             <fieldset>
@@ -147,7 +149,7 @@ const SignUp = () => {
                   <path fillRule="evenodd" clipRule="evenodd" d="M1.93413 7.30777C5.26879 -0.102591 15.2316 -0.102591 18.5662 7.30777C18.7362 7.6855 19.1802 7.85392 19.558 7.68394C19.9357 7.51396 20.1041 7.06996 19.9341 6.69223C16.0688 -1.89741 4.43158 -1.89741 0.566244 6.69223C0.396265 7.06996 0.564681 7.51396 0.942412 7.68394C1.32014 7.85392 1.76415 7.6855 1.93413 7.30777ZM8.00019 8C8.00019 6.75731 9.0075 5.75 10.2502 5.75C11.4929 5.75 12.5002 6.75731 12.5002 8C12.5002 9.24269 11.4929 10.25 10.2502 10.25C9.0075 10.25 8.00019 9.24269 8.00019 8ZM10.2502 4.25C8.17907 4.25 6.50019 5.92889 6.50019 8C6.50019 10.0711 8.17907 11.75 10.2502 11.75C12.3213 11.75 14.0002 10.0711 14.0002 8C14.0002 5.92889 12.3213 4.25 10.2502 4.25Z" fill="black" />
                 </svg>
               </Input>
-              {errors.password && <p className="ml-1 font-[500] text-[12px] text-[#FF0000]">{errors.password}</p>}
+              {errors.password && <p className="ml-1 font-[500] text-[10px] text-[#FF0000]">{errors.password}</p>}
             </fieldset>
 
             <fieldset>
@@ -176,7 +178,7 @@ const SignUp = () => {
                   <path fillRule="evenodd" clipRule="evenodd" d="M1.93413 7.30777C5.26879 -0.102591 15.2316 -0.102591 18.5662 7.30777C18.7362 7.6855 19.1802 7.85392 19.558 7.68394C19.9357 7.51396 20.1041 7.06996 19.9341 6.69223C16.0688 -1.89741 4.43158 -1.89741 0.566244 6.69223C0.396265 7.06996 0.564681 7.51396 0.942412 7.68394C1.32014 7.85392 1.76415 7.6855 1.93413 7.30777ZM8.00019 8C8.00019 6.75731 9.0075 5.75 10.2502 5.75C11.4929 5.75 12.5002 6.75731 12.5002 8C12.5002 9.24269 11.4929 10.25 10.2502 10.25C9.0075 10.25 8.00019 9.24269 8.00019 8ZM10.2502 4.25C8.17907 4.25 6.50019 5.92889 6.50019 8C6.50019 10.0711 8.17907 11.75 10.2502 11.75C12.3213 11.75 14.0002 10.0711 14.0002 8C14.0002 5.92889 12.3213 4.25 10.2502 4.25Z" fill="black" />
                 </svg>
               </Input>
-              {errors.confirmpassword && <p className="ml-1 font-[500] text-[12px] text-[#FF0000]">{errors.confirmpassword}</p>}
+              {errors.confirmpassword && <p className="ml-1 font-[500] text-[10px] text-[#FF0000]">{errors.confirmpassword}</p>}
 
               <div className={`${styles.password_info} ${errorMessage ? styles['error-message'] : ''} text-[12px] font-[500] mt-1`}>
                 <p >The password must be 8 characters long</p>

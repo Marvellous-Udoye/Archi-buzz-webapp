@@ -8,10 +8,10 @@ import archibuzzLogo from "../../../../public/icons/archibuzz-logo.svg";
 import dummyProfile from "../../../../public/assets/images/dummy-profile.png";
 
 const ArchiNav = () => {
-  const [isLoggedIn, setLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
-    <nav className="flex items-center justify-between md:max-w-[1266px] mx-auto h-25 rounded-2xl p-4 sticky top-0 z-[9999] backdrop-blur-md mt-4 bg-[#E3E3E3] shadow-[3.33px_1.67px_8.33px_0px_rgba(0,0,0,0.25)]">
+    <nav className="flex items-center justify-between md:max-w-[1266px] mx-4 lg:mx-auto h-25 rounded-2xl p-4 sticky top-4 z-[9999] backdrop-blur-md mt-4 bg-[#E3E3E3] shadow-[3.33px_1.67px_8.33px_0px_rgba(0,0,0,0.25)]">
       <Image
         src={archibuzzLogo}
         alt=""
@@ -23,7 +23,7 @@ const ArchiNav = () => {
 
       <div>
         {isLoggedIn ? (
-          <ul className="flex items-center justify-between gap-[25px] p-2 w-full max-w-[669.33px] text-[13.33px] font-medium">
+          <ul className="items-center justify-between gap-[25px] p-2 w-full max-w-[669.33px] lg:flex hidden text-[13.33px] font-medium">
             <NavLink href={"/about"}>About us</NavLink>
             <NavLink href={"/community"}>Community</NavLink>
             <NavLink href={"/hubs"}>Hubs</NavLink>
@@ -33,7 +33,7 @@ const ArchiNav = () => {
             <NavLink href={"/more"}>More</NavLink>
           </ul>
         ) : (
-          <ul className="flex items-center justify-between p-2 w-full max-w-[333.33px] text-[13.33px] font-medium">
+          <ul className="items-center justify-between p-2 w-full max-w-[333.33px] lg:flex hidden text-[13.33px] font-medium">
             <NavLink href={"/"}>Home</NavLink>
             <NavLink href={"/about"}>About us</NavLink>
             <NavLink href={"/products"}>Products</NavLink>
@@ -42,7 +42,7 @@ const ArchiNav = () => {
       </div>
 
       {isLoggedIn ? (
-        <div className="flex items-center gap-[13.33px] p-4">
+        <div className="items-center gap-[13.33px] p-4 lg:flex hidden">
           <svg
             width="21"
             height="21"
@@ -69,10 +69,10 @@ const ArchiNav = () => {
               strokeLinejoin="round"
             />
           </svg>
-          <Image src={dummyProfile} alt="" width={50} height={50} />
+          <Image src={dummyProfile} alt="" width={50} height={50} className="hidden lg:inline"/>
         </div>
       ) : (
-        <div className="flex gap-[26.67px]">
+        <div className="hidden lg:flex gap-[26.67px]">
           <Button
             icon={
               <svg
@@ -100,6 +100,11 @@ const ArchiNav = () => {
           </Button>
         </div>
       )}
+      <div className="block lg:hidden p-[10px] rounded-md">
+        <svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0.0683594 1.50454C0.0683594 1.14162 0.362565 0.847412 0.725486 0.847412H16.4965C16.8594 0.847412 17.1536 1.14162 17.1536 1.50454C17.1536 1.86746 16.8594 2.16166 16.4965 2.16166H0.725486C0.362565 2.16166 0.0683594 1.86746 0.0683594 1.50454ZM0.0683594 7.63772C0.0683594 7.2748 0.362565 6.98059 0.725486 6.98059H16.4965C16.8594 6.98059 17.1536 7.2748 17.1536 7.63772C17.1536 8.00064 16.8594 8.29484 16.4965 8.29484H0.725486C0.362565 8.29484 0.0683594 8.00064 0.0683594 7.63772ZM0.725486 13.1138C0.362565 13.1138 0.0683594 13.408 0.0683594 13.7709C0.0683594 14.1338 0.362565 14.428 0.725486 14.428H16.4965C16.8594 14.428 17.1536 14.1338 17.1536 13.7709C17.1536 13.408 16.8594 13.1138 16.4965 13.1138H0.725486Z" fill="black"/>
+        </svg>
+      </div>
     </nav>
   );
 };
