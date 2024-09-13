@@ -12,7 +12,7 @@ import ArchNumbers from "./components/common/landing-page-numbers";
 const Home = () => {
   return (
     <div>
-      <section className="pt-[100px] pb-[193px] px-4 lg:px-0 bg-[#E3E3E3]">
+      <section className="pt-[100px] pb-[193px] px-4 lg:px-0">
         <div className="flex flex-col lg:flex-row  gap-[55px] container max-w-[1440px] mx-auto">
           <div className="flex flex-col gap-5 w-full max-w-[789px] text-center lg:text-left">
             <h1 className="text-[32px] lg:text-[64px] font-bold leading-[38.9px] lg:leading-[76.78px]">

@@ -75,7 +75,7 @@ const ArchiNav = () => {
               strokeLinejoin="round"
             />
           </svg>
-          <Image src={dummyProfile} alt="" width={50} height={50} className="lg:inline hidden"/>
+          <Image src={dummyProfile} alt="" width={50} height={50} className="hidden lg:inline"/>
         </div>
       ) : (
         <div className="hidden lg:flex gap-[26.67px]">
