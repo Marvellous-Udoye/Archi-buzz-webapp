@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ArchiNav from "./components/common/archi-nav";
+import Image from "next/image";
+import archibuzzLogo from "../../public/icons/archibuzz-logo.svg"
+import NavLink from "./component/common/nav-link";
+import Button from "./component/common/archi-button";
+import ArchiNav from "./component/common/archi-nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +23,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <header>
-          <ArchiNav/>
+          <ArchiNav />
         </header>
         {children}
       </body>
     </html>
   );
 }
+

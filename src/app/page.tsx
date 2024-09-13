@@ -1,26 +1,156 @@
 import Image from "next/image";
 import heroPic from "../../public/assets/images/hero-pic.png";
-import Button from "./components/common/archi-button";
+import Button from "./component/common/archi-button";
+import archiNumber from "../../public/assets/images/archi-number.svg";
 import featuresPic from "../../public/assets/images/features.png";
 import guideTrill1 from "../../public/assets/images/guide-trills-1.png"
 import guideTrill2 from "../../public/assets/images/guide-trill-2.png"
 import guideTrill3 from "../../public/assets/images/guide-trill-3.png"
 import archibuzzLogo from "../../public/icons/archibuzz-logo.svg"
-import ArchNumbers from "./components/common/landing-page-numbers";
 
+import { cn } from "@/lib/utils";
+import Marquee from "@/components/magicui/marquee";
+
+const reviews = [
+  {
+    name: "Jack",
+    username: "@jack",
+    body: "I've never seen anything like this before. It's amazing. I love it.",
+    img: "https://avatar.vercel.sh/jack",
+  },
+  {
+    name: "Jill",
+    username: "@jill",
+    body: "I don't know what to say. I'm speechless. This is amazing.",
+    img: "https://avatar.vercel.sh/jill",
+  },
+  {
+    name: "John",
+    username: "@john",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/john",
+  },
+  {
+    name: "Jane",
+    username: "@jane",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jane",
+  },
+  {
+    name: "Jenny",
+    username: "@jenny",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jenny",
+  },
+  {
+    name: "James",
+    username: "@james",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/james",
+  },
+];
+
+const firstRow = reviews.slice(0, reviews.length / 2);
+const secondRow = reviews.slice(reviews.length / 2);
+
+const ReviewCard = ({
+  img,
+  name,
+  username,
+  body,
+}: {
+  img: string;
+  name: string;
+  username: string;
+  body: string;
+}) => {
+  return (
+    <figure
+      className={cn(
+        "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+        // light styles
+        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+        // dark styles
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+      )}
+    >
+      <div className="flex flex-row items-center gap-2">
+        <img className="rounded-full" width="32" height="32" alt="" src={img} />
+        <div className="flex flex-col">
+          <figcaption className="text-sm font-medium dark:text-white">
+            {name}
+          </figcaption>
+          <p className="text-xs font-medium dark:text-white/40">{username}</p>
+        </div>
+      </div>
+      <blockquote className="mt-2 text-sm">{body}</blockquote>
+    </figure>
+  );
+};
+
+export function MarqueeDemo() {
+  return (
+    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+      <Marquee pauseOnHover className="[--duration:20s]">
+        {firstRow.map((review) => (
+          <ReviewCard key={review.username} {...review} />
+        ))}
+      </Marquee>
+      <Marquee reverse pauseOnHover className="[--duration:20s]">
+        {secondRow.map((review) => (
+          <ReviewCard key={review.username} {...review} />
+        ))}
+      </Marquee>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
+    </div>
+  );
+}
+
+import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
+
+export function HeroVideoDialogDemo() {
+  return (
+    <div className="relative flex justify-center items-center w-full h-full object-cover rounded-lg">
+      <HeroVideoDialog
+        className="dark:hidden block"
+        animationStyle="from-center"
+        videoSrc="/video/2024-07-21 15-33-10.mp4"
+        thumbnailSrc="/video/3d-rendering-abstract-building.png"
+        thumbnailAlt="Hero Video"
+      />
+      <HeroVideoDialog
+        className="hidden dark:block"
+        animationStyle="from-center"
+        videoSrc="/video/2024-07-21 15-33-10.mp4"
+        thumbnailSrc="/video/3d-rendering-abstract-building.png"
+        thumbnailAlt="Hero Video"
+      />
+    </div>
+  );
+}
+
+import TypingAnimation from "@/components/magicui/typing-animation";
+
+export async function TextRevealDemo() {
+  return (
+    <TypingAnimation
+      className="text-[64px] font-bold text-left text-black dark:text-white"
+      text={<>
+        Empower Your <span style={{ color: "#FFA500" }}>Architectural Vision</span> with <span style={{ color: "#808080" }}>AI</span> Innovation
+      </>}
+    />
+  );
+}
 
 const Home = () => {
   return (
     <div>
-      <section className="pt-[100px] pb-[193px] px-4 lg:px-0">
-        <div className="flex flex-col lg:flex-row  gap-[55px] container max-w-[1440px] mx-auto">
-          <div className="flex flex-col gap-5 w-full max-w-[789px] text-center lg:text-left">
-            <h1 className="text-[32px] lg:text-[64px] font-bold leading-[38.9px] lg:leading-[76.78px]">
-              Empower Your{" "}
-              <span className="text-[#FFA500]">Architectural Vision </span>with{" "}
-              <span className="text-[#808080]">AI</span> Innovation
-            </h1>
-            <p className="text-xs font-medium leading-8 md:text-xl md:leading-10 text-pretty">
+      <section className="pt-[100px] pb-[193px] bg-gradient-to-b from-white/40 to-white/10">
+        <div className="flex gap-[55px] container max-w-[1440px] mx-auto">
+          <div className="flex flex-col gap-5 w-full max-w-[789px]">
+            <TextRevealDemo />
+            <p className="text-xl font-medium leading-10">
               Join a community of architects, designers, and AI enthusiasts
               transforming the future of architecture and design. Learn,
               collaborate, and innovate with cutting-edge AI tools and
@@ -44,40 +174,33 @@ const Home = () => {
                   />
                 </svg>
               }
-              styles="text-sm font-medium mx-auto px-2 py-[10px] rounded-lg md:px-6 md:py-4 md:rounded-[20px] border-r-[3px] border-r-black border-b-[3px] border-b-black"
+              styles="bg-[#FFA809] text-[13.33px] font-medium text-white px-6 py-4 rounded-[20px] border-r-[3px] border-r-black border-b-[3px] border-b-black"
             >
               Join our Community
             </Button>
           </div>
-          <Image src={heroPic} width={572} height={475} alt="This is a pic" className="w-full h-full mx-auto"/>
+          <Image src={heroPic} alt="This is a pic" className="h-[30rem]" />
         </div>
       </section>
 
-      <section className="pb-[50px] lg:pb-[193px] px-[14px] lg:px-0 pt-[35px] md:pt-0">
-        <div className="flex flex-col py-8 md:flex-row items-center gap-[55px] container max-w-[1440px] mx-auto">
-          <div className="max-w-[800px] max-h-[720px] rounded-lg">
-            <video
-              className="object-cover w-full h-full rounded-lg"
-              controls
-              poster="/assets/images/video-poster.png"
-            >
-              <source src="your-video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+      <section className="pb-[193px]">
+        <div className="flex items-center gap-[55px] container max-w-[1440px] mx-auto">
+          <div className="w-[800px] rounded-lg">
+            <HeroVideoDialogDemo />
           </div>
           <div className="flex flex-col gap-5 w-full max-w-[625px]">
-            <h1 className="text-xl md:text-3xl lg:text-5xl font-bold leading-[30px] lg:leading-[58.56px] text-center">
+            <h1 className="text-5xl font-bold leading-[58.56px]">
               About <span className="text-[#FFA500]">Archibuzz</span>
               <span className="text-[#808080]"> Studios</span>
             </h1>
-            <p className="text-xs font-medium leading-6 md:text-base md:leading-8">
+            <p className="text-base font-medium leading-8">
               Welcome to ARCHIBUZZ STUDIOS, where architecture and AI come
               together to innovate and inspire. Our community empowers
               architects, designers, and enthusiasts to explore new
               possibilities in design through collaboration and cutting-edge
               tools.
             </p>
-            <p className="text-xs font-medium leading-6 md:text-base md:leading-8">
+            <p className="text-base font-medium leading-8">
               Curious about how AI can change your design process? Watch our
               video to learn more about our mission and impact!
             </p>
@@ -96,7 +219,7 @@ const Home = () => {
                   />
                 </svg>
               }
-              styles="text-sm mr-auto font-medium mx-auto px-2 py-[10px] rounded-lg md:px-6 md:py-4 md:rounded-[20px] ml-auto"
+              styles="bg-[#FFA809] text-[13.33px] font-medium text-white px-6 py-4 rounded-[20px] ml-auto"
             >
               Watch the Video
             </Button>
@@ -104,23 +227,29 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="pb-[80px] md:pb-[200px] px-4 bg-[#FBE0B0]">
-        <div className="grid gap-[17.52px] md:gap-[55px] py-[17.52px] md:py-[33.33px] container max-w-[1440px] mx-auto">
-          <div className="flex flex-col items-center gap-3">
-            <h1 className="text-xl md:text-[40px] text-[#FFA500] font-bold leading-[38.55px] md:leading-[48.8px]">
+      <section className="pb-[250px] bg-[#FBE0B0]">
+        <div className="grid gap-[55px] container max-w-[1440px] mx-auto">
+          <div className="flex flex-col items-center gap-3 py-[33.33px]">
+            <h1 className="text-[40px] text-[#FFA500] font-bold leading-[48.8px]">
               OUR PRODUCTS
             </h1>
             <div className="w-[95.83px] border-[4.67px] border-[#FFA500]"></div>
           </div>
-          <p className="max-w-[741.25px] mx-auto text-xs md:text-base text-center leading-6 md:leading-8 font-medium">
-          Discover our range of innovative tools and resources designed to integrate AI into your architectural and design processes. Explore our products and elevate your design process today!
+          <p className="max-w-[741.25px] mx-auto text-base text-center leading-8 font-medium">
+            Discover our range of innovative tools and resources designed to integrate AI into your architectural and design processes. Explore our products and elevate your design process today!
           </p>
           <div className="max-w-[1019.27px] flex flex-col items-center gap-4 mx-auto">
-            <ArchNumbers number="1"/>
-            <h2 className="text-[21.03px] md:text-[40px] text-[#FFA500] leading-[25.21px] md:leading-[47.95px] font-normal">
+            <p className="h-[166.67px] w-[166.67px] bg-[#FFD280] rounded-full flex items-center justify-center mx-auto">
+              <span className="h-[125px] w-[125px] bg-[#FFBB40] rounded-full flex items-center justify-center">
+                <span className="h-[83.33px] w-[83.33px] bg-[#FFA500] rounded-full flex items-center justify-center text-[53.33px] text-white font-bold leading-[106.67px]">
+                  1
+                </span>
+              </span>
+            </p>
+            <h2 className="text-[40px] text-[#FFA500] leading-[47.95px] font-normal">
               Archi<span className="text-[#808080]">Buzz</span>
             </h2>
-            <p className="mx-auto text-xs font-medium leading-6 text-center md:text-base md:leading-8">
+            <p className="mx-auto text-base text-center leading-8 font-medium">
               Archibuzz aims to be a comprehensive online platform dedicated to
               architecture and artificial intelligence. The platform will serve
               as a dynamic community hub for enthusiasts, professionals,students
@@ -138,44 +267,44 @@ const Home = () => {
             alt=""
             height={691}
             width={1134.86}
-            className="mx-auto relative px-4 -top-[5%] sm:-top-[15%] lg:-top-[18%]"
+            className="h-[691px] w-[1134.86px] mx-auto absolute -top-[200px] left-1/2 -translate-x-1/2"
           />
-          {/* <div className="h-[200px] md:h-[420px] lg:h-[491px] max-w-[1134.86px] mx-auto"></div> */}
-          <div className="max-w-[1273.33px] mx-auto">
-            <h1 className="text-5 md:text-[40px] font-normal leading-[23.97px] md:leading-[47.95px] text-center mb-4">
+          <div className="h-[491px] w-[1134.86px] mx-auto"></div>
+          <div className="w-full mx-w-[1273.33px] mx-auto">
+            <h1 className="text-[40px] font-normal leading-[47.95px] text-center mb-4">
               Features
             </h1>
-            <div className="grid md:grid-cols-3 gap-[18px] md:gap-8 w-full max-w-[995px] mx-auto">
-              <div className="flex flex-col gap-4 items-center max-w-[315px] text-center">
-                <p className="flex items-center justify-center w-[60px] h-[60px] md:w-[83.33px] md:h-[83.33px] rounded-full bg-[#D9D9D9] text-6 md:text-[40px] font-bold leading-8 md:leading-[60px]">
+            <div className="grid grid-cols-3 gap-8 max-w-[995px] mx-auto">
+              <div className="flex flex-col gap-4 items-center max-w-[315px]">
+                <p className="flex items-center justify-center w-[83.33px] h-[83.33px] rounded-full bg-[#D9D9D9] text-[40px] font-bold leading-[60px]">
                   1
                 </p>
-                <p className="text-center text-xs md:text-base leading-[14.64px] md:leading-8 font-medium">
+                <p className="text-center text-base leading-8 font-medium">
                   Provides a general forum for showcasing work, where users can
                   post, interact, like, save and comment.
                 </p>
               </div>
-              <div className="flex flex-col gap-4 items-center max-w-[315px] text-center">
-                <p className="flex items-center justify-center w-[60px] h-[60px] md:w-[83.33px] md:h-[83.33px] rounded-full bg-[#D9D9D9] text-6 md:text-[40px] font-bold leading-8 md:leading-[60px]">
+              <div className="flex flex-col gap-4 items-center max-w-[315px]">
+                <p className="flex items-center justify-center w-[83.33px] h-[83.33px] rounded-full bg-[#D9D9D9] text-[40px] font-bold leading-[60px]">
                   2
                 </p>
-                <p className="text-center text-xs md:text-base leading-[14.64px] md:leading-8 font-medium">
+                <p className="text-center text-base leading-8 font-medium">
                   Provides a general forum for showcasing work, where users can
                   post, interact, like, save and comment.
                 </p>
               </div>
-              <div className="flex flex-col gap-4 items-center max-w-[315px] text-center">
-                <p className="flex items-center justify-center w-[60px] h-[60px] md:w-[83.33px] md:h-[83.33px] rounded-full bg-[#D9D9D9] text-6 md:text-[40px] font-bold leading-8 md:leading-[60px]">
+              <div className="flex flex-col gap-4 items-center max-w-[315px]">
+                <p className="flex items-center justify-center w-[83.33px] h-[83.33px] rounded-full bg-[#D9D9D9] text-[40px] font-bold leading-[60px]">
                   3
                 </p>
-                <p className="text-center text-xs md:text-base leading-[14.64px] md:leading-8 font-medium">
+                <p className="text-center text-base leading-8 font-medium">
                   Provides a general forum for showcasing work, where users can
                   post, interact, like, save and comment.
                 </p>
               </div>
             </div>
           </div>
-          <p className="text-base md:text-[40px] text-center font-medium leading-[19.25px] md:leading-[48.8px] mx-auto">
+          <p className="text-[40px] font-medium leading-[48.8px] mx-auto">
             and many more... So,
           </p>
           <Button
@@ -196,28 +325,34 @@ const Home = () => {
                 />
               </svg>
             }
-            styles="text-[13.33px] font-medium text-white px-2 py-[10px] rounded-lg md:px-6 md:py-4 md:rounded-[20px] h-14 mx-auto"
+            styles="bg-[#FFA809] text-[13.33px] font-medium text-white py-[12px] px-[20px] rounded-[16.67px] h-14 mx-auto"
           >
             Get started
           </Button>
+          <MarqueeDemo />
         </div>
       </section>
-
-      <section className="pt-8 pb-16 px-4 bg-[#FFE4B2]">
+      <section className="pt-8 pb-16 bg-[#FFE4B2]">
         <div className="grid gap-10 container max-w-[1440px] mx-auto">
-          <div className="grid gap-4 text-center">
-            <ArchNumbers number="2"/>
-            <h2 className="text-[28.04px] md:text-[40px] text-[#FFA500] leading-[33.61px] md:leading-[106.67px] font-normal">
+          <div className="text-center grid gap-4">
+            <p className="h-[166.67px] w-[166.67px] bg-[#FFD280] rounded-full flex items-center justify-center mx-auto">
+              <span className="h-[125px] w-[125px] bg-[#FFBB40] rounded-full flex items-center justify-center">
+                <span className="h-[83.33px] w-[83.33px] bg-[#FFA500] rounded-full flex items-center justify-center text-[53.33px] text-white font-bold leading-[106.67px]">
+                  2
+                </span>
+              </span>
+            </p>
+            <h2 className="text-[40px] text-[#FFA500] leading-[106.67px] font-normal">
               Archi<span className="text-[#808080]">Guide</span>
             </h2>
           </div>
-          <p className="mx-auto text-xs font-medium leading-6 text-center md:text-base md:leading-8">
-            We’re excited to introduce a new AI-powered tool that will elevate
+          <p className="mx-auto text-base text-center leading-8 font-medium">
+            We&appos;re excited to introduce a new AI-powered tool that will elevate
             your architectural and design projects! With features that automate
             tasks, boost creativity, and provide valuable insights, this product
             will transform your design process.
           </p>
-          <p className="mx-auto text-xs font-medium leading-6 text-center md:text-base md:leading-8">
+          <p className="mx-auto text-base text-center leading-8 font-medium">
             Stay tuned for updates and exclusive previews. <br />
             Sign up below to be the first to know when it launches!
           </p>
@@ -244,50 +379,51 @@ const Home = () => {
                 />
               </svg>
             }
-            styles="text-sm md:text-[13.33px] font-medium px-2 py-[10px] md:py-[12px] md:px-[20px] border-[2.5px] border-[#FFA500] rounded-[16.67px] bg-transparent h-[51px] mx-auto"
+            styles="text-[13.33px] font-medium py-[12px] px-[20px] border-[2.5px] border-[#FFA500] rounded-[16.67px] bg-transparent h-[51px] mx-auto"
           >
             Notify Me
           </Button>
         </div>
       </section>
-      <div>
-          <Image src={guideTrill1} alt="" width={1736} height={90} className="relative max-h-[90px] -top-[22.5px] md:-top-[45px]"/>
-          <Image src={guideTrill2} alt="" width={1736} height={90} className="relative max-h-[90px] -top-[45px] md:-top-[90px]"/>
-          <Image src={guideTrill3} alt="" width={1606} height={90} className="relative max-h-[90px] -top-[90px] md:-top-[135px]"/>
+      <div className="relative">
+        <Image src={guideTrill1} alt="" width={1736} height={90} className="absolute -top-[45px]" />
+        <Image src={guideTrill2} alt="" width={1736} height={90} className="absolute -top-[22.5px]" />
+        <Image src={guideTrill3} alt="" width={1606} height={90} className="absolute top-[22.25px]" />
+        <div className="h-[144.5px]"></div>
       </div>
-      <footer className="px-4 pb-4">
+      <footer className="pb-4">
         <div className="max-w-[1250px] mx-auto grid gap-16">
-          <div className="flex flex-col justify-between md:flex-row">
+          <div className="flex justify-between">
             <Image src={archibuzzLogo} alt="" height={56.3} width={98.33} priority={true} className="h-[56.3px] w-[98.33px]" />
-            <div className="max-w-[455px] mb-5 md:mb-0 flex flex-col md:flex-row justify-between gap-12">
+            <div className="max-w-[455px] flex justify-between gap-12">
               <div>
-                <h1 className="text-[24] font-medium leading-[39.04px] mb-2">Archibuzz Studios</h1>
+                <h1 className="text-[32px] font-medium leading-[39.04px] mb-2">Archibuzz Studios</h1>
                 <div className="h-[22.59px] w-[138.06px] bg-[#FFE4B2]"></div>
               </div>
               <div className="flex flex-col gap-5">
                 <p className="text-2xl font-medium">Products</p>
-                <ul className="text-base font-medium leading-8">
+                <ul className="text-base leading-8 font-medium">
                   <li>ArchiBuzz</li>
                   <li>ArchiGuide</li>
                   <li>Buzz AI</li>
                 </ul>
               </div>
             </div>
-            <ul className="flex flex-col gap-1 mb-5 text-2xl font-medium md:text-base leading-12 md:leading-8 md:font-bold md:mb-0">
+            <ul className="flex flex-col gap-1 text-base leading-8 font-bold">
               <li>About</li>
               <li>Products</li>
               <li>Home</li>
             </ul>
             <form className="grid gap-5 p-5  rounded-[20px] max-w-[340px] w-full bg-[#FFE4B2]">
-              <p className="text-base font-bold leading-8 text-center">Get tips and resources sent to your inbox</p>
-              <input type="text" className="w-full p-[10px] rounded-[20px]" placeholder="Name"/>
-              <input type="text" className="w-full p-[10px] rounded-[20px]" placeholder="Email"/>
-              <Button styles="text-sm md:text-[13.33px] font-medium text-white px-3 py-5 rounded-[20px] md:px-6 md:py-4 md:rounded-[16.67px] h-14 mx-auto">Get updates</Button>
+              <p className="text-base text-center leading-8 font-bold">Get tips and resources sent to your inbox</p>
+              <input type="text" className="w-full p-[10px] rounded-[20px]" placeholder="Name" />
+              <input type="text" className="w-full p-[10px] rounded-[20px]" placeholder="Email" />
+              <Button styles="bg-[#FFA809] text-[13.33px] font-medium text-white py-[12px] px-[20px] rounded-[16.67px] h-14 mx-auto">Get updates</Button>
             </form>
           </div>
           <div className="flex flex-col items-center justify-between h-[60px]">
-            <div className="w-full border-t border-solid border-t-black"></div>
-            <p className="text-xs font-medium text-center md:text-base">Cpoyright @ 2024 ArchiBuzz Studios LLC. All rights reserved</p>
+            <div className="border-t border-t-black border-solid w-full"></div>
+            <p className="text-base font-medium text-center">Copyright @ 2024 ArchiBuzz Studios LLC. All rights reserved</p>
           </div>
         </div>
       </footer>
