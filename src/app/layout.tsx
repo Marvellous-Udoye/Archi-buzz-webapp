@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ArchiNav from "./components/common/archi-nav";
+import ArchiNav from "./component/common/archi-nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
