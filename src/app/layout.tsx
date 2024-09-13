@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
-import archibuzzLogo from "../../public/icons/archibuzz-logo.svg"
-import NavLink from "./component/common/nav-link";
-import Button from "./component/common/archi-button";
 import ArchiNav from "./component/common/archi-nav";
 
 const inter = Inter({ subsets: ["latin"] });
