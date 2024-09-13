@@ -1,7 +1,6 @@
 import Image from "next/image";
 import heroPic from "../../public/assets/images/hero-pic.png";
 import Button from "./component/common/archi-button";
-import archiNumber from "../../public/assets/images/archi-number.svg";
 import featuresPic from "../../public/assets/images/features.png";
 import guideTrill1 from "../../public/assets/images/guide-trills-1.png"
 import guideTrill2 from "../../public/assets/images/guide-trill-2.png"
