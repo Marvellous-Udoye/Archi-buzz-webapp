@@ -27,7 +27,7 @@ const ArchiNav = () => {
             <NavLink href={"/about"}>About us</NavLink>
             <NavLink href={"/community"}>Community</NavLink>
             <NavLink href={"/hubs"}>Hubs</NavLink>
-            <NavLink href={"/ai"}>AI Tools</NavLink>
+            <NavLink href={"/ai-tools"}>AI Tools</NavLink>
             <NavLink href={"/artcles"}>Articles & Podcasts</NavLink>
             <NavLink href={"/courses"}>Courses</NavLink>
             <NavLink href={"/more"}>More</NavLink>

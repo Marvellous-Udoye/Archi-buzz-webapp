@@ -2,10 +2,8 @@ import Image from "next/image";
 import heroPic from "../../public/assets/images/hero-pic.png";
 import Button from "./component/common/archi-button";
 import featuresPic from "../../public/assets/images/features.png";
-import guideTrill1 from "../../public/assets/images/guide-trills-1.png"
-import guideTrill2 from "../../public/assets/images/guide-trill-2.png"
-import guideTrill3 from "../../public/assets/images/guide-trill-3.png"
-import archibuzzLogo from "../../public/icons/archibuzz-logo.svg"
+import landImg2 from "../../public/assets/images/land-img-2.png";
+import archibuzzLogo from "../../public/icons/archibuzz-logo.svg";
 import ArchNumbers from "./component/common/landing-page-numbers";
 
 import { cn } from "@/lib/utils";
@@ -71,7 +69,7 @@ const ReviewCard = ({
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
       )}
     >
       <div className="flex flex-row items-center gap-2">
@@ -135,10 +133,14 @@ import TypingAnimation from "@/components/magicui/typing-animation";
 export async function TextRevealDemo() {
   return (
     <TypingAnimation
-      className="text-[64px] font-bold text-left text-black dark:text-white"
-      text={<>
-        Empower Your <span style={{ color: "#FFA500" }}>Architectural Vision</span> with <span style={{ color: "#808080" }}>AI</span> Innovation
-      </>}
+      className="text-[1.5rem] sm:text-[2.5rem] md:text-[64px] font-bold text-center md:text-left text-black dark:text-white"
+      text={
+        <>
+          Empower Your{" "}
+          <span style={{ color: "#FFA500" }}>Architectural Vision</span> with{" "}
+          <span style={{ color: "#808080" }}>AI</span> Innovation
+        </>
+      }
     />
   );
 }
@@ -146,10 +148,10 @@ export async function TextRevealDemo() {
 const Home = () => {
   return (
     <div>
-      <section className="pt-[100px] pb-[193px] px-4 lg:px-0">
+      <section className="pt-[100px] pb-8 md:pb-[193px] px-4 lg:px-0">
         <div className="flex flex-col lg:flex-row  gap-[55px] container max-w-[1440px] mx-auto">
           <div className="flex flex-col gap-5 w-full max-w-[789px] text-center lg:text-left">
-          <TextRevealDemo />
+            <TextRevealDemo />
             <p className="text-xs font-medium leading-8 md:text-xl md:leading-10 text-pretty">
               Join a community of architects, designers, and AI enthusiasts
               transforming the future of architecture and design. Learn,
@@ -174,19 +176,25 @@ const Home = () => {
                   />
                 </svg>
               }
-              styles="bg-[#FFA809] text-sm font-medium mx-auto px-2 py-[10px] rounded-lg md:px-6 md:py-4 md:rounded-[20px] border-r-[3px] border-r-black border-b-[3px] border-b-black"
+              styles="bg-[#FFA809] text-sm text-white font-medium mx-auto md:mx-0 px-2 py-[10px] rounded-lg md:px-6 md:py-4 md:rounded-[20px] border-r-[3px] border-r-black border-b-[3px] border-b-black"
             >
               Join our Community
             </Button>
           </div>
-          <Image src={heroPic} width={572} height={475} alt="This is a pic" className="w-full h-full mx-auto"/>
+          <Image
+            src={heroPic}
+            width={572}
+            height={475}
+            alt="This is a pic"
+            className="w-full h-full mx-auto"
+          />
         </div>
       </section>
 
       <section className="pb-[50px] lg:pb-[193px] px-[14px] lg:px-0 pt-[35px] md:pt-0">
-        <div className="flex flex-col py-8 md:flex-row items-center gap-[55px] container max-w-[1440px] mx-auto">
+        <div className="flex flex-col-reverse py-8 md:flex-row items-center justify-around gap-[55px] container max-w-[1440px] mx-auto">
           <div className="max-w-[800px] rounded-lg">
-          <HeroVideoDialogDemo />
+            <HeroVideoDialogDemo />
           </div>
           <div className="flex flex-col gap-5 w-full max-w-[625px]">
             <h1 className="text-xl md:text-3xl lg:text-5xl font-bold leading-[30px] lg:leading-[58.56px] text-center">
@@ -219,7 +227,7 @@ const Home = () => {
                   />
                 </svg>
               }
-              styles="bg-[#FFA809] text-sm mr-auto font-medium mx-auto px-2 py-[10px] rounded-lg md:px-6 md:py-4 md:rounded-[20px] ml-auto"
+              styles="bg-[#FFA809] text-sm text-white mr-auto font-medium mx-auto px-2 py-[10px] rounded-lg md:px-6 md:py-4 md:rounded-[20px] ml-auto"
             >
               Watch the Video
             </Button>
@@ -236,10 +244,12 @@ const Home = () => {
             <div className="w-[95.83px] border-[4.67px] border-[#FFA500]"></div>
           </div>
           <p className="max-w-[741.25px] mx-auto text-xs md:text-base text-center leading-6 md:leading-8 font-medium">
-          Discover our range of innovative tools and resources designed to integrate AI into your architectural and design processes. Explore our products and elevate your design process today!
+            Discover our range of innovative tools and resources designed to
+            integrate AI into your architectural and design processes. Explore
+            our products and elevate your design process today!
           </p>
           <div className="max-w-[1019.27px] flex flex-col items-center gap-4 mx-auto">
-            <ArchNumbers number="1"/>
+            <ArchNumbers number="1" />
             <h2 className="text-[21.03px] md:text-[40px] text-[#FFA500] leading-[25.21px] md:leading-[47.95px] font-normal">
               Archi<span className="text-[#808080]">Buzz</span>
             </h2>
@@ -319,7 +329,7 @@ const Home = () => {
                 />
               </svg>
             }
-            styles="bg-[#FFA809] text-[13.33px] font-medium text-white px-2 py-[10px] rounded-lg md:px-6 md:py-4 md:rounded-[20px] h-14 mx-auto"
+            styles="bg-[#FFA809] text-[13.33px] text-white font-medium text-white px-2 py-[10px] rounded-lg md:px-6 md:py-4 md:rounded-[20px] h-14 mx-auto"
           >
             Get started
           </Button>
@@ -330,16 +340,16 @@ const Home = () => {
       <section className="pt-8 pb-16 px-4 bg-[#FFE4B2]">
         <div className="grid gap-10 container max-w-[1440px] mx-auto">
           <div className="grid gap-4 text-center">
-            <ArchNumbers number="2"/>
+            <ArchNumbers number="2" />
             <h2 className="text-[28.04px] md:text-[40px] text-[#FFA500] leading-[33.61px] md:leading-[106.67px] font-normal">
               Archi<span className="text-[#808080]">Guide</span>
             </h2>
           </div>
           <p className="mx-auto text-xs font-medium leading-6 text-center md:text-base md:leading-8">
-            We&apos;re excited to introduce a new AI-powered tool that will elevate
-            your architectural and design projects! With features that automate
-            tasks, boost creativity, and provide valuable insights, this product
-            will transform your design process.
+            We&apos;re excited to introduce a new AI-powered tool that will
+            elevate your architectural and design projects! With features that
+            automate tasks, boost creativity, and provide valuable insights,
+            this product will transform your design process.
           </p>
           <p className="mx-auto text-xs font-medium leading-6 text-center md:text-base md:leading-8">
             Stay tuned for updates and exclusive previews. <br />
@@ -374,18 +384,53 @@ const Home = () => {
           </Button>
         </div>
       </section>
-      <div>
-          <Image src={guideTrill1} alt="" width={1736} height={90} className="relative max-h-[90px] -top-[22.5px] md:-top-[45px]"/>
-          <Image src={guideTrill2} alt="" width={1736} height={90} className="relative max-h-[90px] -top-[45px] md:-top-[90px]"/>
-          <Image src={guideTrill3} alt="" width={1606} height={90} className="relative max-h-[90px] -top-[90px] md:-top-[135px]"/>
-      </div>
-      <footer className="px-4 pb-4">
+      <section className="bg-[#f3f3f3] pt-8">
+        <div className="max-w-[1250px] mx-auto bg-[#f3f3f3]">
+          <ArchNumbers number="3" />
+          <h1 className="text-2xl md:text-[53.33px] text-center leading-[48px] md:leading-[106.67px] font-medium mt-5 px-4">
+            Our Design Studio
+          </h1>
+          <div className="w-full max-w-[1226px] h-full pt-[70px] pb-[100px] relative">
+            <div className="grid gap-4 mx-auto md:mx-0 max-w-[521px] px-4">
+              <h3 className="text-2xl md:text-[2rem] leading-[3rem] md:leading-[4rem] mt-6 z-10">
+                Welcome to Our Design Studio
+              </h3>
+              <p className="text-xs md:text-base leading-6 md:leading-[2rem] z-10">
+                At ArchiBuzz Studios, we blend creativity and innovation to
+                design unique, functional spaces. Our team of architects and
+                designers brings visions to life. Using advanced AI and design
+                tools, we deliver high-quality architectural solutions that push
+                the boundaries of design.
+              </p>
+            </div>
+            <Image
+              src={landImg2}
+              alt=""
+              width={1736}
+              className="absolute inset-0 h-full"
+            />
+          </div>
+        </div>
+        <div className="h-[45px] bg-[#FFDB99]"></div>
+        <div className="h-[22.5px] bg-[#FFC966]"></div>
+        <div className="h-[22.5px] bg-[#FFA500]"></div>
+      </section>
+      <footer className="px-4 pt-8 pb-12">
         <div className="max-w-[1250px] mx-auto grid gap-16">
           <div className="flex flex-col justify-between md:flex-row">
-            <Image src={archibuzzLogo} alt="" height={56.3} width={98.33} priority={true} className="h-[56.3px] w-[98.33px]" />
+            <Image
+              src={archibuzzLogo}
+              alt=""
+              height={56.3}
+              width={98.33}
+              priority={true}
+              className="h-[56.3px] w-[98.33px]"
+            />
             <div className="max-w-[455px] mb-5 md:mb-0 flex flex-col md:flex-row justify-between gap-12">
               <div>
-                <h1 className="text-[24] font-medium leading-[39.04px] mb-2">Archibuzz Studios</h1>
+                <h1 className="text-[24] font-medium leading-[39.04px] mb-2">
+                  Archibuzz Studios
+                </h1>
                 <div className="h-[22.59px] w-[138.06px] bg-[#FFE4B2]"></div>
               </div>
               <div className="flex flex-col gap-5">
@@ -403,15 +448,29 @@ const Home = () => {
               <li>Home</li>
             </ul>
             <form className="grid gap-5 p-5  rounded-[20px] max-w-[340px] w-full bg-[#FFE4B2]">
-              <p className="text-base font-bold leading-8 text-center">Get tips and resources sent to your inbox</p>
-              <input type="text" className="w-full p-[10px] rounded-[20px]" placeholder="Name"/>
-              <input type="text" className="w-full p-[10px] rounded-[20px]" placeholder="Email"/>
-              <Button styles="bg-[#FFA809] text-sm md:text-[13.33px] font-medium text-white px-3 py-5 rounded-[20px] md:px-6 md:py-4 md:rounded-[16.67px] h-14 mx-auto">Get updates</Button>
+              <p className="text-base font-bold leading-8 text-center">
+                Get tips and resources sent to your inbox
+              </p>
+              <input
+                type="text"
+                className="w-full p-[10px] rounded-[20px]"
+                placeholder="Name"
+              />
+              <input
+                type="text"
+                className="w-full p-[10px] rounded-[20px]"
+                placeholder="Email"
+              />
+              <Button styles="bg-[#FFA809] text-sm md:text-[13.33px] text-white font-medium text-white px-3 py-5 rounded-[20px] md:px-6 md:py-4 md:rounded-[16.67px] h-14 mx-auto">
+                Get updates
+              </Button>
             </form>
           </div>
           <div className="flex flex-col items-center justify-between h-[60px]">
             <div className="w-full border-t border-solid border-t-black"></div>
-            <p className="text-xs font-medium text-center md:text-base">Cpoyright @ 2024 ArchiBuzz Studios LLC. All rights reserved</p>
+            <p className="text-xs font-medium text-center md:text-base">
+              Cpoyright @ 2024 ArchiBuzz Studios LLC. All rights reserved
+            </p>
           </div>
         </div>
       </footer>
