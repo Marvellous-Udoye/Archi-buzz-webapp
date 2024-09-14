@@ -85,7 +85,7 @@ const SignUp = () => {
     if (!valid) {
       setErrors(newError)
     } else {
-      route.push('/')
+      route.push('/community')
     }
   }
 
@@ -197,7 +197,7 @@ const SignUp = () => {
                 Create Account
               </Button>
 
-              <p className={`${styles.text_OR} flex justify-center items-center py-4 text-[32px] font-[500]`}>OR</p>
+              <p className={`${styles.text_OR} flex justify-center items-center py-4 text-[24px] font-[500]`}>OR</p>
 
               <Button
                 styles={`${styles.google_btn} bg-[#FFE4B2] w-full py-4 px-2 rounded-[16px] flex justify-center items-center gap-8 hover:bg-[#CCB68F] transition ease duration-100ms outline-none`}

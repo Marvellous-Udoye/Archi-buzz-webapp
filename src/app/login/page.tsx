@@ -66,7 +66,7 @@ const Login = () => {
     if (!valid) {
       setErrors(newError)
     } else {
-      route.push('/')
+      route.push('/community')
     }
   }
 
@@ -75,7 +75,7 @@ const Login = () => {
       <div className={`${styles.signup_ctn} flex justify-center w-full`}>
         <div className={`${styles.signup_card} max-w-[714px] w-full bg-[#DEDEDE] rounded-tl-[20px] rounded-bl-[20px] pt-[49px] pb-[57px]`}>
           <header className={`${styles.header} flex flex-col gap-4 pb-4 text-center`}>
-            <p className="text-[40px] font-[400]">Login</p>
+            <p className="text-[40px] font-[400]">Login to <span className="text-[#FFA500]">Archi</span><span className="text-[#808080]">Buzz</span></p>
             <p className="text-[16px] font-[500]">Login to your account by filling in your details below.</p>
           </header>
 

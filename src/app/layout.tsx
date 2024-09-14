@@ -1,29 +1,30 @@
-import type { Metadata } from "next";
+"use client"
+
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ArchiNav from "./component/common/archi-nav";
+import { usePathname } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "ArchiBuzz",
-  description: "Empower Your Architectural Vision with AI Innovation",
-};
-
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  const pathname = usePathname();
+
+  const hideNavbar = pathname === "/login" || pathname === "/signup";
+
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/logo.png" />
+      </head>
       <body className={inter.className}>
-        <header>
-          <ArchiNav/>
-        </header>
+        <header>{!hideNavbar && <ArchiNav />}</header>
         {children}
       </body>
     </html>
   );
 }
-
