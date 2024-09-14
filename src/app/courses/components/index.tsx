@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import CourseCard from "./common/archi-course-card";
-import { ArchiCorurseProps } from "./common/archi-course-card";
+import CourseCard from "../../component/common/archi-course-card";
+import { ArchiCorurseProps } from "../../component/common/archi-course-card";
 
 const ArchiCourses = () => {
   const [courses, setCourses] = useState<ArchiCorurseProps[]>([])

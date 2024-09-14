@@ -109,9 +109,8 @@ const AiToolDescription = () => {
             aiToolDescription.map((ai, index) => (
               <li
                 key={index}
-                className={`text-xs md:text-base text-center leading-6 md:leading-8 font-medium p-[16.67px] cursor-pointer border-l-4 ${
-                  selectedTool === index ? isActive : ""
-                }`}
+                className={`text-xs md:text-base text-center leading-6 md:leading-8 font-medium p-[16.67px] cursor-pointer border-l-4 hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedTool === index ? isActive : ""
+                  }`}
                 onClick={() => {
                   setSelectedTool(index);
                 }}
