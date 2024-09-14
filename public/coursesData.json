@@ -1,0 +1,65 @@
+[
+  {
+    "bookCover": "/images/courses/artificial intelligence 1.png",
+    "bookTitle": "Artificial Intelligence and Architecture: From Research to Practice",
+    "author": "Stanislas Chaillou",
+    "rating": 4.5,
+    "price": "3,500"
+  },
+  {
+    "bookCover": "/images/courses/book2.png",
+    "bookTitle": "Artificial Intelligence in Architecture: Innovations for Future Urban Design",
+    "author": "Vivek Bhati",
+    "rating": 4.2,
+    "price": "1,500"
+  },
+  {
+    "bookCover": "/images/courses/book3.png",
+    "bookTitle": "Artificial Intelligence: A Modern Approach - Paperback",
+    "author": "Stuart Russell",
+    "rating": 4.6,
+    "price": "5,000"
+  },
+  {
+    "bookCover": "/images/courses/book5.png",
+    "bookTitle": "Artificial Intelligence: A Modern Approach - Paperback",
+    "author": "Stuart Russell",
+    "rating": 4.6,
+    "price": "4,300"
+  },
+  {
+    "bookCover": "/images/courses/book4.png",
+    "bookTitle": "Rise of Architecture in AI",
+    "author": "Stanislas Chaillou",
+    "rating": 4.5,
+    "price": "6,500"
+  },
+  {
+    "bookCover": "/images/courses/artificial intelligence 1.png",
+    "bookTitle": "Artificial Intelligence in Architecture: Innovations for Future Urban Design",
+    "author": "Vivek Bhati",
+    "rating": 4.1,
+    "price": "2,000"
+  },
+  {
+    "bookCover": "/images/courses/book3.png",
+    "bookTitle": "The Future of Architectural Design",
+    "author": "Stanislas Chaillou",
+    "rating": 3.9,
+    "price": "3,500"
+  },
+  {
+    "bookCover": "/images/courses/book2.png",
+    "bookTitle": "Artificial Intelligence and Architecture: From Research to Practice",
+    "author": "Stanislas Chaillou",
+    "rating": 4.4,
+    "price": "2,700"
+  },
+  {
+    "bookCover": "/images/courses/artificial intelligence 1.png",
+    "bookTitle": "Exploring the Intersection of Architecture and Artificial Intelligence",
+    "author": "Stanislas Chaillou",
+    "rating": 4.2,
+    "price": "2,900"
+  }
+]
