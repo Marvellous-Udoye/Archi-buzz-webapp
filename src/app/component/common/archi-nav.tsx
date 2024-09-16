@@ -46,7 +46,7 @@ const ArchiNav = () => {
               AI Tools
             </NavLink>
             <NavLink
-              href={"/artcles"}
+              href={"/articles"}
               style="hover:text-[#FFA500] hover:border-b-[2px] hover:border-[#FFA500] transition ease duration-200"
             >
               Articles & Podcasts
