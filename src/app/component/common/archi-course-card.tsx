@@ -17,7 +17,7 @@ export interface ArchiCorurseProps {
 
 const CourseCard = ({ id, bookCover, bookTitle, author, rating, price, isLiked, isAddedToCart, handleLike, handleAddToCart }: ArchiCorurseProps) => {
   return (
-    <div className="border-[1px] mx-auto max-w-[402px] w-full rounded-[20px] mb-8 shadow-custom transform sm:scale-95 hover:transform sm:hover:scale-[1.02] hover:shadow-[0px_8px_20px_rgba(0,0,0,0.1),_0px_16px_40px_rgba(0,0,0,0.15)] transition ease duration-100ms ">
+    <div className="border-[1px] mx-auto max-w-[402px] w-full h-full rounded-[20px] mb-8 shadow-custom transform sm:scale-95 hover:transform sm:hover:scale-[1.02] hover:shadow-[0px_8px_20px_rgba(0,0,0,0.1),_0px_16px_40px_rgba(0,0,0,0.15)] transition ease duration-100ms ">
       <Link href={`/courses/${id}`}>
         <div className="bg-[#F0F0F0] flex items-center justify-center max-w-[402px] sm:py-[43px] w-full rounded-tr-[20px] rounded-tl-[20px]">
           <Image
