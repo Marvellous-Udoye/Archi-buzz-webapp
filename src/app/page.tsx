@@ -68,7 +68,7 @@ const ReviewCard = ({
 
 export function MarqueeDemo() {
   return (
-    <div className="relative flex h-[350px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-[#F3F3F3] md:shadow-xl">
+    <div className="relative flex h-[350px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-[#F3F3F3] ">
       <Marquee pauseOnHover className="[--duration:30s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.name} {...review} />
@@ -109,6 +109,7 @@ export function HeroVideoDialogDemo() {
 }
 
 import TypingAnimation from "@/components/magicui/typing-animation";
+import Link from "next/link";
 
 export async function TextRevealDemo() {
   return (
@@ -132,7 +133,7 @@ const Home = () => {
         <div className="flex flex-col lg:flex-row  gap-[55px] container max-w-[1440px] mx-auto">
           <div className="flex flex-col gap-5 w-full max-w-[789px] text-center lg:text-left">
             <TextRevealDemo />
-            <p className="text-xs font-medium leading-8 md:text-xl md:leading-10 text-pretty">
+            <p className="text-xs font-medium leading-8 md:text-xl md:leading-10 text-center md:text-left">
               Join a community of architects, designers, and AI enthusiasts
               transforming the future of architecture and design. Learn,
               collaborate, and innovate with cutting-edge AI tools and
@@ -158,7 +159,9 @@ const Home = () => {
               }
               styles="bg-[#FFA809] text-sm text-white font-medium mx-auto md:mx-0 px-2 py-[10px] rounded-lg md:px-6 md:py-4 md:rounded-[20px] border-r-[3px] border-r-black border-b-[3px] border-b-black hover:bg-[#CC8400] transition ease duration-100ms"
             >
-              Join our Community
+              <Link href={'/signup'}>
+                Join our Community
+              </Link>
             </Button>
           </div>
           <Image
@@ -172,7 +175,7 @@ const Home = () => {
       </section>
 
       <section className="pb-[50px] lg:pb-[193px] px-[14px] lg:px-0 pt-[35px] md:pt-0">
-        <div className="flex flex-col-reverse py-8 md:flex-row items-center justify-around gap-[55px] container max-w-[1440px] mx-auto">
+        <div className="flex flex-col-reverse py-8 lg:flex-row items-center justify-around gap-[55px] container max-w-[1440px] mx-auto">
           <div className="max-w-[800px] rounded-lg">
             <HeroVideoDialogDemo />
           </div>
@@ -207,7 +210,7 @@ const Home = () => {
                   />
                 </svg>
               }
-              styles="bg-[#FFA809] text-sm text-white mr-auto font-medium mx-auto px-2 py-[10px] rounded-lg md:px-6 md:py-4 md:rounded-[20px] ml-auto hover:bg-[#CC8400] transition ease duration-100ms"
+              styles="bg-[#FFA809] shadow-custom text-sm text-white mr-auto font-medium mx-auto px-2 py-[10px] rounded-lg md:px-6 md:py-4 md:rounded-[20px] ml-auto hover:bg-[#CC8400] transition ease duration-100ms"
             >
               Watch the Video
             </Button>
@@ -260,7 +263,7 @@ const Home = () => {
             </h1>
             <div className="grid md:grid-cols-3 gap-[18px] md:gap-8 w-full max-w-[995px] mx-auto">
               <div className="flex flex-col gap-4 items-center max-w-[315px] text-center">
-                <p className="flex items-center justify-center w-[60px] h-[60px] md:w-[83.33px] md:h-[83.33px] rounded-full bg-[#FBE0B0] text-[16px] md:text-[40px] font-bold leading-8 md:leading-[60px]">
+                <p className="flex items-center justify-center w-[60px] h-[60px] md:w-[83.33px] md:h-[83.33px] rounded-full bg-[#D9D9D9] shadow-custom text-[16px] md:text-[40px] font-bold leading-8 md:leading-[60px]">
                   1
                 </p>
                 <p className="text-center text-xs md:text-base leading-[14.64px] md:leading-8 font-medium">
@@ -269,7 +272,7 @@ const Home = () => {
                 </p>
               </div>
               <div className="flex flex-col gap-4 items-center max-w-[315px] text-center">
-                <p className="flex items-center justify-center w-[60px] h-[60px] md:w-[83.33px] md:h-[83.33px] rounded-full bg-[#FBE0B0] text-[16px] md:text-[40px] font-bold leading-8 md:leading-[60px]">
+                <p className="flex items-center justify-center w-[60px] h-[60px] md:w-[83.33px] md:h-[83.33px] rounded-full bg-[#D9D9D9] shadow-custom text-[16px] md:text-[40px] font-bold leading-8 md:leading-[60px]">
                   2
                 </p>
                 <p className="text-center text-xs md:text-base leading-[14.64px] md:leading-8 font-medium">
@@ -278,7 +281,7 @@ const Home = () => {
                 </p>
               </div>
               <div className="flex flex-col gap-4 items-center max-w-[315px] text-center">
-                <p className="flex items-center justify-center w-[60px] h-[60px] md:w-[83.33px] md:h-[83.33px] rounded-full bg-[#FBE0B0] text-[16px] md:text-[40px] font-bold leading-8 md:leading-[60px]">
+                <p className="flex items-center justify-center w-[60px] h-[60px] md:w-[83.33px] md:h-[83.33px] rounded-full bg-[#D9D9D9] shadow-custom text-[16px] md:text-[40px] font-bold leading-8 md:leading-[60px]">
                   3
                 </p>
                 <p className="text-center text-xs md:text-base leading-[14.64px] md:leading-8 font-medium">
@@ -309,7 +312,7 @@ const Home = () => {
                 />
               </svg>
             }
-            styles="bg-[#FFA809] text-[13.33px] text-white font-medium text-white px-2 py-[10px] rounded-lg md:px-6 md:py-4 md:rounded-[20px] h-14 mx-auto"
+            styles="bg-[#FFA809] shadow-custom text-[13.33px] text-white font-medium text-white px-4 py-[4px] rounded-[16px] md:px-6 md:py-4 md:rounded-[20px] h-14 mx-auto"
           >
             Get started
           </Button>
@@ -372,11 +375,11 @@ const Home = () => {
             Our <span className="text-[#FFA500]">Design</span> <span className="text-[#808080]">Studio</span>
           </h1>
           <div className="w-full max-w-[1226px] h-full py-16 sm:pt-[70px] sm:pb-[100px] relative">
-            <div className="grid gap-4 mx-auto md:mx-0 w-full px-4 sm:px-16 ">
+            <div className="grid gap-4 mx-auto md:mx-0 w-full px-6 sm:px-16 ">
               <h3 className="text-2xl md:text-[2rem] leading-[2rem] sm:leading-[3rem] md:leading-[4rem] z-10 text-center sm:text-left">
                 Welcome to Our Design Studio
               </h3>
-              <p className="text-xs md:text-base leading-4 sm:leading-6 md:leading-[2rem] z-10">
+              <p className="text-xs md:text-base leading-6 md:leading-[2rem] z-10 text-center sm:text-left">
                 At ArchiBuzz Studios, we blend creativity and innovation to
                 design unique, functional spaces. Our team of architects and
                 designers brings visions to life. Using advanced AI and design
@@ -439,9 +442,9 @@ const Home = () => {
               </div>
             </div>
             <ul className="flex flex-col gap-1 mb-5 text-2xl font-medium md:text-base leading-12 md:leading-8 md:font-bold md:mb-0">
-              <li className="hover:text-[#FFA500] transition ease duration-100ms cursor-pointer">About</li>
-              <li className="hover:text-[#FFA500] transition ease duration-100ms cursor-pointer">Products</li>
-              <li className="hover:text-[#FFA500] transition ease duration-100ms cursor-pointer">Home</li>
+              <li className="hover:text-[#FFA500] transition ease duration-100ms cursor-pointer w-fit">About</li>
+              <li className="hover:text-[#FFA500] transition ease duration-100ms cursor-pointer w-fit">Products</li>
+              <li className="hover:text-[#FFA500] transition ease duration-100ms cursor-pointer w-fit">Home</li>
             </ul>
             <form className="grid gap-5 p-5  rounded-[20px] max-w-[340px] w-full bg-[#FFE4B2]">
               <p className="text-base font-bold leading-8 text-center">

@@ -87,8 +87,8 @@ const Page = () => {
       <section className="flex flex-row content-center gap-[36.67px] w-full bg-secondary p-[13.33px] rounded-[16.67px] max-md:flex-col">
         <div className="flex flex-col text-center content-center gap-[16.67px] w-full md:max-w-[416px]">
           <h2 className="text-center text-[40px] w-full">Hubs</h2>
-          <ul className="flex flex-col text-center w-full content-center max-md:gap-[20px] h-full">
-            <li className={`flex flex-col gap-[8.33px] p-[16.67px] leading-8 cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 0 ? isActive : ''}`} onClick={() => setSelectedHub(0)}>
+          <ul className="flex flex-col text-center text-base font-medium leading-8 w-full content-center h-full">
+            <li className={`flex flex-col gap-[8.33px] p-[16.67px] cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 0 ? isActive : ''}`} onClick={() => setSelectedHub(0)}>
               Midjourney AI
             </li>
             <li className={`flex flex-col gap-[8.33px] p-[16.67px] cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 1 ? isActive : ''}`} onClick={() => setSelectedHub(1)}>
@@ -144,7 +144,7 @@ const Page = () => {
           </div>
         )}
       </section>
-      <div className=' w-full flex content-end content-center justify-end text-white '><a href="" className='py-[20px] px-[64px] rounded-custom border-custom bg-[#FFA500] rounded-[20px] max-md:py-[12px] max-md:px-[20px] max-md:text-[12px] max-md:w-[200px] max-md:rounded-[4.5px] text-center hover:bg-[#CC8400] transition ease duration-100ms'>Join Hub</a></div>
+      <div className=' w-full flex content-end content-center justify-end text-white '><a href="" className='py-[20px] px-[64px] rounded-custom border-custom bg-[#FFA500] rounded-[20px] py-[8px] md:py-[12px] max-md:px-[20px] sm:text-[16px] text-xl max-md:w-[200px] max-md:rounded-[4.5px] text-center hover:bg-[#CC8400] transition ease duration-100ms'>Join</a></div>
     </main>
   );
 };

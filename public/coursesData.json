@@ -1,65 +1,83 @@
 [
   {
-    "bookCover": "/images/courses/artificial intelligence 1.png",
+    "id": 1,
+    "bookCover": "/images/courses/book5.png",
     "bookTitle": "Artificial Intelligence and Architecture: From Research to Practice",
     "author": "Stanislas Chaillou",
     "rating": 4.5,
-    "price": "3,500"
+    "price": "3,500",
+    "description": "This book explores the transformative potential of AI in architectural practice, from concept development to project delivery."
   },
   {
-    "bookCover": "/images/courses/book2.png",
+    "id": 2,
+    "bookCover": "/images/courses/book4.png",
     "bookTitle": "Artificial Intelligence in Architecture: Innovations for Future Urban Design",
     "author": "Vivek Bhati",
     "rating": 4.2,
-    "price": "1,500"
+    "price": "1,500",
+    "description": "A detailed exploration of how AI is reshaping urban planning and design, providing a fresh perspective on smart cities."
   },
   {
+    "id": 3,
+    "bookCover": "/images/courses/artificial intelligence 1.png",
+    "bookTitle": "Artificial Intelligence: A Modern Approach - Paperback",
+    "author": "Stuart Russell",
+    "rating": 4.6,
+    "price": "5,000",
+    "description": "An essential text in the AI field, covering the latest developments and applications of AI in multiple disciplines."
+  },
+  {
+    "id": 4,
     "bookCover": "/images/courses/book3.png",
     "bookTitle": "Artificial Intelligence: A Modern Approach - Paperback",
     "author": "Stuart Russell",
     "rating": 4.6,
-    "price": "5,000"
+    "price": "4,300",
+    "description": "This edition continues to explore the impact of AI in diverse fields and is a must-read for AI enthusiasts."
   },
   {
-    "bookCover": "/images/courses/book5.png",
-    "bookTitle": "Artificial Intelligence: A Modern Approach - Paperback",
-    "author": "Stuart Russell",
-    "rating": 4.6,
-    "price": "4,300"
-  },
-  {
-    "bookCover": "/images/courses/book4.png",
+    "id": 5,
+    "bookCover": "/images/courses/book2.png",
     "bookTitle": "Rise of Architecture in AI",
     "author": "Stanislas Chaillou",
     "rating": 4.5,
-    "price": "6,500"
+    "price": "6,500",
+    "description": "Explores the role of artificial intelligence in pushing the boundaries of architectural design and creativity."
   },
   {
+    "id": 6,
     "bookCover": "/images/courses/artificial intelligence 1.png",
     "bookTitle": "Artificial Intelligence in Architecture: Innovations for Future Urban Design",
     "author": "Vivek Bhati",
     "rating": 4.1,
-    "price": "2,000"
+    "price": "2,000",
+    "description": "A forward-thinking analysis of how AI can redefine future urban landscapes and city planning."
   },
   {
+    "id": 7,
     "bookCover": "/images/courses/book3.png",
     "bookTitle": "The Future of Architectural Design",
     "author": "Stanislas Chaillou",
     "rating": 3.9,
-    "price": "3,500"
+    "price": "3,500",
+    "description": "This book discusses the evolving relationship between AI and architecture, with a focus on innovative design."
   },
   {
+    "id": 8,
     "bookCover": "/images/courses/book2.png",
     "bookTitle": "Artificial Intelligence and Architecture: From Research to Practice",
     "author": "Stanislas Chaillou",
     "rating": 4.4,
-    "price": "2,700"
+    "price": "2,700",
+    "description": "Provides insights into the latest research on AI in architecture and its practical applications."
   },
   {
+    "id": 9,
     "bookCover": "/images/courses/artificial intelligence 1.png",
     "bookTitle": "Exploring the Intersection of Architecture and Artificial Intelligence",
     "author": "Stanislas Chaillou",
     "rating": 4.2,
-    "price": "2,900"
+    "price": "2,900",
+    "description": "Delves into the ways AI is influencing architectural practices and reshaping the future of design."
   }
 ]
