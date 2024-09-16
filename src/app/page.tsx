@@ -375,7 +375,7 @@ const Home = () => {
             Our <span className="text-[#FFA500]">Design</span> <span className="text-[#808080]">Studio</span>
           </h1>
           <div className="w-full max-w-[1226px] h-full py-16 sm:pt-[70px] sm:pb-[100px] relative">
-            <div className="grid gap-4 mx-auto md:mx-0 w-full px-6 sm:px-16 ">
+            <div className="grid gap-4 mx-auto md:mx-0 w-full px-10 sm:px-16 ">
               <h3 className="text-2xl md:text-[2rem] leading-[2rem] sm:leading-[3rem] md:leading-[4rem] z-10 text-center sm:text-left">
                 Welcome to Our Design Studio
               </h3>

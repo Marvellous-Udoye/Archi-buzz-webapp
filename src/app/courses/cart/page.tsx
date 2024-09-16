@@ -1,54 +1,27 @@
-import { useRouter } from 'next/router';
+"use client"
+
 import { useEffect, useState } from 'react';
-import { ArchiCorurseProps } from '@/app/component/common/archi-course-card';
-import Image from 'next/image';
-import Button from '@/app/component/common/archi-button';
+import Cart from '../components/archi-cart';
+import CourseInCart from '@/app/component/common/archi-cart-course';
+import bookCover from '../../../../public/images/courses/book2.png'
 
-const Cart = ({ id }: { id: string }) => {
-  const [courseInCart, setCourseInCart] = useState<ArchiCorurseProps | undefined>(undefined);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+const pass = () => {
 
-  const fetchCourseInCart = async (): Promise<ArchiCorurseProps | undefined> => {
-    try {
-      const response = await fetch('/coursesData.json');
-      if (!response.ok) {
-        throw new Error('Failed to fetch course data');
-      }
-      const cart = await response.json();
-      return cart
-    } catch (error) {
-      console.error(error);
-      return undefined;
-    }
-  };
-
-  useEffect(() => {
-    const course = async () => {
-      const fetchedCourse = await fetchCourseInCart();
-      if (fetchedCourse) {
-        setCourseInCart(fetchedCourse);
-      } else {
-        setError('Failed to fetch course');
-      }
-      setLoading(false);
-    }
-  }, [id]);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-
+}
+const CartPage = () => {
   return (
-    <div>
-      {courseInCart ? (
-        <div>
-          <h1 className="text-[24px] leading-8 sm:text-[40px] font-medium my-6 sm:my-10">Shopping Cart</h1>
-        </div>
-      ) : (
-        <p>Failed to fetch courses in cart.....</p>
-      )}
+    <div className={`max-w-[1266px] mx-auto px-4 lg:px-0`}>
+     {/* <Cart></Cart> */}
+     <CourseInCart
+       bookCover={bookCover}
+       bookTitle=''
+       price=''
+       handleRemoveCourse={pass}
+     >
+
+     </CourseInCart>
     </div>
   );
 };
 
-export default Cart;
+export default CartPage;

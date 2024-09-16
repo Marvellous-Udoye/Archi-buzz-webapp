@@ -8,18 +8,31 @@ import pin from '../hubs/Components/Assets/Icons/pin.svg';
 import union from '../hubs/Components/Assets/Icons/Union.svg';
 
 interface Hubs {
-  chatBox: string;
-  user: string;
+  chatBox: string[];
+  user: string[];
+  hub: string;
 }
 
 export const mockhubChat: Hubs[] = [
   {
-    user: 'Joseph Melody',
-    chatBox: 'Guys, have you heard of prome AIs latest features bro, we can now make our images for free!',
+    hub: 'Midjourney AI',
+    user: [
+      'Joseph Melody',
+      'Jogn Doe'],
+    chatBox: [
+      'Guys, have you heard of prome AIs latest features bro, we can now make our images for free!',
+      'I heard that we just have to login today, Then we will see the update.'
+    ],
   },
   {
-    user: 'John Doe',
-    chatBox: 'I heard that we just have to login today, Then we will see the update.',
+    hub: "LookX",
+    user: [
+      'Olivia Jewel',
+      'Ebenezer Lucius'],
+    chatBox: [
+      'Have you heard of prome AIs latest features bro, it is the AI tools, it is amazing!',
+      'Share it with me, i want to see the update.'
+    ],
   }
 ];
 
@@ -27,12 +40,12 @@ export async function fetchHubs(): Promise<Hubs[] | undefined> {
   try {
     const response = await fetch("/api/hubs");
     if (!response.ok) {
-      return mockhubChat; 
+      return mockhubChat;
     }
     const data: Hubs[] = await response.json();
     return data;
   } catch {
-    return mockhubChat; 
+    return mockhubChat;
   }
 }
 

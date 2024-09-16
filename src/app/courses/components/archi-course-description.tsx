@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { ArchiCorurseProps } from './common/archi-course-card';
+import { ArchiCorurseProps } from '../../component/common/archi-course-card';
 import Image from 'next/image';
-import Button from './common/archi-button';
+import Button from '../../component/common/archi-button';
 import bookCover from '../../../public/images/courses/book2.png';
-import ArchiCourses from '../courses/components';
+import ArchiCourses from '.';
 
 interface ArchiDescription extends ArchiCorurseProps {
   description: string;
@@ -72,10 +72,10 @@ const CourseDescription = ({ id }: { id: string }) => {
               <div className="flex flex-col gap-[60px] sm:gap-[88px]">
                 <div className="flex flex-col gap-4 sm:gap-5">
                   <p className="text-[24px] sm:text-[36px] leading-15 font-medium">Artificial Intelligence in Architecture: Innovations for Future Urban Design in India</p>
-                  <p className="text-[24px] sm:text-[36px] font-[700] leading-15">₦2,500</p>
+                  <p className="text-[24px] sm:text-[36px] font-bold leading-15">₦2,500</p>
 
                   <div className="flex flex-col gap-3 sm:gap-4">
-                    <p className="font-medium text-base sm:text-[20px] leading-6">Quantity</p>
+                    <p className="text-[#808080] font-medium text-base sm:text-[20px] leading-6">Quantity</p>
 
                     <div className="flex gap-3 sm:gap-4">
                       <Button styles="bg-[#FFDB99] h-[40px] w-[40px] sm:h-[50px] sm:w-[50px] flex items-center justify-center rounded-[6px] active:bg-[#CCB68F] transition ease duration-100">

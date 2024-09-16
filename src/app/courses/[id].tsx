@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense } from "react";
-import CourseDescription from "../component/archi-course-description";
+import CourseDescription from "./components/archi-course-description";
 import ArchiCourses from "./components";
 import { useParams } from "next/navigation";
 
