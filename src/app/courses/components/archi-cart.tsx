@@ -1,24 +1,22 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from 'react';
-import { ArchiCorurseProps } from '@/app/component/common/archi-course-card';
-import Image from 'next/image';
-import Button from '@/app/component/common/archi-button';
+import { CartCourseProps } from '@/app/component/common/archi-cart-course';
 import CourseInCart from '@/app/component/common/archi-cart-course';
+import { useEffect, useState } from 'react';
 
-const Cart = ({ id }: { id: string }) => {
-  const [courseInCart, setCourseInCart] = useState<ArchiCorurseProps | undefined>(undefined);
+const Cart = () => {
+  const [coursesInCart, setCoursesInCart] = useState<CartCourseProps[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const fetchCourseInCart = async (): Promise<ArchiCorurseProps | undefined> => {
+  const fetchCoursesInCart = async (): Promise<CartCourseProps[] | undefined> => {
     try {
       const response = await fetch('/coursesData.json');
       if (!response.ok) {
         throw new Error('Failed to fetch course data');
       }
-      const cart = await response.json();
-      return cart
+      const cartCourses = await response.json();
+      return cartCourses;
     } catch (error) {
       console.error(error);
       return undefined;
@@ -26,29 +24,39 @@ const Cart = ({ id }: { id: string }) => {
   };
 
   useEffect(() => {
-    const courses = async () => {
-      const fetchedCourse = await fetchCourseInCart();
-      if (fetchedCourse) {
-        setCourseInCart(fetchedCourse);
+    const loadCourses = async () => {
+      const fetchedCourses = await fetchCoursesInCart();
+      if (fetchedCourses) {
+        setCoursesInCart(fetchedCourses);
       } else {
-        setError('Failed to fetch course');
+        setError('Failed to fetch courses');
       }
       setLoading(false);
-    }
-    courses()
-  }, [id]);
+    };
+    loadCourses();
+  }, []);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className={`max-w-[1266px] mx-auto px-4 lg:px-0`}>
-      {courseInCart ? (
-        <div>
-          {/* <CourseInCart></CourseInCart> */}
+    <div>
+      {coursesInCart.length > 0 ? (
+        <div className='flex flex-col gap-5 '>
+          {coursesInCart.map((course, index) => (
+            <CourseInCart
+              key={index}
+              bookCover={course.bookCover}
+              bookTitle={course.bookTitle}
+              price={course.price}
+              handleRemoveCourse={() => {
+                setCoursesInCart(prevCourses => prevCourses.filter((_, i) => i !== index));
+              }}
+            />
+          ))}
         </div>
       ) : (
-        <p>Failed to fetch courses in cart.....</p>
+        <p>No courses in the cart.</p>
       )}
     </div>
   );

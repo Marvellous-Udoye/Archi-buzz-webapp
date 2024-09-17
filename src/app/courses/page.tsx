@@ -19,7 +19,7 @@ const Courses = () => {
               id="searchBar"
               value={search}
               type="text"
-              styles="pl-12 sm:pl-16"
+              styles="pl-[46px] sm:pl-16"
               handleChange={(e) => setSearch(e.target.value)}
               placeholder="Search for your courses"
             >

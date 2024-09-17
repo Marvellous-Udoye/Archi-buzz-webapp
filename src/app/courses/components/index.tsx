@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import CourseCard from "../../component/common/archi-course-card";
 import { ArchiCorurseProps } from "../../component/common/archi-course-card";
-import Link from "next/link";
 
 interface CourseWithLikesAndCarts extends ArchiCorurseProps {
   liked: boolean;

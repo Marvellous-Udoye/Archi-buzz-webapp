@@ -1,25 +1,15 @@
-"use client"
-
-import { useEffect, useState } from 'react';
 import Cart from '../components/archi-cart';
-import CourseInCart from '@/app/component/common/archi-cart-course';
-import bookCover from '../../../../public/images/courses/book2.png'
+import CartSummary from '@/app/component/common/cart-summary';
 
-const pass = () => {
-
-}
 const CartPage = () => {
   return (
-    <div className={`max-w-[1266px] mx-auto px-4 lg:px-0`}>
-     {/* <Cart></Cart> */}
-     <CourseInCart
-       bookCover={bookCover}
-       bookTitle=''
-       price=''
-       handleRemoveCourse={pass}
-     >
+    <div className={`max-w-[1266px] mx-auto px-4 pb-8 lg:px-0`}>
+      <h1 className="text-[24px] leading-8 sm:text-[40px] font-medium my-6 sm:my-10">Shopping Cart</h1>
 
-     </CourseInCart>
+      <div className='flex justify-between flex flex-col lg:flex-row gap-5 lg:gap-0'>
+        <Cart />
+        <CartSummary />
+      </div>
     </div>
   );
 };

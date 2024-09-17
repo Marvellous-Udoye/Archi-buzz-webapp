@@ -312,7 +312,7 @@ const Home = () => {
                 />
               </svg>
             }
-            styles="bg-[#FFA809] shadow-custom text-[13.33px] text-white font-medium text-white px-4 py-[4px] rounded-[16px] md:px-6 md:py-4 md:rounded-[20px] h-14 mx-auto"
+            styles="bg-[#FFA809] shadow-custom text-[10px] sm:text-[13.33px] text-white font-medium text-white px-4 py-2.5 rounded-[12px] md:px-6 md:py-4 md:rounded-[20px] md:h-14 mx-auto"
           >
             Get started
           </Button>
@@ -375,7 +375,7 @@ const Home = () => {
             Our <span className="text-[#FFA500]">Design</span> <span className="text-[#808080]">Studio</span>
           </h1>
           <div className="w-full max-w-[1226px] h-full py-16 sm:pt-[70px] sm:pb-[100px] relative">
-            <div className="grid gap-4 mx-auto md:mx-0 w-full px-10 sm:px-16 ">
+            <div className="grid gap-4 mx-auto md:mx-0 w-full px-10 sm:px-[60px] ">
               <h3 className="text-2xl md:text-[2rem] leading-[2rem] sm:leading-[3rem] md:leading-[4rem] z-10 text-center sm:text-left">
                 Welcome to Our Design Studio
               </h3>
@@ -460,7 +460,7 @@ const Home = () => {
                 className="w-full p-[10px] rounded-[20px]"
                 placeholder="Email"
               />
-              <Button styles="bg-[#FFA809] text-sm md:text-[13.33px] text-white font-medium text-white px-3 py-5 rounded-[20px] md:px-6 md:py-4 md:rounded-[16.67px] h-14 mx-auto">
+              <Button styles="active:bg-[#CC8400] transition ease duration-100ms bg-[#FFA809] text-sm md:text-[13.33px] text-white font-medium text-white px-3 py-5 rounded-[20px] md:px-6 md:py-4 md:rounded-[16.67px] h-14 mx-auto">
                 Get updates
               </Button>
             </form>
