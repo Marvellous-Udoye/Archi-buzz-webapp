@@ -39,7 +39,7 @@ const Courses = () => {
                 <path d="M4 3H21L19 14H6L4 3ZM4 3C3.83333 2.33333 3 1 1 1" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M19 14H6H4.23077C2.44646 14 1.5 14.7812 1.5 16C1.5 17.2188 2.44646 18 4.23077 18H18.5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
-              <p className="font-medium hidden sm:block sm:text-[24px]">Cart</p>
+              <p className="font-medium hidden sm:block sm:text-[20px]">Cart</p>
             </div>
           </Link>
         </div>

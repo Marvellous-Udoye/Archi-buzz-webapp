@@ -42,7 +42,8 @@ const CourseDescription = ({ id }: { id: string }) => {
         setLoading(false);
       };
       getCourse();
-    } else {
+    }
+    else {
       setError('Invalid course ID');
       setLoading(false);
     }
@@ -86,7 +87,7 @@ const CourseDescription = ({ id }: { id: string }) => {
                   alt="Book Cover Picture"
                   width={400}
                   height={400}
-                  className="w-full h-[199px] sm:max-h-[400px] sm:h-auto object-cover sm:object-contain rounded-sm sm:rounded-none"
+                  className="w-full sm:max-h-[400px] sm:h-auto object-cover sm:object-contain rounded-sm sm:rounded-none"
                   priority
                 />
               </div>

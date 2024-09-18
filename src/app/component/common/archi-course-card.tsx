@@ -25,7 +25,7 @@ const CourseCard = ({ id, bookCover, bookTitle, author, rating, price, isLiked, 
             alt="Book Cover Picture"
             width={162}
             height={227}
-            className="w-full h-auto object-cover h-[199px] sm:w-[162px] sm:h-[227px] rounded-tr-[16px] rounded-tl-[16px] sm:rounded-none"
+            className="w-full h-auto object-cover sm:w-[162px] sm:h-[227px] rounded-tr-[16px] rounded-tl-[16px] sm:rounded-none"
             priority
           />
         </div>
