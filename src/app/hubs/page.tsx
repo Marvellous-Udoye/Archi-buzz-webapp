@@ -1,41 +1,18 @@
 "use client";
 
+import { Link } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import emoji from '../hubs/Components/Assets/Icons/emoji.svg';
 import pin from '../hubs/Components/Assets/Icons/pin.svg';
 import star_logo from '../hubs/Components/Assets/Icons/star.svg';
 import union from '../hubs/Components/Assets/Icons/Union.svg';
-import { Link } from 'lucide-react';
 
 interface Hubs {
   chatBox: string[];
   user: string[];
   hub: string;
 }
-
-const mockhubChat: Hubs[] = [
-  {
-    hub: 'Midjourney AI',
-    user: [
-      'Joseph Melody',
-    ],
-    chatBox: [
-      'Guys, have you heard of prome AIs latest features bro, we can now make our images for free!',
-      'I heard that we just have to login today, Then we will see the update.'
-    ],
-  },
-  {
-    hub: "LookX",
-    user: [
-      'Olivia Jewel',
-    ],
-    chatBox: [
-      'Have you heard of prome AIs latest features bro, it is the AI tools, it is amazing!',
-      'Share it with me, i want to see the update.'
-    ],
-  }
-];
 
 const HubsPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,9 +21,28 @@ const HubsPage = () => {
   const [hubChat, setHubChat] = useState<Hubs[]>([]);
   const isActive = 'border-l-4 border-solid border-l-[#FFA500] bg-[#FFE4B2]';
 
+  const mockhubChat: Hubs[] = [
+    {
+      hub: 'Midjourney AI',
+      user: ['Joseph Melody'],
+      chatBox: [
+        'Guys, have you heard of prome AIs latest features bro, we can now make our images for free!',
+        'I heard that we just have to login today, Then we will see the update.',
+      ],
+    },
+    {
+      hub: 'LookX',
+      user: ['Olivia Jewel'],
+      chatBox: [
+        'Have you heard of prome AIs latest features bro, it is the AI tools, it is amazing!',
+        'Share it with me, I want to see the update.',
+      ],
+    },
+  ];
+
   const fetchHubs = async (): Promise<Hubs[] | undefined> => {
     try {
-      const response = await fetch("/api/hubs");
+      const response = await fetch('/api/hubs');
       if (!response.ok) {
         return mockhubChat;
       }
@@ -55,7 +51,7 @@ const HubsPage = () => {
     } catch {
       return mockhubChat;
     }
-  }
+  };
 
   useEffect(() => {
     const getTools = async () => {
@@ -179,4 +175,3 @@ const HubsPage = () => {
 };
 
 export default HubsPage;
-
