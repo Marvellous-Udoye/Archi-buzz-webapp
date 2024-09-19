@@ -1,13 +1,13 @@
 import Image from "next/image";
-import heroPic from "../../public/assets/images/hero-pic.png";
-import Button from "./component/common/archi-button";
 import featuresPic from "../../public/assets/images/features.png";
+import heroPic from "../../public/assets/images/hero-pic.png";
 import landImg2 from "../../public/assets/images/land-img-2.png";
 import archibuzzLogo from "../../public/icons/archibuzz-logo.svg";
+import Button from "./component/common/archi-button";
 import ArchNumbers from "./component/common/landing-page-numbers";
 
-import { cn } from "@/lib/utils";
 import Marquee from "@/components/magicui/marquee";
+import { cn } from "@/lib/utils";
 
 const reviews = [
   {

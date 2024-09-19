@@ -1,7 +1,6 @@
 "use client";
 
-import { CartCourseProps } from '@/app/component/common/archi-cart-course';
-import CourseInCart from '@/app/component/common/archi-cart-course';
+import CourseInCart, { CartCourseProps } from '@/app/component/common/archi-cart-course';
 import { useEffect, useState } from 'react';
 
 const Cart = () => {

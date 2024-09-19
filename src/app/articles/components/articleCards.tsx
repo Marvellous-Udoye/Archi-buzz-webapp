@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import articlePic1 from "../../../../public/assets/images/article-pic1.png";
 import dummyProfile from "../../../../public/assets/images/dummy-profile.png";
 

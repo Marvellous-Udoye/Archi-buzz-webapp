@@ -1,12 +1,12 @@
 "use client"
 
-import React, { useEffect, useState } from 'react';
-import styles from './community.module.css';
+import { useState } from 'react';
 import Button from '../component/common/archi-button';
-import PostFeed from './components/posts-section';
-import HubSection from './components/husbs-section';
+import styles from './community.module.css';
 import AccountSection from './components/accounts-section';
+import HubSection from './components/husbs-section';
 import PeopleFeed from './components/people-section';
+import PostFeed from './components/posts-section';
 
 const Community = () => {
   const [search, setSearch] = useState('')

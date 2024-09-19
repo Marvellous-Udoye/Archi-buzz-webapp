@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Button from "./archi-button";
 import Link from "next/link";
+import Button from "./archi-button";
 
 export interface ArchiCorurseProps {
   id: string;

@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import star_logo from '../hubs/Components/Assets/Icons/star.svg';
+import { useEffect, useState } from 'react';
 import emoji from '../hubs/Components/Assets/Icons/emoji.svg';
 import pin from '../hubs/Components/Assets/Icons/pin.svg';
+import star_logo from '../hubs/Components/Assets/Icons/star.svg';
 import union from '../hubs/Components/Assets/Icons/Union.svg';
 
 interface Hubs {

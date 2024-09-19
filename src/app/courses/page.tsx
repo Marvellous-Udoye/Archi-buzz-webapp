@@ -1,9 +1,9 @@
 "use client"
 
-import { Suspense, useState } from "react";
-import ArchiCourses from "./components";
-import Input from "../component/common/archi-input";
 import Link from "next/link";
+import { Suspense, useState } from "react";
+import Input from "../component/common/archi-input";
+import ArchiCourses from "./components";
 
 const Courses = () => {
   const [search, setSearch] = useState('')

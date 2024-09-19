@@ -1,5 +1,5 @@
-import Cart from '../components/archi-cart';
 import CartSummary from '@/app/component/common/cart-summary';
+import Cart from '../components/archi-cart';
 
 const CartPage = () => {
   return (

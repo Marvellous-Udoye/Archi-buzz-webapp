@@ -1,8 +1,7 @@
 "use client";
 
-import { StaticImageData } from "next/image";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import Image, { StaticImageData } from "next/image";
+import { useEffect, useState } from "react";
 import mid1 from "../../../../public/images/ai/mid-1.png";
 import mid2 from "../../../../public/images/ai/mid-2.png";
 import mid3 from "../../../../public/images/ai/mid-3.png";

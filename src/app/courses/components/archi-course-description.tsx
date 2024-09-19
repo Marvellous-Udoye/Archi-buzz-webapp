@@ -1,11 +1,10 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import { ArchiCorurseProps } from '../../component/common/archi-course-card';
 import Image from 'next/image';
-import Button from '../../component/common/archi-button';
-import bookCover from '../../../public/images/courses/book2.png';
-import ArchiCourses from '.';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import ArchiCourses from '.';
+import bookCover from '../../../public/images/courses/book2.png';
+import Button from '../../component/common/archi-button';
+import { ArchiCorurseProps } from '../../component/common/archi-course-card';
 
 interface ArchiDescription extends ArchiCorurseProps {
   description: string;

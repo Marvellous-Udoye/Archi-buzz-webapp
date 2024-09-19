@@ -1,9 +1,9 @@
 "use client";
 
-import { Suspense } from "react";
-import CourseDescription from "./components/archi-course-description";
-import ArchiCourses from "./components";
 import { useParams } from "next/navigation";
+import { Suspense } from "react";
+import ArchiCourses from "./components";
+import CourseDescription from "./components/archi-course-description";
 
 const CourseDescPage = () => {
   const params = useParams();

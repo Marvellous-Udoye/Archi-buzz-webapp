@@ -1,11 +1,11 @@
 "use client"
 
-import React, { useEffect, useState } from "react";
-import Input from "../component/common/archi-input";
-import Button from "../component/common/archi-button";
-import styles from './form.module.css';
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import Button from "../component/common/archi-button";
+import Input from "../component/common/archi-input";
+import styles from './form.module.css';
 
 type validationError = {
   email?: string

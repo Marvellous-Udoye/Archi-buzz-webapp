@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
-import NavLink from "./nav-link";
-import Button from "./archi-button";
 import Image from "next/image";
-import archibuzzLogo from "../../../../public/icons/archibuzz-logo.svg";
+import { useState } from "react";
 import dummyProfile from "../../../../public/assets/images/dummy-profile.png";
+import archibuzzLogo from "../../../../public/icons/archibuzz-logo.svg";
+import Button from "./archi-button";
+import NavLink from "./nav-link";
 
 interface NavBarProps {
   isNavbarOpen: boolean;

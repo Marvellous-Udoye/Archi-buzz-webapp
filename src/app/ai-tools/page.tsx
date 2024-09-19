@@ -1,4 +1,3 @@
-import React from "react";
 import AiToolDescription from "./components";
 
 const AiTools = async () => {

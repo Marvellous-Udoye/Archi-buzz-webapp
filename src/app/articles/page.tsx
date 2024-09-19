@@ -1,9 +1,8 @@
 "use client"
 
-import React, { useEffect, useState } from "react";
-import ArticleCard from "./components/articleCards";
+import { useEffect, useState } from "react";
 import Input from "../component/common/archi-input";
-import { ArticlecardProp } from "./components/articleCards";
+import ArticleCard, { ArticlecardProp } from "./components/articleCards";
 
 const Article = () => {
   const searchIconPath =
