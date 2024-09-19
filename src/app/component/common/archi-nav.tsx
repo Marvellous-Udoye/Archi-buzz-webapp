@@ -7,7 +7,12 @@ import Image from "next/image";
 import archibuzzLogo from "../../../../public/icons/archibuzz-logo.svg";
 import dummyProfile from "../../../../public/assets/images/dummy-profile.png";
 
-const ArchiNav = () => {
+interface NavBarProps {
+  isNavbarOpen: boolean;
+  handleNavClick: () => void;
+}
+
+const ArchiNav = ({ isNavbarOpen, handleNavClick }: NavBarProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
@@ -52,7 +57,7 @@ const ArchiNav = () => {
               Articles & Podcasts
             </NavLink>
             <NavLink
-              href={"/courses"}
+              href={["/courses", "/courses/cart"]}
               style="hover:text-[#FFA500] hover:border-b-[2px] hover:border-[#FFA500] transition ease duration-200"
             >
               Courses
@@ -146,9 +151,65 @@ const ArchiNav = () => {
         </div>
       )}
       <div className="block lg:hidden p-[10px] rounded-md">
-        <svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M0.0683594 1.50454C0.0683594 1.14162 0.362565 0.847412 0.725486 0.847412H16.4965C16.8594 0.847412 17.1536 1.14162 17.1536 1.50454C17.1536 1.86746 16.8594 2.16166 16.4965 2.16166H0.725486C0.362565 2.16166 0.0683594 1.86746 0.0683594 1.50454ZM0.0683594 7.63772C0.0683594 7.2748 0.362565 6.98059 0.725486 6.98059H16.4965C16.8594 6.98059 17.1536 7.2748 17.1536 7.63772C17.1536 8.00064 16.8594 8.29484 16.4965 8.29484H0.725486C0.362565 8.29484 0.0683594 8.00064 0.0683594 7.63772ZM0.725486 13.1138C0.362565 13.1138 0.0683594 13.408 0.0683594 13.7709C0.0683594 14.1338 0.362565 14.428 0.725486 14.428H16.4965C16.8594 14.428 17.1536 14.1338 17.1536 13.7709C17.1536 13.408 16.8594 13.1138 16.4965 13.1138H0.725486Z" fill="black" />
-        </svg>
+        <div onClick={handleNavClick} className="cursor-pointer">
+          {isNavbarOpen ? (
+            <svg width="18" height="15" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L17 17M17 1L1 17" stroke="black" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          ) : (
+            <svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.0683594 1.50454C0.0683594 1.14162 0.362565 0.847412 0.725486 0.847412H16.4965C16.8594 0.847412 17.1536 1.14162 17.1536 1.50454C17.1536 1.86746 16.8594 2.16166 16.4965 2.16166H0.725486C0.362565 2.16166 0.0683594 1.86746 0.0683594 1.50454ZM0.0683594 7.63772C0.0683594 7.2748 0.362565 6.98059 0.725486 6.98059H16.4965C16.8594 6.98059 17.1536 7.2748 17.1536 7.63772C17.1536 8.00064 16.8594 8.29484 16.4965 8.29484H0.725486C0.362565 8.29484 0.0683594 8.00064 0.0683594 7.63772ZM0.725486 13.1138C0.362565 13.1138 0.0683594 13.408 0.0683594 13.7709C0.0683594 14.1338 0.362565 14.428 0.725486 14.428H16.4965C16.8594 14.428 17.1536 14.1338 17.1536 13.7709C17.1536 13.408 16.8594 13.1138 16.4965 13.1138H0.725486Z" fill="black" />
+            </svg>
+          )}
+        </div>
+
+        <div className={`transition-transform duration-100 ease-in-out z-50 ${isNavbarOpen ? "block" : "hidden"}`} >
+          {isNavbarOpen ? (
+            <ul className="absolute top-[80px] sm:top-[115px] md:top-[100px] rounded-[16px] right-0 bg-[#E3E3E3] py-4 w-[250px] sm:w-[282px] text-[13.33px] font-medium shadow-custom ">
+              <NavLink
+                href={"/about"}
+                style="active:bg-[#FFDB99] md:hover:border-l-[3px] md:hover:border-[#FFA500] transition ease duration-200 p-4 text-[12px] leading-normal border-b-0 text-black"
+              >
+                About us
+              </NavLink>
+              <NavLink
+                href={"/community"}
+                style="active:bg-[#FFDB99] md:hover:border-l-[3px] md:hover:border-[#FFA500] transition ease duration-200 p-4 text-[12px] leading-normal border-b-0 text-black"
+              >Community</NavLink>
+              <NavLink
+                href={"/hubs"}
+                style="active:bg-[#FFDB99] md:hover:border-l-[3px] md:hover:border-[#FFA500] transition ease duration-200 p-4 text-[12px] leading-normal border-b-0 text-black"
+              >Hubs
+              </NavLink>
+              <NavLink
+                href={"/ai-tools"}
+                style="active:bg-[#FFDB99] md:hover:border-l-[3px] md:hover:border-[#FFA500] transition ease duration-200 p-4 text-[12px] leading-normal border-b-0 text-black"
+              >
+                AI Tools
+              </NavLink>
+              <NavLink
+                href={"/articles"}
+                style="active:bg-[#FFDB99] md:hover:border-l-[3px] md:hover:border-[#FFA500] transition ease duration-200 p-4 text-[12px] leading-normal border-b-0 text-black"
+              >
+                Articles & Podcasts
+              </NavLink>
+              <NavLink
+                href={["/courses", "/courses/cart"]}
+                style="active:bg-[#FFDB99] md:hover:border-l-[3px] md:hover:border-[#FFA500] transition ease duration-200 p-4 text-[12px] leading-normal border-b-0 text-black"
+              >
+                Courses
+              </NavLink>
+              <NavLink
+                href={"/more"}
+                style="active:bg-[#FFDB99] md:hover:border-l-[3px] md:hover:border-[#FFA500] transition ease duration-200 p-4 text-[12px] leading-normal border-b-0 text-black"
+              >
+                More
+              </NavLink>
+            </ul>
+          ) : (
+            <></>
+          )}
+        </div>
       </div>
     </nav>
   );

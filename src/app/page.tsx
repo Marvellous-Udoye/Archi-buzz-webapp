@@ -68,7 +68,7 @@ const ReviewCard = ({
 
 export function MarqueeDemo() {
   return (
-    <div className="relative flex h-[350px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-[#F3F3F3] ">
+    <div className="relative flex h-[270px] sm:h-[350px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-[#F3F3F3] ">
       <Marquee pauseOnHover className="[--duration:30s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.name} {...review} />
@@ -129,11 +129,11 @@ export async function TextRevealDemo() {
 const Home = () => {
   return (
     <div>
-      <section className="pt-[42px] sm:pt-[100px] pb-8 md:pb-[193px] px-4 lg:px-0">
-        <div className="flex flex-col lg:flex-row  gap-[55px] container max-w-[1440px] mx-auto">
-          <div className="flex flex-col gap-5 w-full max-w-[789px] text-center lg:text-left">
+      <section className="pt-[42px] sm:pt-[75px] pb-8 md:pb-[100px] px-4 lg:px-0">
+        <div className="flex flex-col lg:flex-row  gap-[55px] max-w-[1266px] mx-auto">
+          <div className="flex flex-col gap-5 w-full max-w-[640px] text-center lg:text-left">
             <TextRevealDemo />
-            <p className="text-xs font-medium leading-8 md:text-xl md:leading-10 text-center md:text-left">
+            <p className="text-xs font-medium leading-6 md:text-base md:leading-8 text-center md:text-left">
               Join a community of architects, designers, and AI enthusiasts
               transforming the future of architecture and design. Learn,
               collaborate, and innovate with cutting-edge AI tools and
@@ -169,13 +169,13 @@ const Home = () => {
             width={572}
             height={475}
             alt="This is a pic"
-            className="xl:w-[600px] w-full h-full mx-auto"
+            className="xl:w-[560px] w-full h-full mx-auto"
           />
         </div>
       </section>
 
-      <section className="pb-[50px] lg:pb-[193px] px-[14px] lg:px-0 pt-[35px] md:pt-0">
-        <div className="flex flex-col-reverse py-8 lg:flex-row items-center justify-around gap-[55px] container max-w-[1440px] mx-auto">
+      <section className="pb-[50px] lg:pb-[100px] px-4 sm:px-[14px] lg:px-0 pt-[25px] md:pt-0">
+        <div className="flex flex-col-reverse py-8 lg:flex-row items-center justify-around gap-[55px] max-w-[1266px] mx-auto">
           <div className="max-w-[800px] rounded-lg">
             <HeroVideoDialogDemo />
           </div>
@@ -219,7 +219,7 @@ const Home = () => {
       </section>
 
       <section className="pb-[80px] md:pb-[200px] px-4 bg-[#FBE0B0]">
-        <div className="grid gap-[17.52px] md:gap-[55px] py-[17.52px] md:py-[33.33px] container max-w-[1440px] mx-auto">
+        <div className="grid gap-[17.52px] md:gap-[55px] py-[17.52px] md:py-[33.33px] max-w-[1266px] mx-auto">
           <div className="flex flex-col items-center gap-3">
             <h1 className="text-xl md:text-[40px] text-[#FFA500] font-bold leading-[38.55px] md:leading-[48.8px]">
               OUR PRODUCTS
@@ -248,51 +248,48 @@ const Home = () => {
       </section>
 
       <section className="pb-4 bg-[#F3F3F3] relative">
-        <div className="grid gap-10 container max-w-[1440px] mx-auto">
+        <div className="grid gap-10 max-w-[1266px] mx-auto">
           <Image
             src={featuresPic}
             alt=""
             height={691}
             width={1134.86}
-            className="mx-auto relative px-4 -top-[5%] sm:-top-[15%] lg:-top-[18%]"
+            className="mx-auto relative px-4 -top-[10%] sm:-top-[15%] lg:-top-[18%]"
           />
           {/* <div className="h-[200px] md:h-[420px] lg:h-[491px] max-w-[1134.86px] mx-auto"></div> */}
           <div className="-mt-8 md:-mt-12 max-w-[1273.33px] mx-auto">
             <h1 className="text-[20px] md:text-[40px] font-medium leading-[23.97px] md:leading-[47.95px] text-center mb-6 md:mb-10">
-              Features
+              What we offer..
             </h1>
             <div className="grid md:grid-cols-3 gap-[18px] md:gap-8 w-full max-w-[995px] mx-auto">
               <div className="flex flex-col gap-4 items-center max-w-[315px] text-center">
-                <p className="flex items-center justify-center w-[60px] h-[60px] md:w-[83.33px] md:h-[83.33px] rounded-full bg-[#D9D9D9] shadow-custom text-[16px] md:text-[40px] font-bold leading-8 md:leading-[60px]">
+                <p className="flex items-center justify-center w-[50px] h-[50px] md:w-[83.33px] md:h-[83.33px] rounded-full bg-[#D9D9D9] shadow-custom text-[16px] md:text-[32px] font-bold leading-8 md:leading-[60px]">
                   1
                 </p>
                 <p className="text-center text-xs md:text-base leading-[14.64px] md:leading-8 font-medium">
-                  Provides a general forum for showcasing work, where users can
-                  post, interact, like, save and comment.
+                  Provision of a general forum for users to showcase their works, users can post, interact, like, save and comment.
                 </p>
               </div>
               <div className="flex flex-col gap-4 items-center max-w-[315px] text-center">
-                <p className="flex items-center justify-center w-[60px] h-[60px] md:w-[83.33px] md:h-[83.33px] rounded-full bg-[#D9D9D9] shadow-custom text-[16px] md:text-[40px] font-bold leading-8 md:leading-[60px]">
+                <p className="flex items-center justify-center w-[50px] h-[50px] md:w-[83.33px] md:h-[83.33px] rounded-full bg-[#D9D9D9] shadow-custom text-[16px] md:text-[32px] font-bold leading-8 md:leading-[60px]">
                   2
                 </p>
                 <p className="text-center text-xs md:text-base leading-[14.64px] md:leading-8 font-medium">
-                  Provides a general forum for showcasing work, where users can
-                  post, interact, like, save and comment.
+                  A selection of AI Tools  and courses available for purchase at discounted rates for platform members.
                 </p>
               </div>
               <div className="flex flex-col gap-4 items-center max-w-[315px] text-center">
-                <p className="flex items-center justify-center w-[60px] h-[60px] md:w-[83.33px] md:h-[83.33px] rounded-full bg-[#D9D9D9] shadow-custom text-[16px] md:text-[40px] font-bold leading-8 md:leading-[60px]">
+                <p className="flex items-center justify-center w-[50px] h-[50px] md:w-[83.33px] md:h-[83.33px] rounded-full bg-[#D9D9D9] shadow-custom text-[16px] md:text-[32px] font-bold leading-8 md:leading-[60px]">
                   3
                 </p>
                 <p className="text-center text-xs md:text-base leading-[14.64px] md:leading-8 font-medium">
-                  Provides a general forum for showcasing work, where users can
-                  post, interact, like, save and comment.
+                  Included segment for trending AI and Architecture news, along with blogs, journals and articles.
                 </p>
               </div>
             </div>
           </div>
           <p className="text-base md:text-[32px] text-center font-medium leading-[19.25px] md:leading-[48.8px] mx-auto">
-            and many more... So,
+            and many more... so,
           </p>
           <Button
             icon={
@@ -312,7 +309,7 @@ const Home = () => {
                 />
               </svg>
             }
-            styles="bg-[#FFA809] shadow-custom text-[10px] sm:text-[13.33px] text-white font-medium text-white px-4 py-2.5 rounded-[12px] md:px-6 md:py-4 md:rounded-[20px] md:h-14 mx-auto"
+            styles="bg-[#FFA809] shadow-custom text-[10px] sm:text-[16px] text-white font-medium text-white px-4 py-2 rounded-[12px] md:px-6 md:py-4 md:rounded-[20px] md:h-14 mx-auto"
           >
             Get started
           </Button>
@@ -322,7 +319,7 @@ const Home = () => {
       <MarqueeDemo />
 
       <section className="pt-8 pb-16 px-4 bg-[#FFE4B2]">
-        <div className="grid gap-10 container max-w-[1440px] mx-auto">
+        <div className="grid gap-10 max-w-[1266px] mx-auto">
           <div className="grid gap-4 text-center">
             <ArchNumbers number="2" />
             <h2 className="text-[28.04px] md:text-[40px] text-[#FFA500] leading-[33.61px] md:leading-[106.67px] font-normal">
@@ -369,13 +366,13 @@ const Home = () => {
         </div>
       </section>
       <section className="bg-[#f3f3f3] pt-8">
-        <div className="max-w-[1250px] mx-auto bg-[#f3f3f3]">
+        <div className="max-w-[1266px] mx-auto bg-[#f3f3f3]">
           <ArchNumbers number="3" />
           <h1 className="text-2xl md:text-[53.33px] text-center leading-[48px] md:leading-[106.67px] font-normal mt-5 px-4">
             Our <span className="text-[#FFA500]">Design</span> <span className="text-[#808080]">Studio</span>
           </h1>
           <div className="w-full max-w-[1226px] h-full py-16 sm:pt-[70px] sm:pb-[100px] relative">
-            <div className="grid gap-4 mx-auto md:mx-0 w-full px-10 sm:px-[60px] ">
+            <div className="grid gap-4 mx-auto md:mx-0 w-full px-4 sm:px-[60px] ">
               <h3 className="text-2xl md:text-[2rem] leading-[2rem] sm:leading-[3rem] md:leading-[4rem] z-10 text-center sm:text-left">
                 Welcome to Our Design Studio
               </h3>
@@ -399,8 +396,9 @@ const Home = () => {
         <div className="h-[22.5px] bg-[#FFC966]"></div>
         <div className="h-[22.5px] bg-[#FFA500]"></div>
       </section>
-      <footer className="px-4 pt-8 pb-12">
-        <div className="max-w-[1250px] mx-auto grid gap-16">
+
+      <footer className="px-4 pt-8 pb-8 sm:pb-12">
+        <div className="max-w-[1250px] mx-auto grid gap-8 sm:gap-16">
           <div className="flex flex-col justify-between md:flex-row">
             <Image
               src={archibuzzLogo}
@@ -441,7 +439,7 @@ const Home = () => {
                 </ul>
               </div>
             </div>
-            <ul className="flex flex-col gap-1 mb-5 text-2xl font-medium md:text-base leading-12 md:leading-8 md:font-bold md:mb-0">
+            <ul className="flex flex-col gap-1 mb-5 font-medium text-[18px] sm:text-xl leading-12 md:leading-8 md:font-bold md:mb-0">
               <li className="hover:text-[#FFA500] transition ease duration-100ms cursor-pointer w-fit">About</li>
               <li className="hover:text-[#FFA500] transition ease duration-100ms cursor-pointer w-fit">Products</li>
               <li className="hover:text-[#FFA500] transition ease duration-100ms cursor-pointer w-fit">Home</li>

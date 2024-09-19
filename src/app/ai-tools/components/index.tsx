@@ -129,7 +129,7 @@ const AiToolDescription = () => {
           <p className="text-xs md:text-base text-[#808080] leading-6 md:leading-8 font-medium mb-10">
             {aiToolDescription[selectedTool].description}
           </p>
-          <div className="grid grid-cols-3 grid-rows-2 gap-4">
+          <div className="grid grid-cols-3 grid-rows-2 gap-3 sm:gap-4">
             <Image
               alt="i don comr"
               src={aiToolDescription[selectedTool].imageUrl[0]}
