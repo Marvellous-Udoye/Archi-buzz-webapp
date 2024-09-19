@@ -1,12 +1,12 @@
 "use client";
 
+import { Link } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import emoji from '../hubs/Components/Assets/Icons/emoji.svg';
 import pin from '../hubs/Components/Assets/Icons/pin.svg';
 import star_logo from '../hubs/Components/Assets/Icons/star.svg';
 import union from '../hubs/Components/Assets/Icons/Union.svg';
-import { Link } from 'lucide-react';
 
 interface Hubs {
   chatBox: string[];
@@ -55,7 +55,7 @@ const HubsPage = () => {
     } catch {
       return mockhubChat;
     }
-  }
+  };
 
   useEffect(() => {
     const getTools = async () => {
@@ -179,3 +179,4 @@ const HubsPage = () => {
 };
 
 export default HubsPage;
+
