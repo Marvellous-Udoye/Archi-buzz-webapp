@@ -69,12 +69,12 @@ const HubsPage = () => {
 
   return (
     <main className="w-full max-w-[1271.67px] grid place-content-center grid-cols-[100%] my-0 mx-auto min-h-screen gap-[40px] pt-[32px] pb-[16px] px-[2rem] sm:px-0 box-border max-md:px-[1rem]">
-      <div className="border-[1px] w-full py-[16px] pr-[200px] pl-[16px] rounded-[4.5px] rounded-[16.67px] shadow-custom flex flex-col gap-5 sm:gap-[33.33px] max-md:p-[1rem]">
+      <div className="border-[1px] w-full py-[16px] pr-[200px] pl-[16px] rounded-[16.67px] shadow-custom flex flex-col gap-5 sm:gap-[33.33px] max-md:p-[1rem]">
         <div className="flex flex-col w-full">
           <div className="flex flex-row content-center gap-[16.67px] h-[40px] md:h-[59px] w-full">
             <h1 className="text-[3rem] max-md:text-[24px] font-medium">Welcome to Hubs!</h1>
             <div className="flex content-center justify-center">
-              <Image src={star_logo} alt="Star logo" className="w-full block mt-[0.5rem] md:mt-[0.6rem] h-6 w-6 md:w-[50px] md:h-[50px]" />
+              <Image src={star_logo} alt="Star logo" className="block mt-[0.5rem] md:mt-[0.6rem] h-6 w-6 md:w-[50px] md:h-[50px]" />
             </div>
           </div>
           <p className="font-medium text-[1rem] w-full text-[rgba(128,128,128,1)] md:mt-[1.5rem] max-md:text-[12px]">
@@ -98,22 +98,22 @@ const HubsPage = () => {
         <div className="flex flex-col text-center content-center gap-[16.67px] w-full md:max-w-[416px]">
           <h2 className="text-center text-[24px] md:text-[40px] w-full">Hubs</h2>
           <ul className="flex flex-col text-center text-[12px] sm:text-base font-medium leading-8 w-full content-center h-full">
-            <li className={`flex flex-col gap-[8.33px] p-[16.67px] cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 0 ? isActive : ''}`} onClick={() => setSelectedHub(0)}>
+            <li className={`flex flex-col gap-[8.33px] p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 0 ? isActive : ''}`} onClick={() => setSelectedHub(0)}>
               Midjourney AI
             </li>
-            <li className={`flex flex-col gap-[8.33px] p-[16.67px] cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 1 ? isActive : ''}`} onClick={() => setSelectedHub(1)}>
+            <li className={`flex flex-col gap-[8.33px] p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 1 ? isActive : ''}`} onClick={() => setSelectedHub(1)}>
               LookX Hub
             </li>
-            <li className={`flex flex-col gap-[8.33px] p-[16.67px] cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 2 ? isActive : ''}`} onClick={() => setSelectedHub(2)}>
+            <li className={`flex flex-col gap-[8.33px] p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 2 ? isActive : ''}`} onClick={() => setSelectedHub(2)}>
               Flex AI Hub
             </li>
-            <li className={`flex flex-col gap-[8.33px] p-[16.67px] cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 3 ? isActive : ''}`} onClick={() => setSelectedHub(3)}>
+            <li className={`flex flex-col gap-[8.33px] p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 3 ? isActive : ''}`} onClick={() => setSelectedHub(3)}>
               Prome Architects
             </li>
-            <li className={`flex flex-col gap-[8.33px] p-[16.67px] cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 4 ? isActive : ''}`} onClick={() => setSelectedHub(4)}>
+            <li className={`flex flex-col gap-[8.33px] p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 4 ? isActive : ''}`} onClick={() => setSelectedHub(4)}>
               Flux Bosses
             </li>
-            <li className={`flex flex-col gap-[8.33px] p-[16.67px] cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 5 ? isActive : ''}`} onClick={() => setSelectedHub(5)}>
+            <li className={`flex flex-col gap-[8.33px] p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 5 ? isActive : ''}`} onClick={() => setSelectedHub(5)}>
               Archi Innovations
             </li>
           </ul>
@@ -129,7 +129,7 @@ const HubsPage = () => {
               {hubChat.map((chat, index) => (
                 <li key={index} className="flex flex-col gap-[6.67px] font-medium">
                   <h3 className="mb-[1px] sm:mb-[5px] text-[10px] sm:text-[12px]">{chat.user}</h3>
-                  <p className="text-[12px] sm:text-[16px] text-bold w-full max-w-[629.17px] gap-[8.33px] py-2.5 sm:py-[13.33px] px-3.5 sm:px-[16.67px] bg-[#FFE4B2] rounded-tr-[16.67px] rounded-bl-[16.67px] w-fit">
+                  <p className="text-[12px] sm:text-[16px] text-bold max-w-[629.17px] gap-[8.33px] py-2.5 sm:py-[13.33px] px-3.5 sm:px-[16.67px] bg-[#FFE4B2] rounded-tr-[16.67px] rounded-bl-[16.67px] w-fit">
                     {chat.chatBox}
                   </p>
                   <span className="text-[12px] leading-6 w-full max-w-[629.17px] text-right">11:40am</span>
@@ -162,10 +162,10 @@ const HubsPage = () => {
           </div>
         )}
       </section>
-      <div className=' w-full flex content-end content-center justify-end text-white '>
+      <div className=' w-full flex content-center justify-end text-white '>
         <Link
           href={''}
-          className='py-[20px] px-[64px] rounded-custom border-custom bg-[#FFA500] rounded-[16px] py-[8px] md:py-[12px] max-md:px-[20px] sm:text-[16px] text-sm max-md:w-[200px] max-md:rounded-[4.5px] text-center hover:bg-[#CC8400] transition ease duration-100ms'
+          className='px-[64px] rounded-custom border-custom bg-[#FFA500] rounded-[16px] py-[8px] md:py-[12px] max-md:px-[20px] sm:text-[16px] text-sm max-md:w-[200px] max-md:rounded-[4.5px] text-center hover:bg-[#CC8400] transition ease duration-100ms'
         >
           Join
         </Link>

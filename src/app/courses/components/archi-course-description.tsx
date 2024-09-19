@@ -80,7 +80,7 @@ const CourseDescription = ({ id }: { id: string }) => {
 
           <div className="mb-8 flex flex-col gap-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-              <div className="bg-[#F0F0F0] mx-auto flex items-center justify-center sm:max-w-[698px] w-full sm:py-[40px] w-full">
+              <div className="bg-[#F0F0F0] mx-auto flex items-center justify-center sm:max-w-[698px] sm:py-[40px] w-full">
                 <Image
                   src={bookCover}
                   alt="Book Cover Picture"
@@ -106,7 +106,7 @@ const CourseDescription = ({ id }: { id: string }) => {
                       </svg>
                     </Button>
 
-                    <span className="border rounded-[6px] h-[30px] sm:h-[40px] w-[30px] sm:w-[40px] sm:h-[50px] sm:w-[50px] flex items-center justify-center font-medium text-[14px] sm:text-[20px] leading-5 sm:leading-12 ">
+                    <span className="border rounded-[6px] h-[30px] w-[30px] sm:h-[50px] sm:w-[50px] flex items-center justify-center font-medium text-[14px] sm:text-[20px] leading-5 sm:leading-12 ">
                       {quantity}
                     </span>
 
