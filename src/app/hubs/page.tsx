@@ -40,20 +40,20 @@ const HubsPage = () => {
     },
   ];
 
-  const fetchHubs = async (): Promise<Hubs[] | undefined> => {
-    try {
-      const response = await fetch('/api/hubs');
-      if (!response.ok) {
+  useEffect(() => {
+    const fetchHubs = async (): Promise<Hubs[] | undefined> => {
+      try {
+        const response = await fetch('/api/hubs');
+        if (!response.ok) {
+          return mockhubChat;
+        }
+        const data: Hubs[] = await response.json();
+        return data;
+      } catch {
         return mockhubChat;
       }
-      const data: Hubs[] = await response.json();
-      return data;
-    } catch {
-      return mockhubChat;
-    }
-  };
+    };
 
-  useEffect(() => {
     const getTools = async () => {
       const data = await fetchHubs();
       if (!data) {

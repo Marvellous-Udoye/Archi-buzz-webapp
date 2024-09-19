@@ -66,7 +66,7 @@ const ReviewCard = ({
   );
 };
 
-export function MarqueeDemo() {
+const MarqueeDemo = () => {
   return (
     <div className="relative flex h-[270px] sm:h-[350px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-[#F3F3F3] ">
       <Marquee pauseOnHover className="[--duration:30s]">
@@ -87,7 +87,7 @@ export function MarqueeDemo() {
 
 import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
 
-export function HeroVideoDialogDemo() {
+const HeroVideoDialogDemo = () => {
   return (
     <div className="relative flex justify-center items-center w-full h-full object-cover rounded-lg">
       <HeroVideoDialog
@@ -111,7 +111,7 @@ export function HeroVideoDialogDemo() {
 import TypingAnimation from "@/components/magicui/typing-animation";
 import Link from "next/link";
 
-export async function TextRevealDemo() {
+const TextRevealDemo = () => {
   return (
     <TypingAnimation
       className="text-[1.5rem] sm:text-[2.5rem] md:text-[64px] font-bold text-center md:text-left text-black dark:text-white"
