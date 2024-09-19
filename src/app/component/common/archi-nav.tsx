@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-// import { useState } from "react";
 import dummyProfile from "../../../../public/assets/images/dummy-profile.png";
 import archibuzzLogo from "../../../../public/icons/archibuzz-logo.svg";
 import Button from "./archi-button";
