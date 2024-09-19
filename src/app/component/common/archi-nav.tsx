@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 import dummyProfile from "../../../../public/assets/images/dummy-profile.png";
 import archibuzzLogo from "../../../../public/icons/archibuzz-logo.svg";
 import Button from "./archi-button";
@@ -13,8 +12,7 @@ interface NavBarProps {
 }
 
 const ArchiNav = ({ isNavbarOpen, handleNavClick }: NavBarProps) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-  setIsLoggedIn(true) // To bypass production error
+  const isLoggedIn = true;
 
   return (
     <nav className="flex items-center justify-between md:max-w-[1266px] mx-4 lg:mx-auto h-25 rounded-2xl sm:p-4 sticky top-4 z-[9999] backdrop-blur-md mt-4 bg-[#E3E3E3] shadow-[3.33px_1.67px_8.33px_0px_rgba(0,0,0,0.25)]">
