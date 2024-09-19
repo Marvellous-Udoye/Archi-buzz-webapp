@@ -11,7 +11,7 @@ export interface CartCourseProps {
   handleRemoveCourse?: () => void;
 }
 
-const CourseInCart = ({ bookCover, bookTitle, price, handleRemoveCourse }: CartCourseProps) => {
+const CourseInCart = ({ bookCover, handleRemoveCourse }: CartCourseProps) => {
 
   const initialPrice = 2500;
   const [quantity, setQuantity] = useState(1);

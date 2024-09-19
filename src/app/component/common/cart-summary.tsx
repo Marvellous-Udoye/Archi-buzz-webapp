@@ -6,7 +6,7 @@ export interface CartSummaryProps {
   price?: string;
 }
 
-const CartSummary = ({ price }: CartSummaryProps) => {
+const CartSummary = ({  }: CartSummaryProps) => {
   return (
     <div className="bg-[#F6F6F6] shadow-custom rounded-[16px] sm:rounded-[20px] p-2.5 sm:p-4 flex flex-col gap-4 sm:gap-5 h-fit max-w-[420px] w-full sm:max-w-none sm:w-full md:w-[750px] lg:w-[440px] mx-auto lg:mr-0">
       <h3 className="font-bold text-base sm:text-[20px] leading-[30px] text-center">Order Summary</h3>

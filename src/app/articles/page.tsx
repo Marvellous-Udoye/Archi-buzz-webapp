@@ -5,9 +5,6 @@ import Input from "../component/common/archi-input";
 import ArticleCard, { ArticlecardProp } from "./components/articleCards";
 
 const Article = () => {
-  const searchIconPath =
-    "M15 15L19 19M1 9C1 13.4183 4.58172 17 9 17C11.213 17 13.2161 16.1015 14.6644 14.6493C16.1077 13.2022 17 11.2053 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9Z";
-
   const [search, setSearch] = useState('')
 
   const [articles, setArticles] = useState<ArticlecardProp[]>([]);

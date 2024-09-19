@@ -25,13 +25,13 @@ const Login = () => {
     }
   }, [password])
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleEmailChange = () => {
     if (errors.email) {
       setErrors((prevErrors) => ({ prevErrors, email: undefined }))
     }
   }
 
-  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePasswordChange = () => {
     if (errors.password) {
       setErrors((prevErrors) => ({ prevErrors, password: undefined }))
     }
