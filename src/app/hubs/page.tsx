@@ -6,6 +6,7 @@ import emoji from '../hubs/Components/Assets/Icons/emoji.svg';
 import pin from '../hubs/Components/Assets/Icons/pin.svg';
 import star_logo from '../hubs/Components/Assets/Icons/star.svg';
 import union from '../hubs/Components/Assets/Icons/Union.svg';
+import { Link } from 'lucide-react';
 
 interface Hubs {
   chatBox: string[];
@@ -36,7 +37,7 @@ export const mockhubChat: Hubs[] = [
   }
 ];
 
-export async function fetchHubs(): Promise<Hubs[] | undefined> {
+const fetchHubs = async (): Promise<Hubs[] | undefined> => {
   try {
     const response = await fetch("/api/hubs");
     if (!response.ok) {
@@ -49,7 +50,7 @@ export async function fetchHubs(): Promise<Hubs[] | undefined> {
   }
 }
 
-const Page = () => {
+const HubsPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedHub, setSelectedHub] = useState(0);
   const [isError, setIsError] = useState<string | undefined>(undefined);
@@ -165,9 +166,16 @@ const Page = () => {
           </div>
         )}
       </section>
-      <div className=' w-full flex content-end content-center justify-end text-white '><a href="" className='py-[20px] px-[64px] rounded-custom border-custom bg-[#FFA500] rounded-[16px] py-[8px] md:py-[12px] max-md:px-[20px] sm:text-[16px] text-sm max-md:w-[200px] max-md:rounded-[4.5px] text-center hover:bg-[#CC8400] transition ease duration-100ms'>Join</a></div>
+      <div className=' w-full flex content-end content-center justify-end text-white '>
+        <Link
+          href={''}
+          className='py-[20px] px-[64px] rounded-custom border-custom bg-[#FFA500] rounded-[16px] py-[8px] md:py-[12px] max-md:px-[20px] sm:text-[16px] text-sm max-md:w-[200px] max-md:rounded-[4.5px] text-center hover:bg-[#CC8400] transition ease duration-100ms'
+        >
+          Join
+        </Link>
+      </div>
     </main>
   );
 };
 
-export default Page;
+export default HubsPage;
