@@ -37,25 +37,25 @@ export const mockhubChat: Hubs[] = [
   }
 ];
 
-const fetchHubs = async (): Promise<Hubs[] | undefined> => {
-  try {
-    const response = await fetch("/api/hubs");
-    if (!response.ok) {
-      return mockhubChat;
-    }
-    const data: Hubs[] = await response.json();
-    return data;
-  } catch {
-    return mockhubChat;
-  }
-}
-
 const HubsPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedHub, setSelectedHub] = useState(0);
   const [isError, setIsError] = useState<string | undefined>(undefined);
   const [hubChat, setHubChat] = useState<Hubs[]>([]);
   const isActive = 'border-l-4 border-solid border-l-[#FFA500] bg-[#FFE4B2]';
+
+  const fetchHubs = async (): Promise<Hubs[] | undefined> => {
+    try {
+      const response = await fetch("/api/hubs");
+      if (!response.ok) {
+        return mockhubChat;
+      }
+      const data: Hubs[] = await response.json();
+      return data;
+    } catch {
+      return mockhubChat;
+    }
+  }
 
   useEffect(() => {
     const getTools = async () => {
