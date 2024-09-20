@@ -19,7 +19,7 @@
   {
     "data": "post",
     "name": "John Doe",
-    "profilePicture": "/images/image-500.png",
+    "profilePicture": "/images/Image-500.png",
     "hashtags": [
       "Architecture",
       "3D Modeling",
@@ -36,7 +36,7 @@
   {
     "data": "post",
     "name": "Cody Fisher",
-    "profilePicture": "/images/image-200.png",
+    "profilePicture": "/images/Image-200.png",
     "hashtags": [
       "Photography",
       "Minimalism",
@@ -53,7 +53,7 @@
   {
     "data": "post",
     "name": "Ralph Edwards",
-    "profilePicture": "/images/image-400.png",
+    "profilePicture": "/images/Image-400.png",
     "hashtags": [
       "Painting",
       "Classicism",
@@ -70,7 +70,7 @@
   {
     "data": "post",
     "name": "Savannah Nyugen",
-    "profilePicture": "/images/image-300.png",
+    "profilePicture": "/images/Image-300.png",
     "hashtags": [
       "Sculpture",
       "Ceramics",
@@ -104,7 +104,7 @@
   {
     "data": "post",
     "name": "Ebenezer Lucius",
-    "profilePicture": "/images/image-100.png",
+    "profilePicture": "/images/Image-100.png",
     "hashtags": [
       "Digital Art",
       "Postmodernism",
