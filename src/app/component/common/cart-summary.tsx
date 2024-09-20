@@ -34,7 +34,7 @@ const CartSummary = ({  }: CartSummaryProps) => {
         </span>
       </div>
 
-      <div className="flex justify-between font-medium text-[20px] pt-1 pt-[6px] sm:text-[24px] leading-[30px] sm:leading-12 border-t-[1px] sm:border-t-[2px] border-t-black border-dashed">
+      <div className="flex justify-between font-medium text-[16px] pt-1 pt-[6px] sm:text-[20px] leading-[30px] sm:leading-12 border-t-[1px] sm:border-t-[2px] border-t-black border-dashed">
         <h1>Sub-total:</h1>
         <h1>₦39,500</h1>
       </div>

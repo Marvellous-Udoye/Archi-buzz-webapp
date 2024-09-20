@@ -97,8 +97,8 @@ const AiToolDescription = () => {
     getTools();
   }, []);
   return (
-    <div className="flex flex-col sm:flex-row gap-[53px] max-w-7xl mx-auto pt-3 pb-8 bg-[#F6F5F5] rounded-[16.67px]">
-      <div className="grid gap-[16.67px] max-w-full sm:max-w-[416.67px] w-full">
+    <div className="flex flex-col md:flex-row gap-[53px] max-w-7xl mx-auto pt-3 pb-8 bg-[#F6F5F5] rounded-[16.67px]">
+      <div className="grid gap-[16.67px] max-w-full md:max-w-[416.67px] w-full">
         <h1 className="text-[1.5rem] md:text-[2.5rem] text-center leading-[29.28px] md:leading-[48.8px]">
           AI Tools
         </h1>
@@ -128,14 +128,14 @@ const AiToolDescription = () => {
           <p className="text-xs md:text-base text-[#808080] leading-6 md:leading-8 font-medium mb-10">
             {aiToolDescription[selectedTool].description}
           </p>
-          <div className="grid grid-cols-3 grid-rows-2 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 grid-rows-2 gap-3 sm:gap-4">
             <Image
               alt="i don comr"
               src={aiToolDescription[selectedTool].imageUrl[0]}
               width={211}
               height={326}
               objectFit="cover"
-              className="row-span-1 col-span-2 sm:row-span-2 sm:col-span-1 order-2 sm:order-1 w-full h-full max-h-[154px] sm:max-h-full"
+              className="row-span-1 col-span-1 sm:row-span-2 order-2 sm:order-1 w-full h-full max-h-[154px] sm:max-h-full"
             />
             <Image
               alt="i don comr"
@@ -151,7 +151,7 @@ const AiToolDescription = () => {
               width={233}
               height={153}
               objectFit="cover"
-              className="col-span-2 sm:col-span-1 order-4 sm:order-3 w-full h-full max-h-[154px] sm:max-h-full"
+              className="col-span-1 order-4 sm:order-3 w-full h-full max-h-[154px] sm:max-h-full"
             />
             <Image
               alt="i don comr"

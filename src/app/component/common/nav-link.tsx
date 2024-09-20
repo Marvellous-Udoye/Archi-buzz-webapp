@@ -8,9 +8,10 @@ interface NavLinkProps {
   href: string | string[];
   children: React.ReactNode;
   style?: string;
+  onClick?: () => void;
 }
 
-const NavLink = ({ href, children, style }: NavLinkProps) => {
+const NavLink = ({ href, children, style, onClick }: NavLinkProps) => {
   const pathName = usePathname();
   const isActive = Array.isArray(href) ? href.includes(pathName) : pathName === href;
 
@@ -18,12 +19,13 @@ const NavLink = ({ href, children, style }: NavLinkProps) => {
     <Link href={Array.isArray(href) ? href[0] : href}>
       <li
         className={`
-          ${isActive ? 'text-[#FFA500] border-b-[3.3px] border-[#FFA500]' : ''}
-          ${isActive ? 'lg:border-l-0 lg:bg-transparent lg:border-b-[3.3px]' : ''}
+          ${isActive ? 'text-[#FFA500] border-[#FFA500]' : ''}
+          ${isActive ? 'lg:bg-transparent border-b-0 lg:border-b-[3.3px]' : ''}
           ${isActive ? 'border-l-[3px] border-l-[#FFA500] bg-[#FFDB99] lg:border-l-0 lg:bg-transparent' : ''}
           ${style}
           transition-colors duration-300 ease-in-out
         `}
+        onClick={onClick}
       >
         {children}
       </li>

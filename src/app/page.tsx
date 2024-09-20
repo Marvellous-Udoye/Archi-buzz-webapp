@@ -57,7 +57,7 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center justify-center gap-2">
-        <Image className="rounded-full" width="32" height="32" alt="" src={img} />
+        <img className="rounded-full" width="32" height="32" alt="" src={img} />
         <figcaption className="text-sm font-medium dark:text-white">
           {name}
         </figcaption>
@@ -66,7 +66,7 @@ const ReviewCard = ({
   );
 };
 
-const MarqueeDemo = () => {
+export function MarqueeDemo() {
   return (
     <div className="relative flex h-[270px] sm:h-[350px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-[#F3F3F3] ">
       <Marquee pauseOnHover className="[--duration:30s]">
@@ -87,9 +87,9 @@ const MarqueeDemo = () => {
 
 import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
 
-const HeroVideoDialogDemo = () => {
+export function HeroVideoDialogDemo() {
   return (
-    <div className="relative flex justify-center items-center w-full h-full object-cover rounded-lg">
+    <div className="relative flex justify-center items-center object-cover rounded-lg">
       <HeroVideoDialog
         className="dark:hidden block"
         animationStyle="from-center"
@@ -111,10 +111,10 @@ const HeroVideoDialogDemo = () => {
 import TypingAnimation from "@/components/magicui/typing-animation";
 import Link from "next/link";
 
-const TextRevealDemo = () => {
+export async function TextRevealDemo() {
   return (
     <TypingAnimation
-      className="text-[1.5rem] sm:text-[2.5rem] md:text-[64px] font-bold text-center md:text-left text-black dark:text-white"
+      className="text-[2rem] md:text-[2.5rem] lg:text-[4rem] font-bold text-center lg:text-left text-black dark:text-white"
       text={
         <>
           Empower Your{" "}
@@ -130,10 +130,10 @@ const Home = () => {
   return (
     <div>
       <section className="pt-[42px] sm:pt-[75px] pb-8 md:pb-[100px] px-4 lg:px-0">
-        <div className="flex flex-col lg:flex-row  gap-[55px] max-w-[1266px] mx-auto">
-          <div className="flex flex-col gap-5 w-full max-w-[640px] text-center lg:text-left">
+        <div className="flex flex-col lg:flex-row gap-[55px] max-w-[700px] lg:max-w-[1266px] mx-auto">
+          <div className="flex flex-col items-center justify-center lg:justify-start lg:items-start gap-5 w-full max-w-[640px] text-center lg:text-left mx-auto">
             <TextRevealDemo />
-            <p className="text-xs font-medium leading-6 md:text-base md:leading-8 text-center md:text-left">
+            <p className="text-xs font-medium leading-6 md:text-base md:leading-8 text-center lg:text-left">
               Join a community of architects, designers, and AI enthusiasts
               transforming the future of architecture and design. Learn,
               collaborate, and innovate with cutting-edge AI tools and
@@ -169,18 +169,18 @@ const Home = () => {
             width={572}
             height={475}
             alt="This is a pic"
-            className="xl:w-[560px] w-full h-full mx-auto"
+            className="lg:w-[560px] w-full h-full sm:px-4 lg:w-full mx-auto"
           />
         </div>
       </section>
 
       <section className="pb-[50px] lg:pb-[100px] px-4 sm:px-[14px] lg:px-0 pt-[25px] md:pt-0">
-        <div className="flex flex-col-reverse py-8 lg:flex-row items-center justify-around gap-[55px] max-w-[1266px] mx-auto">
-          <div className="max-w-[800px] rounded-lg">
+        <div className="flex flex-col-reverse py-8 lg:flex-row items-center justify-between gap-[55px] max-w-[1266px] mx-auto">
+          <div className="w-full h-full rounded-lg">
             <HeroVideoDialogDemo />
           </div>
           <div className="flex flex-col gap-5 w-full max-w-[625px]">
-            <h1 className="text-xl md:text-3xl lg:text-5xl font-bold leading-[30px] lg:leading-[58.56px] text-center">
+            <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold leading-[30px] lg:leading-[58.56px] text-center">
               About <span className="text-[#FFA500]">Archibuzz</span>
               <span className="text-[#808080]"> Studios</span>
             </h1>
@@ -258,8 +258,8 @@ const Home = () => {
           />
           {/* <div className="h-[200px] md:h-[420px] lg:h-[491px] max-w-[1134.86px] mx-auto"></div> */}
           <div className="-mt-8 md:-mt-12 max-w-[1273.33px] mx-auto">
-            <h1 className="text-[20px] md:text-[40px] font-medium leading-[23.97px] md:leading-[47.95px] text-center mb-6 md:mb-10">
-              What we offer..
+            <h1 className="text-[20px] md:text-[40px] font-normal leading-[23.97px] md:leading-[47.95px] text-center mb-6 md:mb-10">
+              What <span className="text-[#FFA500]">we</span> <span className="text-[#808080]">offer..</span>
             </h1>
             <div className="grid md:grid-cols-3 gap-[18px] md:gap-8 w-full max-w-[995px] mx-auto">
               <div className="flex flex-col gap-4 items-center max-w-[315px] text-center">

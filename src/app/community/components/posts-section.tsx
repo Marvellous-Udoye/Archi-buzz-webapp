@@ -1,7 +1,7 @@
+import Button from "@/app/component/common/archi-button";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from '../community.module.css';
-import Image from "next/image";
-import Button from "@/app/component/common/archi-button";
 
 interface PostdataProps {
   name: string;
@@ -58,31 +58,31 @@ const PostFeed = () => {
     setIsLike(updatedLike);
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p className="bg-[#F6F5F5] w-full h-100vh py-4 pl-4 sm:pl-0">Loading...</p>;
   if (error) return <p>{error}</p>;
 
   return (
     <main className={`${styles.feed} flex flex-col gap-[11px]`}>
-      <section className={`${styles.post_feed} flex flex-col gap-[30px] p-[13px] rounded-[16px] bg-[#F6F5F5]`}>
+      <section className={`${styles.post_feed} flex flex-col gap-4 sm:gap-[20px] px-[6px] py-[13px] sm:p-[13px] rounded-[16px] bg-[#F6F5F5]`}>
         {postData.map((post, index) => (
           <div key={index} className={`${styles.post_card} shadow-custom rounded-[12px] bg-white `}>
             <Image
               src={post.postPicture}
               alt='Picture of post'
               width={675}
-              height={100}
-              className='w-full rounded-tr-[8px] rounded-tl-[8px]'
+              height={200}
+              className='w-full h-[200px] rounded-tr-[8px] rounded-tl-[8px]'
             />
 
             <div className={`${styles.post_details} px-2 pb-3 flex flex-col gap-[17.5px] mt-[21px]`}>
               <div className={`${styles.post_btns} flex items-center justify-between`}>
                 <Button
-                  styles={`${isPostFollowing[index] ? 'bg-[#D8D8D8] text-black' : 'bg-[#FFA809] text-white active:bg-[#CC8400] transition ease duration-100ms'} py-[6px] px-[13px] rounded-[16px] `}
+                  styles={`${isPostFollowing[index] ? 'bg-[#D8D8D8] text-black' : 'bg-[#FFA809] text-white active:bg-[#CC8400] transition ease duration-100ms'} py-[6px] px-[13px] rounded-[16px] min-w-[80px] sm:min-w-[120px]`}
                   handleClick={() => handleFollowClick(index)}
                 >
                   <p>{isPostFollowing[index] ? 'Following' : 'Follow'}</p>
                   {!isPostFollowing[index] &&
-                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="18" viewBox="0 0 21 20" fill="none">
                       <path d="M5.16602 10H10.166M10.166 10H15.166M10.166 10V5M10.166 10V15" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>}
                 </Button>
@@ -113,7 +113,7 @@ const PostFeed = () => {
               </div>
 
               <div className={`${styles.post_info} flex items-center justify-between`}>
-                <div className='flex gap-[13px]'>
+                <div className='flex items-center gap-[13px]'>
                   <Image
                     src={post.profilePicture}
                     alt="Author's Picture"
@@ -124,7 +124,7 @@ const PostFeed = () => {
                   <p className='text-[32px] font-[500]'>{post.name}</p>
                 </div>
 
-                <span className='text-[13px] font-[500] leading-[26px]'>{post.timePosted} ago</span>
+                <span className='text-[14px] font-[500] leading-[26px]'>{post.timePosted} ago</span>
               </div>
 
               <div className={`${styles.post_hashtags} flex items-center gap-[5px] text-white`}>

@@ -38,9 +38,9 @@ const Article = () => {
     articlesData();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p className="px-4 lg:px-0 max-w-[1266px] mx-auto mt-6">Loading...</p>;
   if (error) return <p>Error: {error}</p>;
-  
+
   return (
     <div className="max-w-[1266px] mx-auto px-4 lg:px-0 mb-6 sm:mb-8">
       <form className="max-w-[593px] relative mt-8 mb-6">
@@ -62,7 +62,10 @@ const Article = () => {
       <p className="text-[24px] sm:text-[2.5rem] leading-6 sm:leading-[48.8px] font-medium mb-4">Today’s Trending Articles</p>
       <div className="flex flex-col lg:flex-row justify-between gap-6">
         <div>
-          <ArticleCard sm={false}>
+          <ArticleCard
+            sm={false}
+            articleTitle="The Future of Architectural Design"
+          >
             Artificial Intelligence is revolutionizing the field of
             architecture, enabling designers to create innovative solutions that
             were previously unimaginable. Through machine learning algorithms,
@@ -77,6 +80,7 @@ const Article = () => {
           {articles.map((article, index) => (
             <ArticleCard
               key={index}
+              articleTitle="The Future of Architectural Design"
               articlePicture={article.articlePicture}
               profilePicture={article.profilePicture}
               style="flex flex-col items-start mb-4 sm:mb-0"
@@ -89,7 +93,9 @@ const Article = () => {
       <div>
         <p className="text-[24px] sm:text-[2.5rem] leading-[48.8px] font-medium mt-5 sm:my-4">Other articles</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          <ArticleCard sm={false}>
+          <ArticleCard
+            sm={false}
+            articleTitle="Exploring the Intersection of Architecture and Artificial Intelligence: A New Era of Design">
             Artificial Intelligence is revolutionizing the field of
             architecture, enabling designers to create innovative solutions that
             were previously unimaginable. Through machine learning algorithms,
@@ -98,7 +104,9 @@ const Article = () => {
             creativity, improve efficiency, and lead to sustainable building
             practices. <span className="text-black">Read More</span>
           </ArticleCard>
-          <ArticleCard sm={false}>
+          <ArticleCard
+            sm={false}
+            articleTitle="Exploring the Intersection of Architecture and Artificial Intelligence: A New Era of Design">
             Artificial Intelligence is revolutionizing the field of
             architecture, enabling designers to create innovative solutions that
             were previously unimaginable. Through machine learning algorithms,
@@ -107,7 +115,10 @@ const Article = () => {
             creativity, improve efficiency, and lead to sustainable building
             practices. <span className="text-black">Read More</span>
           </ArticleCard>
-          <ArticleCard sm={false}>
+          <ArticleCard
+            sm={false}
+            articleTitle="Exploring the Intersection of Architecture and Artificial Intelligence: A New Era of Design"
+          >
             Artificial Intelligence is revolutionizing the field of
             architecture, enabling designers to create innovative solutions that
             were previously unimaginable. Through machine learning algorithms,

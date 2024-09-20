@@ -5,13 +5,14 @@ import dummyProfile from "../../../../public/assets/images/dummy-profile.png";
 
 export interface ArticlecardProp {
   articlePicture?: string
+  articleTitle?: string
   profilePicture?: string
   sm: boolean
   children?: React.ReactNode
   style?: string
 }
 
-const ArticleCard = ({ sm, children, style, articlePicture, profilePicture }: ArticlecardProp) => {
+const ArticleCard = ({ sm, children, style, articlePicture, profilePicture , articleTitle }: ArticlecardProp) => {
 
   return (
     <div className={`flex gap-4 sm:gap-6 max-w-[739px] mx-auto ${sm ? 'flex-col sm:flex-row max-w-[523px] items-center gap-4' : 'flex-col'}`}>
@@ -39,7 +40,7 @@ const ArticleCard = ({ sm, children, style, articlePicture, profilePicture }: Ar
         </div>
         <div className={`mb-[6px] ${sm ? 'px-0' : ''}`}>
           <h3 className={`font-medium mb-3 sm:mb-5 ${sm ? 'text-[12px] md:text-base mr-10' : 'text-xl leading-[30px]'}`}>
-            The Future of Architectural Design
+            {articleTitle}
           </h3>
           {sm ? (<p></p>) : (
             <p className="text-[12px] sm:text-base leading-[1.5rem] sm:leading-[2rem] text-[#808080] font-medium">

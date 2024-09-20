@@ -95,7 +95,7 @@
   }
 
   .filter {
-    padding: 16px 16px 0 16px;
+    padding: 0 16px 0 16px;
   }
 
   .page_ctrl {
@@ -122,20 +122,15 @@
   }
 
   .post_btns Button {
-    border-radius: 8px;
+    border-radius: 12px;
     gap: 0;
     padding: 3px 10px;
     font-size: 12px;
   }
 
-  .post_btns Button svg,
-  .account_card Button svg {
-    transform: scale(.8);
-  }
-
   .post_btns div:last-child svg {
-    width: 10px;
-    height: 10px;
+    width: 17px;
+    height: 17px;
   }
 
   .post_btns div:last-child {
@@ -147,7 +142,7 @@
   }
 
   .post_info span {
-    font-size: 7px;
+    font-size: 12px;
   }
 
   .post_info div {
@@ -155,8 +150,8 @@
   }
 
   .profile_picture {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
   }
 
   .post_hashtags {
@@ -248,40 +243,19 @@
 
 @media (max-width: 500px) {
   .search_input_ctn {
-
-    max-width: 87%;
     justify-content: space-between;
-  }
-
-  .search_icon {
-    width: 12px;
-    height: 12px;
-
-  }
-
-  .search_input_ctn div:last-child {
-    height: 46px;
-    width: 46px;
   }
 
   .search_input_ctn Button {
     font-size: 12px;
-    padding: 8px 12px;
+    padding: 6px 12px;
     gap: 0;
     white-space: nowrap;
     height: 46px;
   }
 
   .search_input input {
-    padding-left: 40px;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 24px;
-  }
-}
-
-/* ------------Very Small Screens------------ */
-.search_input input {
-  @media (max-width: 375px) {
-    width: 70%;
   }
 }

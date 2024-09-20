@@ -81,7 +81,7 @@ export default function HeroVideoDialog({
   return (
     <div className={cn("relative", className)}>
       <div
-        className="relative cursor-pointer group"
+        className="relative cursor-pointer group w-[325px] sm:w-[600px] "
         onClick={() => setIsVideoOpen(true)}
       >
         <Image

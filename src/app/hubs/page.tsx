@@ -1,7 +1,7 @@
 "use client";
 
-import { Link } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import emoji from '../hubs/Components/Assets/Icons/emoji.svg';
 import pin from '../hubs/Components/Assets/Icons/pin.svg';
@@ -94,26 +94,26 @@ const HubsPage = () => {
         </div>
       </div>
 
-      <section className="flex flex-row content-center gap-[36.67px] w-full bg-secondary p-[13.33px] rounded-[16.67px] max-md:flex-col">
+      <section className="flex flex-row content-center gap-[36.67px] w-full bg-secondary p-2 sm:p-[13.33px] rounded-[16.67px] max-md:flex-col">
         <div className="flex flex-col text-center content-center gap-[16.67px] w-full md:max-w-[416px]">
           <h2 className="text-center text-[24px] md:text-[40px] w-full">Hubs</h2>
           <ul className="flex flex-col text-center text-[12px] sm:text-base font-medium leading-8 w-full content-center h-full">
-            <li className={`flex flex-col gap-[8.33px] p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 0 ? isActive : ''}`} onClick={() => setSelectedHub(0)}>
+            <li className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 0 ? isActive : ''}`} onClick={() => setSelectedHub(0)}>
               Midjourney AI
             </li>
-            <li className={`flex flex-col gap-[8.33px] p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 1 ? isActive : ''}`} onClick={() => setSelectedHub(1)}>
+            <li className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 1 ? isActive : ''}`} onClick={() => setSelectedHub(1)}>
               LookX Hub
             </li>
-            <li className={`flex flex-col gap-[8.33px] p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 2 ? isActive : ''}`} onClick={() => setSelectedHub(2)}>
+            <li className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 2 ? isActive : ''}`} onClick={() => setSelectedHub(2)}>
               Flex AI Hub
             </li>
-            <li className={`flex flex-col gap-[8.33px] p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 3 ? isActive : ''}`} onClick={() => setSelectedHub(3)}>
+            <li className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 3 ? isActive : ''}`} onClick={() => setSelectedHub(3)}>
               Prome Architects
             </li>
-            <li className={`flex flex-col gap-[8.33px] p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 4 ? isActive : ''}`} onClick={() => setSelectedHub(4)}>
+            <li className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 4 ? isActive : ''}`} onClick={() => setSelectedHub(4)}>
               Flux Bosses
             </li>
-            <li className={`flex flex-col gap-[8.33px] p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 5 ? isActive : ''}`} onClick={() => setSelectedHub(5)}>
+            <li className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 5 ? isActive : ''}`} onClick={() => setSelectedHub(5)}>
               Archi Innovations
             </li>
           </ul>
@@ -124,7 +124,7 @@ const HubsPage = () => {
         ) : isError ? (
           <div>Error: {isError}</div>
         ) : (
-          <div className="bg-white p-[13.33px] w-full max-w-[791.67px] rounded-[5px] flex flex-col justify-between content-center min-h-[300px] h-full max-md:p-[8px]">
+          <div className="bg-white p-2 sm:p-[13.33px] w-full max-w-[791.67px] rounded-[5px] flex flex-col justify-between content-center min-h-[300px] h-full max-md:p-[8px]">
             <ul className="flex flex-col gap-[16px] content-center w-full max-md:mb-[1.3rem]">
               {hubChat.map((chat, index) => (
                 <li key={index} className="flex flex-col gap-[6.67px] font-medium">
@@ -137,11 +137,11 @@ const HubsPage = () => {
               ))}
             </ul>
             <div className='flex flex-row content-center gap-[11.67px] mt-3 w-full '>
-              <div className='flex flex-row content-center w-full max-w-[695.42px] bg-[#FFE4B2] rounded-[16.67px] p-2 sm:p-[13.3px] shadow-custom'>
+              <div className='flex flex-row items-center content-center w-full max-w-[695.42px] bg-[#FFE4B2] rounded-[16.67px] p-2 sm:p-[13.3px] shadow-custom'>
                 <Image
                   src={emoji}
                   alt='this is emoji image'
-                  className='transform scale-90 sm:scale-100' />
+                  className='w-4 h-4 sm:h-5 sm:w-5' />
                 <input
                   type="text"
                   name='user-input-text'
@@ -150,24 +150,23 @@ const HubsPage = () => {
                 <Image
                   src={pin}
                   alt='this is emoji image'
-                  className='transform scale-90 sm:scale-100' />
+                  className='w-4 h-4 sm:h-5 sm:w-5' />
               </div>
-              <div className='cursor-pointer bg-[#FFA500] rounded-[5px] w-[57.92px] flex content-center justify-center shadow-custom'>
+              <div className='cursor-pointer bg-[#FFA500] rounded-[5px] w-[57.92px] flex items-center justify-center shadow-custom'>
                 <Image
                   src={union}
                   alt='this is emoji image'
-                  className='transform scale-90 sm:scale-100' />
+                  className='w-4 h-4 sm:h-5 sm:w-5' />
               </div>
             </div>
           </div>
         )}
       </section>
       <div className=' w-full flex content-center justify-end text-white '>
-        <Link
-          href={''}
-          className='px-[64px] rounded-custom border-custom bg-[#FFA500] rounded-[16px] py-[8px] md:py-[12px] max-md:px-[20px] sm:text-[16px] text-sm max-md:w-[200px] max-md:rounded-[4.5px] text-center hover:bg-[#CC8400] transition ease duration-100ms'
-        >
-          Join
+        <Link href={''}>
+          <span className='mr-4 md:mr-0 px-[64px] rounded-custom border-custom bg-[#FFA500] rounded-[16px] py-[8px] md:py-[12px] max-md:px-[40px] sm:text-[16px] text-sm max-md:w-[200px] max-md:rounded-[4.5px] text-center hover:bg-[#CC8400] transition ease duration-100ms'>
+            Join
+          </span>
         </Link>
       </div>
     </main>
