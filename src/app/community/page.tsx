@@ -62,7 +62,7 @@ const Community = () => {
           <div className="relative flex items-center">
             <Button
               handleClick={toggleDropdown}
-              styles="flex items-center justify-center gap-1 bg-[#E3E3E3] h-[54px] px-4 py-2 rounded-[16px] w-[105px] sm:w-[130px] w-full"
+              styles="flex items-center justify-center gap-1 bg-[#E3E3E3] h-[54px] px-4 py-2 rounded-[16px] w-[90px] sm:w-[130px] w-full"
             >
               {selectedOption}
               <svg className={`${isOpen ? 'transform rotate-180' : ''} w-[18px] h-[18px] sm:w-[21px] sm:h-[21px] shrink-0`} xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">

@@ -17,19 +17,27 @@ export interface ArchiCorurseProps {
 
 const CourseCard = ({ id, bookCover, bookTitle, author, rating, price, isLiked, isAddedToCart, handleLike, handleAddToCart }: ArchiCorurseProps) => {
   return (
-    <div className="border-[1px] mx-auto max-w-[402px] w-full rounded-[20px] mb-8 shadow-custom transform sm:scale-95 hover:transform sm:hover:scale-[1.02] hover:shadow-[0px_8px_20px_rgba(0,0,0,0.1),_0px_16px_40px_rgba(0,0,0,0.15)] transition ease duration-100ms ">
-      <Link href={`/courses/${id}`}>
-        <div className="bg-[#F0F0F0] flex items-center justify-center max-w-[402px] sm:py-[43px] w-full rounded-tr-[16px] rounded-tl-[16px]">
-          <Image
-            src={bookCover}
-            alt="Book Cover Picture"
-            width={162}
-            height={227}
-            className="w-full h-auto object-cover sm:w-[162px] sm:h-[227px] rounded-tr-[16px] rounded-tl-[16px] sm:rounded-none"
-            priority
-          />
+    <div className="border-[1px] mx-auto max-w-[402px] w-full rounded-[20px] mb-8 shadow-custom transform sm:scale-95 hover:shadow-[0px_8px_20px_rgba(0,0,0,0.1),_0px_16px_40px_rgba(0,0,0,0.15)] transition ease duration-100ms group ">
+
+      <div className="relative bg-[#F0F0F0] flex items-center justify-center max-w-[402px] sm:py-[43px] w-full rounded-tr-[16px] rounded-tl-[16px]">
+        <Image
+          src={bookCover}
+          alt="Book Cover Picture"
+          width={162}
+          height={227}
+          className="w-full h-auto object-cover sm:w-[162px] sm:h-[227px] rounded-tr-[16px] rounded-tl-[16px] sm:rounded-none"
+          priority
+        />
+        <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-40 z-10 transition-opacity duration-[3000ms] rounded-tr-[16px] rounded-tl-[16px]" />
+        <div className="absolute inset-0 flex justify-center items-center z-20">
+          <Link href={`/courses/${id}`}>
+            <Button styles="hidden group-hover:block bg-[#FFA500] text-white rounded-xl py-2 px-3">
+              <p>View Course</p>
+            </Button>
+          </Link>
         </div>
-      </Link>
+      </div>
+
 
       <section className="flex flex-col gap-2 sm:gap-5 px-2.5 sm:px-4 py-3.5 sm:py-5">
         <div className=" font-medium ">
