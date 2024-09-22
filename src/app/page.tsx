@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import featuresPic from "../../public/assets/images/features.png";
 import heroPic from "../../public/assets/images/hero-pic.png";
@@ -87,7 +89,12 @@ const MarqueeDemo = () => {
 
 import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
 
-const HeroVideoDialogDemo = () => {
+interface HeroVideoDialogDemoProps {
+  isVideoOpen: boolean;
+  setIsVideoOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const HeroVideoDialogDemo: React.FC<HeroVideoDialogDemoProps> = ({ isVideoOpen, setIsVideoOpen }) => {
   return (
     <div className="relative flex justify-center items-center object-cover rounded-lg">
       <HeroVideoDialog
@@ -96,6 +103,8 @@ const HeroVideoDialogDemo = () => {
         videoSrc="/video/2024-07-21 15-33-10.mp4"
         thumbnailSrc="/video/3d-rendering-abstract-building.png"
         thumbnailAlt="Hero Video"
+        isVideoOpen={isVideoOpen}
+        setIsVideoOpen={setIsVideoOpen}
       />
       <HeroVideoDialog
         className="hidden dark:block"
@@ -103,6 +112,8 @@ const HeroVideoDialogDemo = () => {
         videoSrc="/video/2024-07-21 15-33-10.mp4"
         thumbnailSrc="/video/3d-rendering-abstract-building.png"
         thumbnailAlt="Hero Video"
+        isVideoOpen={isVideoOpen}
+        setIsVideoOpen={setIsVideoOpen}
       />
     </div>
   );
@@ -110,8 +121,9 @@ const HeroVideoDialogDemo = () => {
 
 import TypingAnimation from "@/components/magicui/typing-animation";
 import Link from "next/link";
+import { useState } from "react";
 
-const TextRevealDemo = async () => {
+const TextRevealDemo = () => {
   return (
     <TypingAnimation
       className="text-[2rem] md:text-[2.5rem] lg:text-[4rem] font-bold text-center lg:text-left text-black dark:text-white"
@@ -127,10 +139,12 @@ const TextRevealDemo = async () => {
 }
 
 const Home = () => {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+  
   return (
     <div>
       <section className="pt-[42px] sm:pt-[75px] pb-8 md:pb-[100px] px-4 lg:px-0">
-        <div className="flex flex-col lg:flex-row gap-[55px] max-w-[700px] lg:max-w-[1266px] mx-auto">
+        <div className="flex flex-col lg:flex-row gap-[35px] max-w-[700px] lg:max-w-[1266px] mx-auto">
           <div className="flex flex-col items-center justify-center lg:justify-start lg:items-start gap-5 w-full max-w-[640px] text-center lg:text-left mx-auto">
             <TextRevealDemo />
             <p className="text-xs font-medium leading-6 md:text-base md:leading-8 text-center lg:text-left">
@@ -166,10 +180,10 @@ const Home = () => {
           </div>
           <Image
             src={heroPic}
-            width={572}
+            width={562}
             height={475}
             alt="This is a pic"
-            className="lg:w-[560px] w-full h-full sm:px-4 lg:w-full mx-auto"
+            className="lg:w-[555px] w-full h-full sm:px-4 lg:w-full mx-auto"
           />
         </div>
       </section>
@@ -177,7 +191,10 @@ const Home = () => {
       <section className="pb-[50px] lg:pb-[100px] px-4 sm:px-[14px] lg:px-0 pt-[25px] md:pt-0">
         <div className="flex flex-col-reverse py-8 lg:flex-row items-center justify-between gap-[55px] max-w-[1266px] mx-auto">
           <div className="w-full h-full rounded-lg">
-            <HeroVideoDialogDemo />
+            <HeroVideoDialogDemo
+              isVideoOpen={isVideoOpen}
+              setIsVideoOpen={setIsVideoOpen}
+            />
           </div>
           <div className="flex flex-col gap-5 w-full max-w-[625px]">
             <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold leading-[30px] lg:leading-[58.56px] text-center">
@@ -210,6 +227,7 @@ const Home = () => {
                   />
                 </svg>
               }
+              handleClick={() => setIsVideoOpen(true)}
               styles="bg-[#FFA809] shadow-custom text-sm text-white mr-auto font-medium mx-auto px-2 py-[10px] rounded-lg md:px-6 md:py-4 md:rounded-[20px] ml-auto hover:bg-[#CC8400] transition ease duration-100ms"
             >
               Watch the Video

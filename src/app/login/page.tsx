@@ -153,7 +153,7 @@ const Login = () => {
           <div className="p-[13px] flex flex-col items-center justify-center gap-8">
             <p className="text-[32px] font-[500] text-white text-center">Don&apos;t have an account?</p>
             <Link href='/signup'>
-              <button className="w-full border-[2.5px] border-[#808080] rounded-[20px] text-[16px] font-[500] py-4 px-2 rounded-[20px] text-white hover:bg-[#CC8400] transition ease duration-100ms hover:border-[#CC8400] outline-none">
+              <button className="w-full block border-[2.5px] border-[#808080] rounded-[20px] text-[16px] font-[500] py-4 px-2 rounded-[20px] text-white hover:bg-[#CC8400] transition ease duration-100ms hover:border-[#CC8400] outline-none">
                 Create Account
               </button>
             </Link>

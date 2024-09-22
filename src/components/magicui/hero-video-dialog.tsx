@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Play, XIcon } from "lucide-react";
 
@@ -23,6 +22,8 @@ interface HeroVideoProps {
   thumbnailSrc: string;
   thumbnailAlt?: string;
   className?: string;
+  isVideoOpen: boolean;
+  setIsVideoOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const animationVariants = {
@@ -74,8 +75,9 @@ export default function HeroVideoDialog({
   thumbnailSrc,
   thumbnailAlt = "Video thumbnail",
   className,
+  isVideoOpen,
+  setIsVideoOpen,
 }: HeroVideoProps) {
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
   const selectedAnimation = animationVariants[animationStyle];
 
   return (
