@@ -183,7 +183,7 @@ const Home = () => {
             width={562}
             height={475}
             alt="This is a pic"
-            className="lg:w-[555px] w-full h-full sm:px-4 lg:w-full mx-auto"
+            className="lg:w-[550px] w-full h-full sm:px-4 lg:w-full mx-auto"
           />
         </div>
       </section>
