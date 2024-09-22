@@ -121,7 +121,7 @@ const HeroVideoDialogDemo: React.FC<HeroVideoDialogDemoProps> = ({ isVideoOpen, 
 
 import TypingAnimation from "@/components/magicui/typing-animation";
 import Link from "next/link";
-import { useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 
 const TextRevealDemo = () => {
   return (
@@ -140,7 +140,42 @@ const TextRevealDemo = () => {
 
 const Home = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
-  
+  const [isLoading, setIsLoading] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const url = 'https://script.google.com/macros/s/AKfycbzGnWUKLCUOcBXF4qyi_NqH2aA_3HPt8yP9-9dNDRrJal1FmrHLy3NIlc9HQUFGmsvI/exec';
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsLoading(true); 
+
+    const formData = new FormData(event.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(data as Record<string, string>).toString(),
+      });
+
+      const result = await response.json();
+      if (result.result === 'success') {
+        alert('Success! Your information has been submitted.');
+        formRef.current?.reset();
+      } else {
+        alert('Error: ' + result.error);
+      }
+    } catch (error) {
+      alert('Error: ' + (error as Error).message);
+    } finally {
+      setIsLoading(false); 
+    }
+  };
+
+
   return (
     <div>
       <section className="pt-[42px] sm:pt-[75px] pb-8 md:pb-[100px] px-4 lg:px-0">
@@ -183,7 +218,7 @@ const Home = () => {
             width={562}
             height={475}
             alt="This is a pic"
-            className="lg:w-[550px] w-full h-full sm:px-4 lg:w-full mx-auto"
+            className="w-full h-full sm:px-4 lg:w-full mx-auto"
           />
         </div>
       </section>
@@ -462,22 +497,24 @@ const Home = () => {
               <li className="hover:text-[#FFA500] transition ease duration-100ms cursor-pointer w-fit">Products</li>
               <li className="hover:text-[#FFA500] transition ease duration-100ms cursor-pointer w-fit">Home</li>
             </ul>
-            <form className="grid gap-5 p-5  rounded-[20px] max-w-[340px] w-full bg-[#FFE4B2]">
+            <form method="POST" onSubmit={handleSubmit} action={url} ref={formRef} className="grid gap-5 p-5  rounded-[20px] max-w-[340px] w-full bg-[#FFE4B2]">
               <p className="text-base font-bold leading-8 text-center">
                 Get tips and resources sent to your inbox
               </p>
               <input
                 type="text"
                 className="w-full p-[10px] rounded-[20px]"
+                name="name"
                 placeholder="Name"
               />
               <input
                 type="text"
                 className="w-full p-[10px] rounded-[20px]"
+                name="email"
                 placeholder="Email"
               />
-              <Button styles="active:bg-[#CC8400] transition ease duration-100ms bg-[#FFA809] text-sm md:text-[13.33px] text-white font-medium text-white px-3 py-5 rounded-[20px] md:px-6 md:py-4 md:rounded-[16.67px] h-14 mx-auto">
-                Get updates
+              <Button type="submit" styles="active:bg-[#CC8400] transition ease duration-100ms bg-[#FFA809] text-sm md:text-[13.33px] text-white font-medium text-white px-3 py-5 rounded-[20px] md:px-6 md:py-4 md:rounded-[16.67px] h-14 mx-auto">
+               {isLoading ? 'Loading..' : ' Get updates'}
               </Button>
             </form>
           </div>
