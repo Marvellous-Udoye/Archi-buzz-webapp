@@ -91,11 +91,6 @@
   .community_ctn {
     flex-direction: column;
     gap: 40px;
-    padding: 0 16px 26px 16px;
-  }
-
-  .filter {
-    padding: 0 16px 0 16px;
   }
 
   .page_ctrl {
@@ -244,12 +239,14 @@
 @media (max-width: 500px) {
   .search_input_ctn {
     justify-content: space-between;
+    padding: 0px 16px;
   }
 
   .search_input_ctn Button {
     font-size: 12px;
     padding: 6px 12px;
     gap: 0;
+    width: 90px;
     height: 46px;
   }
 

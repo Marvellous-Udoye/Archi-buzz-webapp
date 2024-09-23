@@ -36,7 +36,7 @@ const TypingAnimation: React.FC<TypingAnimationProps> = ({
   }, [text, duration]);
 
   return (
-    <h1 className={cn("h-full font-display text-center text-4xl font-bold leading-[5rem]", className)}>
+    <h1 className={cn("min-h-[96px] lg:h-full font-display text-center text-4xl font-bold leading-[5rem]", className)}>
       {isTyping ? displayedText : text}
     </h1>
   );

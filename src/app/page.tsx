@@ -147,7 +147,7 @@ const Home = () => {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setIsLoading(true); 
+    setIsLoading(true);
 
     const formData = new FormData(event.currentTarget);
     const data = Object.fromEntries(formData.entries());
@@ -171,7 +171,7 @@ const Home = () => {
     } catch (error) {
       alert('Error: ' + (error as Error).message);
     } finally {
-      setIsLoading(false); 
+      setIsLoading(false);
     }
   };
 
@@ -179,8 +179,8 @@ const Home = () => {
   return (
     <div>
       <section className="pt-[42px] sm:pt-[75px] pb-8 md:pb-[100px] px-4 lg:px-0">
-        <div className="flex flex-col lg:flex-row gap-[35px] max-w-[700px] lg:max-w-[1266px] mx-auto">
-          <div className="flex flex-col items-center justify-center lg:justify-start lg:items-start gap-5 w-full max-w-[640px] text-center lg:text-left mx-auto">
+        <div className="flex flex-col lg:flex-row gap-[35px] lg:justify-between max-w-[700px] lg:max-w-[1266px] mx-auto">
+          <div className="flex flex-col items-center justify-center lg:justify-start lg:items-start gap-5 w-full max-w-[640px] text-center lg:text-left mx-auto lg:mx-0">
             <TextRevealDemo />
             <p className="text-xs font-medium leading-6 md:text-base md:leading-8 text-center lg:text-left">
               Join a community of architects, designers, and AI enthusiasts
@@ -213,13 +213,15 @@ const Home = () => {
               </Link>
             </Button>
           </div>
-          <Image
-            src={heroPic}
-            width={550}
-            height={475}
-            alt="This is a pic"
-            className="lg:w-[550px] h-full sm:px-4 lg:w-full mx-auto"
-          />
+          <div className="lg:w-[640px] h-full">
+            <Image
+              src={heroPic}
+              width={550}
+              height={475}
+              alt="This is a pic"
+              className="w-full h-full sm:px-4 lg:w-full mx-auto"
+            />
+          </div>
         </div>
       </section>
 
@@ -514,7 +516,7 @@ const Home = () => {
                 placeholder="Email"
               />
               <Button type="submit" styles="active:bg-[#CC8400] transition ease duration-100ms bg-[#FFA809] text-sm md:text-[13.33px] text-white font-medium text-white px-3 py-5 rounded-[20px] md:px-6 md:py-4 md:rounded-[16.67px] h-14 mx-auto">
-               {isLoading ? 'Loading..' : ' Get updates'}
+                {isLoading ? 'Loading..' : ' Get updates'}
               </Button>
             </form>
           </div>
