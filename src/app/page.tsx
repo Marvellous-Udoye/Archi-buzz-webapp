@@ -140,7 +140,7 @@ const TextRevealDemo = () => {
 
 const Home = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
-  
+
   return (
     <div>
       <section className="pt-[42px] sm:pt-[75px] pb-8 md:pb-[100px] px-4 lg:px-0">
@@ -180,10 +180,10 @@ const Home = () => {
           </div>
           <Image
             src={heroPic}
-            width={562}
+            width={550}
             height={475}
             alt="This is a pic"
-            className="lg:w-[550px] w-full h-full sm:px-4 lg:w-full mx-auto"
+            className="lg:w-[550px] h-full sm:px-4 lg:w-full mx-auto"
           />
         </div>
       </section>
