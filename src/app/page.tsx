@@ -215,10 +215,10 @@ const Home = () => {
           </div>
           <Image
             src={heroPic}
-            width={562}
+            width={550}
             height={475}
             alt="This is a pic"
-            className="w-full h-full sm:px-4 lg:w-full mx-auto"
+            className="lg:w-[550px] h-full sm:px-4 lg:w-full mx-auto"
           />
         </div>
       </section>

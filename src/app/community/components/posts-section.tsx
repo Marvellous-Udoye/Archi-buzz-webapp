@@ -59,7 +59,7 @@ const PostFeed = () => {
   };
 
   if (loading) return <p className="bg-[#F6F5F5] w-full h-100vh py-4 pl-4 sm:pl-0">Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (error) return <p className="bg-[#F6F5F5] w-full h-100vh py-4 pl-4 sm:pl-0">{error}</p>;
 
   return (
     <main className={`${styles.feed} flex flex-col gap-[11px]`}>
