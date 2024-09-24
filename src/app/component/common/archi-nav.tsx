@@ -69,7 +69,7 @@ const ArchiNav = ({ isNavbarOpen, isMenuOpen, handleNavClick, closeNavbar }: Nav
               Articles & Podcasts
             </NavLink>
             <NavLink
-              href={["/courses", "/courses/cart"]}
+              href={["/courses", "/courses/cart", "/courses/[courseId]"]}
               style="hover:text-[#FFA500] hover:border-b-[2px] hover:border-[#FFA500] transition ease duration-200"
             >
               Courses
@@ -219,7 +219,7 @@ const ArchiNav = ({ isNavbarOpen, isMenuOpen, handleNavClick, closeNavbar }: Nav
                 Articles & Podcasts
               </NavLink>
               <NavLink
-                href={["/courses", "/courses/cart"]}
+                href={["/courses", "/courses/cart", "/courses/[courseId]"]}
                 style="active:bg-[#FFDB99] md:hover:border-l-[3px] md:hover:border-[#FFA500] transition ease duration-200 p-4 text-[12px] leading-normal border-b-0 text-black"
                 onClick={closeNavbar}
               >

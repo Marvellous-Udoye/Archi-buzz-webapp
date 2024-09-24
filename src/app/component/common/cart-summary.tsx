@@ -18,7 +18,7 @@ const CartSummary = ({  }: CartSummaryProps) => {
         </span>
         <span className="flex justify-between">
           <p>Item (1)</p>
-          <p>₦2500</p>
+          <p>₦6000</p>
         </span>
         <span className="flex justify-between">
           <p>Item (2)</p>
@@ -26,7 +26,7 @@ const CartSummary = ({  }: CartSummaryProps) => {
         </span>
         <span className="flex justify-between">
           <p>Item (1)</p>
-          <p>₦3000</p>
+          <p>₦3500</p>
         </span>
         <span className="flex justify-between">
           <p>Item (2)</p>
@@ -36,7 +36,7 @@ const CartSummary = ({  }: CartSummaryProps) => {
 
       <div className="flex justify-between font-medium text-[16px] pt-1 pt-[6px] sm:text-[20px] leading-[30px] sm:leading-12 border-t-[1px] sm:border-t-[2px] border-t-black border-dashed">
         <h1>Sub-total:</h1>
-        <h1>₦39,500</h1>
+        <h1>₦24,000</h1>
       </div>
 
       <Button

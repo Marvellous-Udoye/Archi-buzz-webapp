@@ -1,3 +1,5 @@
+"use cleient"
+
 import { useEffect, useState } from "react";
 import CourseCard, { ArchiCorurseProps } from "../../component/common/archi-course-card";
 

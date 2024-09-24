@@ -13,10 +13,21 @@ interface NavLinkProps {
 
 const NavLink = ({ href, children, style, onClick }: NavLinkProps) => {
   const pathName = usePathname();
-  const isActive = Array.isArray(href) ? href.includes(pathName) : pathName === href;
+
+  const isActive = React.useMemo(() => {
+    if (Array.isArray(href)) {
+      return href.some(path => pathName.startsWith(path));
+    }
+    if (href === '/courses') {
+      return pathName === '/courses' || pathName.startsWith('/courses/');
+    }
+    return pathName === href;
+  }, [href, pathName]);
+
+  const linkHref = Array.isArray(href) ? href[0] : href;
 
   return (
-    <Link href={Array.isArray(href) ? href[0] : href}>
+    <Link href={linkHref}>
       <li
         className={`
           ${isActive ? 'text-[#FFA500] border-[#FFA500]' : ''}

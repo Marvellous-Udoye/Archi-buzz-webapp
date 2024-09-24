@@ -8,7 +8,7 @@ export interface ArchiCorurseProps {
   bookTitle: string;
   author: string;
   rating: number;
-  price: string;
+  price: number;
   isLiked: boolean;
   isAddedToCart: boolean;
   handleLike: () => void;
@@ -19,15 +19,17 @@ const CourseCard = ({ id, bookCover, bookTitle, author, rating, price, isLiked, 
   return (
     <div className="border-[1px] mx-auto max-w-[402px] w-full rounded-[20px] mb-8 shadow-custom transform sm:scale-95 md:hover:scale-105 hover:shadow-[0px_8px_20px_rgba(0,0,0,0.1),_0px_16px_40px_rgba(0,0,0,0.15)] transition ease duration-100ms group ">
 
-      <div className="relative bg-[#F0F0F0] flex items-center justify-center max-w-[402px] sm:py-[43px] w-full rounded-tr-[16px] rounded-tl-[16px]">
-        <Image
-          src={bookCover}
-          alt="Book Cover Picture"
-          width={162}
-          height={227}
-          className="w-full h-auto object-cover sm:w-[162px] sm:h-[227px] rounded-tr-[16px] rounded-tl-[16px] sm:rounded-none"
-          priority
-        />
+      <div className="relative bg-[#F0F0F0] flex items-center justify-center max-w-[402px] sm:py-[38px] w-full rounded-tr-[16px] rounded-tl-[16px] group">
+        <div className="h-[420px] sm:h-[227px] w-full">
+          <Image
+            src={bookCover}
+            alt="Book Cover Picture"
+            width={162}
+            height={227}
+            className="w-full h-auto sm:object-contain sm:w-[162px] mx-auto h-full rounded-tr-[16px] rounded-tl-[16px] sm:rounded-none transform md:group-hover:scale-110 transition ease duration-100ms"
+            priority
+          />
+        </div>
         <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-40 z-10 transition-opacity duration-[3000ms] rounded-tr-[16px] rounded-tl-[16px]" />
         <div className="absolute inset-0 flex justify-center items-center z-20">
           <Link href={`/courses/${id}`}>

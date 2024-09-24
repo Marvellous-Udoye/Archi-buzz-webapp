@@ -1,10 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import ArchiCourses from '.';
-import bookCover from '../../../public/images/courses/book2.png';
 import Button from '../../component/common/archi-button';
 import { ArchiCorurseProps } from '../../component/common/archi-course-card';
+import ArchiCourses from './archi-courses';
 
 interface ArchiDescription extends ArchiCorurseProps {
   description: string;
@@ -36,7 +35,7 @@ const CourseDescription = ({ id }: { id: string }) => {
         if (fetchedCourse) {
           setCourse(fetchedCourse);
         } else {
-          setError('Failed to fetch course');
+          setError('Failed to fetch course description');
         }
         setLoading(false);
       };
@@ -48,22 +47,27 @@ const CourseDescription = ({ id }: { id: string }) => {
     }
   }, [id]);
 
-  const initialPrice = 2500;
+  const initialPrice = course?.price ? course.price : 0;
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(initialPrice);
-  const [isAddedToCart, setIsAddedToCart] = useState(false)
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const [isQuantityChange, setIsQuantityChange] = useState(false);
 
   const handleIncrease = () => {
     setQuantity(prevQuantity => prevQuantity + 1);
-    setTotalPrice(prevTotalPrice => prevTotalPrice + initialPrice);
+    setTotalPrice(prevTotalPrice => (prevTotalPrice || 0) + initialPrice);
   };
 
   const handleDecrease = () => {
     if (quantity > 1) {
       setQuantity(prevQuantity => prevQuantity - 1);
-      setTotalPrice(prevTotalPrice => prevTotalPrice - initialPrice);
+      setTotalPrice(prevTotalPrice => (prevTotalPrice || 0) - initialPrice);
     }
   };
+
+  useEffect(() => {
+    setTotalPrice(initialPrice);
+  }, [initialPrice]);
 
   const handleAddToCart = () => {
     setIsAddedToCart(true)
@@ -82,19 +86,19 @@ const CourseDescription = ({ id }: { id: string }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
               <div className="bg-[#F0F0F0] mx-auto flex items-center justify-center sm:max-w-[698px] sm:py-[40px] w-full">
                 <Image
-                  src={bookCover}
+                  src={course.bookCover}
                   alt="Book Cover Picture"
                   width={400}
                   height={400}
-                  className="w-full sm:max-h-[400px] sm:h-auto object-cover sm:object-contain rounded-sm sm:rounded-none"
+                  className="w-full h-[380px] sm:max-h-[400px] sm:h-auto sm:object-contain rounded-sm sm:rounded-none"
                   priority
                 />
               </div>
 
               <div className="flex flex-col gap-[30px] sm:gap-[88px]">
                 <div className="flex flex-col gap-3 sm:gap-5 h-full">
-                  <p className="text-[16px] sm:text-[30px] leading-6 sm:leading-[44px] font-medium">Artificial Intelligence in Architecture: Innovations for Future Urban Design in India</p>
-                  <p className="text-[20px] sm:text-[36px] font-bold leading-6 sm:leading-[48px]">₦{totalPrice}</p>
+                  <p className="text-[16px] sm:text-[30px] leading-6 sm:leading-[44px] font-medium">{course.bookTitle}</p>
+                  <p className="text-[20px] sm:text-[36px] font-bold leading-6 sm:leading-[48px]">₦{isQuantityChange ? course.price : totalPrice}</p>
 
                   <div className="flex items-center gap-2 sm:gap-4">
                     <Button
@@ -154,9 +158,8 @@ const CourseDescription = ({ id }: { id: string }) => {
 
             <div className="flex flex-col gap-3 sm:gap-5 w-full">
               <h2 className="font-bold text-[20px] sm:text-[32px] leadiing-6 sm:leading-12">Description</h2>
-              <h2 className="font-medium text-[12px] sm:text-base overflow-hidden text-ellipsis break-words h-[calc(1.5em*8)] leading-6 sm:leading-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sint assumenda dignissimos ratione, consequuntur ad alias quasi nihil distinctio eaque excepturi eum possimus commodi doloribus ullam rerum incidunt, tempore esse.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint ducimus similique omnis iusto voluptate blanditiis nemo! Aut, libero? Eum, soluta a quis consectetur repudiandae consequuntur velit minima reprehenderit nulla quasi.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum qui, labore doloribus ipsa rerum dolor fugit tempora, neque consequuntur nihil praesentium nobis eligendi nisi quia ducimus voluptates ab voluptatibus quas!
+              <h2 className="font-medium text-[12px] sm:text-base overflow-hidden text-ellipsis break-words h-[calc(1.5em*8)] leading-6 sm:leading-8">
+                {course.description}
               </h2>
             </div>
           </div>

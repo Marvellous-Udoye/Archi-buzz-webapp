@@ -3,15 +3,15 @@
 import Link from "next/link";
 import { Suspense, useState } from "react";
 import Input from "../component/common/archi-input";
-import ArchiCourses from "./components";
+import ArchiCourses from "./components/archi-courses";
 
 const Courses = () => {
   const [search, setSearch] = useState('')
 
   return (
     <div className={`max-w-[1266px] mx-auto px-4 lg:px-0`}>
-      <header className="flex flex-col gap-4 sm:gap-6 my-6">
-        <h1 className="font-medium text-[24px] sm:text-[32px] md:text-[40px]">Explore our courses and books on Architecture and AI</h1>
+      <header className="flex flex-col gap-4 sm:gap-6 mt-5 mb-6">
+        <h1 className="font-medium text-[22px] sm:text-[32px] md:text-[40px]">Explore our courses and books on Architecture and AI</h1>
 
         <div className="flex gap-2 md:justify-between">
           <div className="w-full max-w-[593px]">
