@@ -1,15 +1,17 @@
 "use client"
 
-import Image from "next/image";
-import featuresPic from "../../public/assets/images/features.png";
-import heroPic from "../../public/assets/images/hero-pic.png";
-import landImg2 from "../../public/assets/images/land-img-2.png";
-import archibuzzLogo from "../../public/icons/archibuzz-logo.svg";
-import Button from "./component/common/archi-button";
-import ArchNumbers from "./component/common/landing-page-numbers";
+import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
+import { FormEvent, useRef, useState } from "react";
+import archibuzzLogo from "../../../public/icons/archibuzz-logo.svg";
+import featuresPic from "../../../public/assets/images/features.png";
+import landImg2 from "../../../public/assets/images/land-img-2.png";
+import Button from "../component/common/archi-button";
+import ArchNumbers from "../component/common/landing-page-numbers";
 
 import Marquee from "@/components/magicui/marquee";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
 const reviews = [
   {
@@ -87,8 +89,6 @@ const MarqueeDemo = () => {
   );
 }
 
-import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
-
 interface HeroVideoDialogDemoProps {
   isVideoOpen: boolean;
   setIsVideoOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -119,26 +119,7 @@ const HeroVideoDialogDemo: React.FC<HeroVideoDialogDemoProps> = ({ isVideoOpen, 
   );
 }
 
-import TypingAnimation from "@/components/magicui/typing-animation";
-import Link from "next/link";
-import { FormEvent, useRef, useState } from "react";
-
-const TextRevealDemo = () => {
-  return (
-    <TypingAnimation
-      className="text-[2rem] md:text-[2.5rem] lg:text-[4rem] font-bold text-center lg:text-left text-black dark:text-white"
-      text={
-        <>
-          Empower Your{" "}
-          <span style={{ color: "#FFA500" }}>Architectural Vision</span> with{" "}
-          <span style={{ color: "#808080" }}>AI</span> Innovation
-        </>
-      }
-    />
-  );
-}
-
-const Home = () => {
+const AboutUs = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
@@ -175,57 +156,9 @@ const Home = () => {
     }
   };
 
-
   return (
     <div>
-      <section className="pt-[42px] sm:pt-[75px] pb-8 md:pb-[100px] px-4 lg:px-0">
-        <div className="flex flex-col lg:flex-row gap-[35px] lg:justify-between max-w-[700px] lg:max-w-[1266px] mx-auto">
-          <div className="flex flex-col items-center justify-center lg:justify-start lg:items-start gap-5 w-full max-w-[640px] text-center lg:text-left mx-auto lg:mx-0">
-            <TextRevealDemo />
-            <p className="text-xs font-medium leading-6 md:text-base md:leading-8 text-center lg:text-left">
-              Join a community of architects, designers, and AI enthusiasts
-              transforming the future of architecture and design. Learn,
-              collaborate, and innovate with cutting-edge AI tools and
-              techniques
-            </p>
-            <Button
-              icon={
-                <svg
-                  width="13"
-                  height="13"
-                  viewBox="0 0 13 13"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1.16797 11.5687L12.0013 0.735352M12.0013 0.735352V11.1354M12.0013 0.735352H1.6013"
-                    stroke="white"
-                    strokeWidth="1.25"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              }
-              styles="bg-[#FFA809] text-sm text-white font-medium mx-auto md:mx-0 px-2 py-[10px] rounded-lg md:px-6 md:py-4 md:rounded-[20px] border-r-[3px] border-r-black border-b-[3px] border-b-black hover:bg-[#CC8400] transition ease duration-100ms"
-            >
-              <Link href={'/signup'}>
-                Join our Community
-              </Link>
-            </Button>
-          </div>
-          <div className="lg:w-[640px] h-full">
-            <Image
-              src={heroPic}
-              width={550}
-              height={475}
-              alt="This is a pic"
-              className="w-full h-full sm:px-4 lg:w-full mx-auto"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="pb-[50px] lg:pb-[100px] px-4 sm:px-[14px] lg:px-0 pt-[25px] md:pt-0">
+      <section className="pt-[25px] pb-[30px] lg:py-[60px] px-4 sm:px-[14px] lg:px-0 pt-[25px]">
         <div className="flex flex-col-reverse py-8 lg:flex-row items-center justify-between gap-[55px] max-w-[1266px] mx-auto">
           <div className="w-full h-full rounded-lg">
             <HeroVideoDialogDemo
@@ -499,11 +432,6 @@ const Home = () => {
                 </ul>
               </div>
             </div>
-            <ul className="flex flex-col gap-1 mb-5 font-medium text-[18px] sm:text-xl leading-12 md:leading-8 md:font-bold md:mb-0">
-              <li className="hover:text-[#FFA500] transition ease duration-100ms cursor-pointer w-fit">About</li>
-              <li className="hover:text-[#FFA500] transition ease duration-100ms cursor-pointer w-fit">Products</li>
-              <li className="hover:text-[#FFA500] transition ease duration-100ms cursor-pointer w-fit">Home</li>
-            </ul>
             <form id="getupdates" method="POST" onSubmit={handleSubmit} action={url} ref={formRef} className="grid gap-5 p-5  rounded-[20px] max-w-[340px] w-full bg-[#FFE4B2]">
               <p className="text-base font-bold leading-8 text-center">
                 Get tips and resources sent to your inbox
@@ -534,7 +462,7 @@ const Home = () => {
         </div>
       </footer>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default AboutUs;

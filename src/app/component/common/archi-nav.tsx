@@ -50,7 +50,9 @@ const ArchiNav = ({ isNavbarOpen, isMenuOpen, handleNavClick, closeNavbar }: Nav
             <NavLink
               href={"/community"}
               style="hover:text-[#FFA500] hover:border-b-[2px] hover:border-[#FFA500] transition ease duration-200"
-            >Community</NavLink>
+            >
+              Community
+            </NavLink>
             <NavLink
               href={"/hubs"}
               style="hover:text-[#FFA500] hover:border-b-[2px] hover:border-[#FFA500] transition ease duration-200"
@@ -196,7 +198,8 @@ const ArchiNav = ({ isNavbarOpen, isMenuOpen, handleNavClick, closeNavbar }: Nav
                 style="active:bg-[#FFDB99] md:hover:border-l-[3px] md:hover:border-[#FFA500] transition ease duration-200 p-4 text-[12px] leading-normal border-b-0 text-black"
                 onClick={closeNavbar}
               >
-                Community</NavLink>
+                Community
+              </NavLink>
               <NavLink
                 href={"/hubs"}
                 style="active:bg-[#FFDB99] md:hover:border-l-[3px] md:hover:border-[#FFA500] transition ease duration-200 p-4 text-[12px] leading-normal border-b-0 text-black"
