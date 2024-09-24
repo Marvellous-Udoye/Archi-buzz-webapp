@@ -56,12 +56,14 @@ const CourseDescription = ({ id }: { id: string }) => {
   const handleIncrease = () => {
     setQuantity(prevQuantity => prevQuantity + 1);
     setTotalPrice(prevTotalPrice => (prevTotalPrice || 0) + initialPrice);
+    setIsQuantityChange(isQuantityChange)
   };
 
   const handleDecrease = () => {
     if (quantity > 1) {
       setQuantity(prevQuantity => prevQuantity - 1);
       setTotalPrice(prevTotalPrice => (prevTotalPrice || 0) - initialPrice);
+      setIsQuantityChange(isQuantityChange)
     }
   };
 
