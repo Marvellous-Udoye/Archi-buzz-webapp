@@ -10,37 +10,37 @@ We aim to revolutionize the future of architecture by leveraging AI technologies
 - Resource Hub: Offer a wealth of knowledge through tutorials, articles, and shared projects to inspire growth and creativity.
   
 # Key Features
-Community Collaboration
-- A vibrant platform for architects, designers, and AI enthusiasts to connect.
-- Users can showcase their work, interact, like, save, and comment on others' designs.
-AI Tools and Resources
-- Access to a curated selection of AI tools and courses available at discounted rates for members.
-- Resources designed to integrate AI into architectural and design processes.
-Trending News and Articles
-- Stay informed with the latest trends in AI and architecture through blogs, journals, and articles.
-Product Offerings
- 1. ArchiBuzz- A hub for collaboration and innovation in architecture and AI, designed to elevate your design processes.
- 2. ArchiGuide- An AI-powered tool that automates tasks, boosts creativity, and provides insights to transform your design projects.
- 3. Our Design Studio- A team of architects and designers dedicated to creating unique and functional spaces, using advanced AI tools to push the boundaries of design.
+- Community Collaboration
+  - A vibrant platform for architects, designers, and AI enthusiasts to connect.
+  - Users can showcase their work, interact, like, save, and comment on others' designs.
+- AI Tools and Resources
+  - Access to a curated selection of AI tools and courses available at discounted rates for members.
+  - Resources designed to integrate AI into architectural and design processes.
+- Trending News and Articles
+  - Stay informed with the latest trends in AI and architecture through blogs, journals, and articles.
+- Product Offerings
+   1. ArchiBuzz- A hub for collaboration and innovation in architecture and AI, designed to elevate your design processes.
+   2. ArchiGuide- An AI-powered tool that automates tasks, boosts creativity, and provides insights to transform your design projects.
+   3. Our Design Studio- A team of architects and designers dedicated to creating unique and functional spaces, using advanced AI tools to push the boundaries of design.
 
 Visit us at https://archi-buzz.vercel.app/
 
 # Installation
 1. Clone the repository:
 
-  git clone https://github.com/Marvellous-Udoye/Archi-buzz-webapp.git
+    git clone https://github.com/Marvellous-Udoye/Archi-buzz-webapp.git
 
 2. Navigate into the project directory:
 
-  cd archibuzz
+    cd archibuzz
 
 3. Install dependencies:
 
-  npm install
+    npm install
 
 4. Start the development server:
 
-  npm run dev
+    npm run dev
 
 5. Open your browser and visit http://localhost:3000.
 
