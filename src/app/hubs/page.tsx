@@ -21,26 +21,26 @@ const HubsPage = () => {
   const [hubChat, setHubChat] = useState<Hubs[]>([]);
   const isActive = 'border-l-4 border-solid border-l-[#FFA500] bg-[#FFE4B2]';
 
-  const mockhubChat: Hubs[] = [
-    {
-      hub: 'Midjourney AI',
-      user: ['Joseph Melody'],
-      chatBox: [
-        'Guys, have you heard of prome AIs latest features bro, we can now make our images for free!',
-        'I heard that we just have to login today, Then we will see the update.',
-      ],
-    },
-    {
-      hub: 'LookX',
-      user: ['Olivia Jewel'],
-      chatBox: [
-        'Have you heard of prome AIs latest features bro, it is the AI tools, it is amazing!',
-        'Share it with me, I want to see the update.',
-      ],
-    },
-  ];
-
   useEffect(() => {
+    const mockhubChat: Hubs[] = [
+      {
+        hub: 'Midjourney AI',
+        user: ['Joseph Melody'],
+        chatBox: [
+          'Guys, have you heard of prome AIs latest features bro, we can now make our images for free!',
+          'I heard that we just have to login today, Then we will see the update.',
+        ],
+      },
+      {
+        hub: 'LookX',
+        user: ['Olivia Jewel'],
+        chatBox: [
+          'Have you heard of prome AIs latest features bro, it is the AI tools, it is amazing!',
+          'Share it with me, I want to see the update.',
+        ],
+      },
+    ];
+
     const fetchHubs = async (): Promise<Hubs[] | undefined> => {
       try {
         const response = await fetch('/api/hubs');

@@ -59,7 +59,7 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center justify-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt="" src={img} />
+        <Image className="rounded-full" width="32" height="32" alt="" src={img} />
         <figcaption className="text-sm font-medium dark:text-white">
           {name}
         </figcaption>
@@ -177,8 +177,8 @@ const Home = () => {
 
 
   return (
-    <div className="md:max-w-[1298px] px-4 xl:px-0 mx-auto">
-      <section className="pt-[42px] sm:pt-[75px] pb-8 md:pb-[100px]">
+    <div className="">
+      <section className="pt-[42px] sm:pt-[75px] pb-8 md:pb-[100px] md:max-w-[1298px] px-4 mx-auto">
         <div className="flex flex-col lg:flex-row gap-[35px] lg:justify-between max-w-[700px] lg:max-w-[1266px] mx-auto">
           <div className="flex flex-col items-center justify-center lg:justify-start lg:items-start gap-5 w-full max-w-[640px] text-center lg:text-left mx-auto lg:mx-0">
             <TextRevealDemo />
@@ -226,7 +226,7 @@ const Home = () => {
       </section>
 
       <section className="pb-[50px] lg:pb-[100px] px-4 sm:px-[14px] lg:px-0 pt-[25px] md:pt-0">
-        <div className="flex flex-col-reverse py-8 lg:flex-row items-center justify-between gap-[55px] max-w-[1266px] mx-auto">
+        <div className="flex flex-col-reverse py-8 lg:flex-row items-center justify-between gap-[55px] md:max-w-[1298px] px-4 mx-auto">
           <div className="w-full h-full rounded-lg">
             <HeroVideoDialogDemo
               isVideoOpen={isVideoOpen}
