@@ -10,7 +10,7 @@ const CourseDescPage = () => {
   const id = params.id as string;
 
   return (
-    <div className="max-w-[1266px] mx-auto px-4 lg:px-0">
+    <div className="max-w-[1298px] mx-auto px-4">
       <main>
         <Suspense fallback="Loading.......">
           <CourseDescription id={id} />

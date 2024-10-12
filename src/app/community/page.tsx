@@ -33,8 +33,7 @@ const Community = () => {
   };
 
   return (
-    <div className={`max-w-[1266px] mx-auto mt-[30px]`}>
-
+    <div className="max-w-[1298px] px-4 mx-auto mt-[30px]">
       <div className={`${styles.filter} flex flex-col gap-[33px]`}>
         <div className={`${styles.search_input_ctn} flex items-center gap-3`}>
           <div className={`${styles.search_input} flex items-center relative group`}>

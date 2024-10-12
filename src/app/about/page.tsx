@@ -157,7 +157,7 @@ const AboutUs = () => {
   };
 
   return (
-    <div>
+    <div className="md:max-w-[1298px] px-4 mx-auto">
       <section className="pt-[25px] pb-[30px] lg:py-[60px] px-4 sm:px-[14px] lg:px-0 pt-[25px]">
         <div className="flex flex-col-reverse py-8 lg:flex-row items-center justify-between gap-[55px] max-w-[1266px] mx-auto">
           <div className="w-full h-full rounded-lg">

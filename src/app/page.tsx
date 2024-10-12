@@ -177,8 +177,8 @@ const Home = () => {
 
 
   return (
-    <div>
-      <section className="pt-[42px] sm:pt-[75px] pb-8 md:pb-[100px] px-4 lg:px-0">
+    <div className="md:max-w-[1298px] px-4 xl:px-0 mx-auto">
+      <section className="pt-[42px] sm:pt-[75px] pb-8 md:pb-[100px]">
         <div className="flex flex-col lg:flex-row gap-[35px] lg:justify-between max-w-[700px] lg:max-w-[1266px] mx-auto">
           <div className="flex flex-col items-center justify-center lg:justify-start lg:items-start gap-5 w-full max-w-[640px] text-center lg:text-left mx-auto lg:mx-0">
             <TextRevealDemo />

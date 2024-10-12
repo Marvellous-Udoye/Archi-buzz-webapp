@@ -42,7 +42,7 @@ const Article = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="max-w-[1266px] mx-auto px-4 lg:px-0 mb-6 sm:mb-8">
+    <div className="max-w-[1298px] mx-auto px-4 mb-6 sm:mb-8">
       <form className="max-w-[593px] relative mt-8 mb-6">
         <Input
           id="searchBar"
