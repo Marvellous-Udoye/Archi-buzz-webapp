@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Button from '../component/common/archi-button';
 import Input from '../component/common/archi-input';
-import styles from './community.module.css';
 import AccountSection from './components/accounts-section';
 import HubSection from './components/husbs-section';
 import PeopleFeed from './components/people-section';
@@ -34,14 +33,14 @@ const Community = () => {
 
   return (
     <div className="max-w-[1298px] px-4 mx-auto mt-[30px]">
-      <div className={`${styles.filter} flex flex-col gap-[33px]`}>
-        <div className={`${styles.search_input_ctn} flex items-center gap-3`}>
-          <div className={`${styles.search_input} flex items-center relative group`}>
+      <div className="flex flex-col gap-[33px] xl:max-w-[700px]">
+        <div className="flex items-center gap-3 sm:justify-between">
+          <div className="flex items-center relative group">
             <Input
               id="SearchAndFilter"
               value={search}
               type="text"
-              styles="max-h-[46px] sm:max-h-[54px] pl-[42px] sm:pl-16 outline-none rounded-tl-[16px] rounded-bl-[16px] border-r-0 rounded-tr-none rounded-br-none group-hover:shadow-custom"
+              styles="max-h-[46px] sm:max-h-[54px] pl-[42px] sm:pl-16 outline-none rounded-tl-[16px] rounded-bl-[16px] border-r-0 rounded-tr-none rounded-br-none group-hover:shadow-custom text-sm sm:text-base"
               handleChange={(e) => setSearch(e.target.value)}
               placeholder="Search for a post"
             >
@@ -61,7 +60,7 @@ const Community = () => {
           <div className="relative flex items-center">
             <Button
               handleClick={toggleDropdown}
-              styles="flex items-center justify-center gap-1 bg-[#E3E3E3] h-[54px] px-4 py-2 rounded-[12px] w-[90px] sm:w-[130px] w-full"
+              styles="flex items-center justify-center gap-1 bg-[#E3E3E3] h-[46px] sm:h-[54px] px-4 py-2 rounded-[12px] w-[90px] sm:w-[130px] text-xs sm:text-sm"
             >
               {selectedOption}
               <svg className={`${isOpen ? 'transform rotate-180' : ''} w-[18px] h-[18px] sm:w-[21px] sm:h-[21px] shrink-0`} xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
@@ -90,8 +89,8 @@ const Community = () => {
           </div>
         </div>
 
-        <div className={`${styles.page_ctrl} flex justify-between`}>
-          <span className='flex items-end leading-8 gap-[30px] font-[500] text-[16px] cursor-pointer'>
+        <div className="flex justify-between items-center bg-[#F6F5F5] rounded-t-[20px] sm:rounded-none sm:bg-transparent p-4 sm:p-0">
+          <span className='flex items-end leading-8 gap-[30px] font-medium text-xs sm:text-base cursor-pointer'>
             <p
               className={`py-1 ${activeTab === 'Post' ? 'text-[#FFA500] border-b-[2px] border-[#FFA500]' : ''}`}
               onClick={() => handleTabClick('Post')}
@@ -105,9 +104,9 @@ const Community = () => {
               People
             </p>
           </span>
-          <Button styles={`${styles.refresh_button} bg-[#fff] px-2 sm:px-[12px] py-[3px] sm:py-[6px] rounded-[5px] border-[0.83px] border-black leading-[26px] text-[12px]`}>
+          <Button styles="bg-white px-2 sm:px-3 py-1 sm:py-1.5 rounded text-xs sm:text-sm border border-black leading-6 sm:leading-7 inline-flex items-center cursor-pointer hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200">
             <p>Refresh feed</p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" className="bi bi-arrow-repeat" viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" className="bi bi-arrow-repeat ml-1" viewBox="0 0 16 16">
               <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"></path>
               <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"></path>
             </svg>
@@ -115,28 +114,30 @@ const Community = () => {
         </div>
       </div>
 
-      <div className={`${styles.community_ctn} flex max-w-[1266px] justify-between`}>
-        {activeTab === 'Post' ? (
-          <PostFeed />
-        ) : (
-          <PeopleFeed />
-        )}
+      <div className="flex flex-col lg:flex-row lg:justify-between lg:gap-8 lg:pt-3">
+        <div className="lg:max-w-[700px] w-full">
+          {activeTab === 'Post' ? (
+            <PostFeed />
+          ) : (
+            <PeopleFeed />
+          )}
+        </div>
 
-        <aside className={`${styles.hubs_and_suggestions} flex flex-col gap-4 bg-[#F6F5F5] rounded-[16px]`}>
-          <div className={`${styles.hubs} flex flex-col p-[13px] `}>
-            <div className={`${styles.hubs_header} flex flex-col gap-[13px]`}>
-              <p className='text-[40px] font-[500]'>Hubs</p>
-              <p className='text-[16px] font-[500] leading-[32px]'>Join or create your own community and try and get to the top 4.</p>
+        <aside className="flex flex-col gap-4 bg-[#F6F5F5] rounded-[16px] lg:max-w-[528px] w-full h-fit mt-10 lg:mt-0">
+          <div className="flex flex-col p-[13px]">
+            <div className="flex flex-col gap-[13px] lg:gap-0 text-center pt-3">
+              <p className='text-2xl lg:text-[32px] font-medium'>Hubs</p>
+              <p className='text-xs lg:text-base font-medium leading-6 lg:leading-8'>Join or create your own community and try and get to the top 4.</p>
             </div>
 
-            <div className='text-center text-[16px] font=[500] leading-8 my-[33px]'>
+            <div className='text-center text-xs lg:text-base font-medium leading-6 lg:leading-8 my-[33px]'>
               <p>Top 4 Most Populous Hubs🎉</p>
               <p>These are the hubs with the most members.</p>
             </div>
             <HubSection />
             <Link href={'/hubs'}>
               <Button
-                styles={`${styles.create_hub} bg-[#FFA809] mt-[46px] w-full p-4 rounded-[8px] shadow-custom leading-8`}
+                styles="bg-[#FFA809] mt-10 lg:mt-[46px] w-full p-2.5 lg:p-4 rounded text-xs lg:text-base leading-6 lg:leading-8 shadow-custom"
               >
                 <p>Create Hub</p>
               </Button>
@@ -144,8 +145,8 @@ const Community = () => {
           </div>
 
           {activeTab === "Post" &&
-            <div className={`${styles.suggestions} flex flex-col gap-[33px] p-[13px] `}>
-              <p className={`${styles.suggestions_header} text-[40px] font-[500]`}>Suggested accounts</p>
+            <div className="flex flex-col gap-5 lg:gap-[33px] p-[13px]">
+              <p className="text-2xl lg:text-[32px] font-medium text-center">Suggested accounts</p>
               <AccountSection />
             </div>}
         </aside>
