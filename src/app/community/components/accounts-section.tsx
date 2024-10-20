@@ -9,40 +9,17 @@ interface AccountProps {
   authorsPicture: string;
 }
 
-// export async function fetchData(url: string): Promise<AccountProps[] | undefined> {
-//   try {
-//     const response = await fetch(url);
-//     if (!response.ok) {
-//       throw new Error("Unable to fetch hubs data");
-//     }
-//     const data: AccountProps[] = await response.json();
-//     return data;
-//   } catch (error) {
-//     return undefined;
-//   }
-// }
-
 const AccountSection = () => {
   const [accountData, setAccountData] = useState<AccountProps[]>([]);
   const [isAccountFollowing, setIsAccountFollowing] = useState<boolean[]>(
     new Array(accountData.length).fill(false)
   );
   const [isloading, setLoading] = useState(true);
-  // const [error, setError] = useState('')
 
-  // useEffect(() => {
-  //   fetchData('/accountsData.json')
-  //     .then((data) => {
-  //       if (data) {
-  //         setAccountData(data);
-  //       } else {
-  //         setError('Unable to fetch hubs data');
-  //       }
-  //     })
-  //     .finally(() => setLoading(false));
-  // }, []);
-
-  const { data, loading, error } = useFetch("/accountsData.json");
+  const { data, loading, error } = useFetch(
+    "/accountsData.json",
+    "error fetching accounts data"
+  );
 
   useEffect(() => {
     setLoading(loading);

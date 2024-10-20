@@ -15,7 +15,7 @@ const ArchiCourses = () => {
   const [courses, setCourses] = useState<CourseWithLikesAndCarts[]>([]);
   const { data, loading, error } = useFetch(
     "/coursesData.json",
-    "reload page..."
+    "Error fetching courses"
   );
 
   const updatedCourses = data.map((course: ArchiCorurseProps) => ({

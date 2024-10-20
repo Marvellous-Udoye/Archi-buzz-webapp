@@ -169,7 +169,7 @@ const HubsPage = () => {
                     alt="this is emoji image"
                     className="w-4 h-4 sm:h-5 sm:w-5"
                   />
-                  <label htmlFor="user-input-text">h</label>
+                  <label htmlFor="user-input-text">{}</label>
                   <input
                     type="text"
                     name="user-input-text"
