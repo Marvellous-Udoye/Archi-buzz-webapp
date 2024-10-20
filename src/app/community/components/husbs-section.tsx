@@ -1,51 +1,38 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import HubsCard from "@/app/component/common/hubs-card";
 import Button from "@/app/component/common/archi-button";
 import { useRouter } from "next/navigation";
+import useFetch from "@/hooks/fetchData";
 
 interface HubsProps {
   hubName: string;
   members: number;
 }
 
-export async function fetchData(url: string): Promise<HubsProps[] | undefined> {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error("Unable to fetch hubs data");
-    }
-    const data: HubsProps[] = await response.json();
-    return data;
-  } catch (error) {
-    return undefined;
-  }
-}
-
 const HubSection = () => {
-  const [hubsData, setHubsData] = useState<HubsProps[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
-  const router = useRouter()
+  const [hubsData, setHubsData] = useState<HubsProps[]>([]);
+  const router = useRouter();
+  const { data, loading, error } = useFetch(
+    "/hubsData.json",
+    "Unable to fetch hubs data"
+  );
 
   useEffect(() => {
-    fetchData('/hubsData.json')
-      .then((data) => {
-        if (data) {
-          setHubsData(data);
-        } else {
-          setError('Unable to fetch hubs data');
-        }
-      })
-      .finally(() => setLoading(false));
-  }, []);
+    if (data && !loading && !error) {
+      setHubsData(data);
+      console.log(data);
+    }
+  }, [data, loading, error]);
 
-  const handleJoinHub = () => {
-    router.push('/hubs')
-  }
+  const handleJoinHub = useCallback(() => {
+    router.push("/hubs");
+  }, [router]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
-  
+
+  if (!hubsData.length) return <p>No hubs available.</p>;
+
   return (
     <div className="flex flex-col gap-4">
       {hubsData.map((hub, hubIndex) => (
@@ -68,6 +55,6 @@ const HubSection = () => {
       ))}
     </div>
   );
-}
+};
 
 export default HubSection;

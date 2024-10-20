@@ -1,7 +1,10 @@
-"use cleient"
+"use cleient";
 
 import { useEffect, useState } from "react";
-import CourseCard, { ArchiCorurseProps } from "../../component/common/archi-course-card";
+import CourseCard, {
+  ArchiCorurseProps,
+} from "../../component/common/archi-course-card";
+import useFetch from "@/hooks/fetchData";
 
 interface CourseWithLikesAndCarts extends ArchiCorurseProps {
   liked: boolean;
@@ -10,31 +13,19 @@ interface CourseWithLikesAndCarts extends ArchiCorurseProps {
 
 const ArchiCourses = () => {
   const [courses, setCourses] = useState<CourseWithLikesAndCarts[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const { data, loading, error } = useFetch(
+    "/coursesData.json",
+    "Error fetching courses"
+  );
 
-  const fetchCoursesData = async () => {
-    try {
-      const response = await fetch('/coursesData.json');
-      if (!response.ok) {
-        throw new Error('Unable to fetch courses data');
-      }
-      const courseData = await response.json();
-      const updatedCourses = courseData.map((course: ArchiCorurseProps) => ({
-        ...course,
-        liked: false,
-        addToCart: false,
-      }));
-      setCourses(updatedCourses);
-    } catch (e) {
-      setError('Reload Page...');
-    }
-    setLoading(false);
-  };
-
+  const updatedCourses = data.map((course: ArchiCorurseProps) => ({
+    ...course,
+    liked: false,
+    addToCart: false,
+  }));
   useEffect(() => {
-    fetchCoursesData();
-  }, []);
+    setCourses(updatedCourses);
+  }, [data]);
 
   const handleLikeToggle = (index: number) => {
     const updatedCourses = courses.map((course, i) =>
@@ -44,12 +35,12 @@ const ArchiCourses = () => {
   };
 
   const handleAddtoCart = (index: number) => {
-    setCourses(prevCourses =>
+    setCourses((prevCourses) =>
       prevCourses.map((course, i) =>
         i === index ? { ...course, addToCart: true } : course
       )
     );
-  }
+  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;

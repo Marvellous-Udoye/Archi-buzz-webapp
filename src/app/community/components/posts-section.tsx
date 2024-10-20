@@ -1,6 +1,7 @@
 import Button from "@/app/component/common/archi-button";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import useFetch from "@/hooks/fetchData";
 
 interface PostdataProps {
   name: string;
@@ -11,39 +12,41 @@ interface PostdataProps {
   postPicture: string;
 }
 
-export async function fetchData(url: string): Promise<PostdataProps[] | undefined> {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error("Unable to fetch post data");
-    }
-    const data: PostdataProps[] = await response.json();
-    return data;
-  } catch (error) {
-    return undefined;
-  }
-}
+// export async function fetchData(
+//   url: string
+// ): Promise<PostdataProps[] | undefined> {
+//   try {
+//     const response = await fetch(url);
+//     if (!response.ok) {
+//       throw new Error("Unable to fetch post data");
+//     }
+//     const data: PostdataProps[] = await response.json();
+//     return data;
+//   } catch (error) {
+//     return undefined;
+//   }
+// }
 
 const PostFeed = () => {
-  const [postData, setPostData] = useState<PostdataProps[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
+  const [postData, setPostData] = useState<PostdataProps[]>([]);
+  const [isloading, setLoading] = useState(true);
+  const [isError, setError] = useState("");
   const [isPostFollowing, setIsPostFollowing] = useState<boolean[]>([]);
   const [isLike, setIsLike] = useState<boolean[]>([]);
 
+  // !using the custom fetching hook
+  const { data, loading, error } = useFetch(
+    "/postData.json",
+    "error fetching posts"
+  );
+
   useEffect(() => {
-    fetchData('/postData.json')
-      .then((data) => {
-        if (data) {
-          setPostData(data);
-          setIsPostFollowing(new Array(data.length).fill(false));
-          setIsLike(new Array(data.length).fill(false));
-        } else {
-          setError('Unable to fetch post data');
-        }
-      })
-      .finally(() => setLoading(false));
-  }, []);
+    setPostData(data);
+    setError(error);
+    setLoading(loading);
+    setIsPostFollowing(new Array(data.length).fill(false));
+    setIsLike(new Array(data.length).fill(false));
+  }, [data, loading, error]);
 
   const handleFollowClick = (index: number) => {
     setIsPostFollowing(prev => prev.map((status, i) => i === index ? !status : status));
@@ -53,8 +56,8 @@ const PostFeed = () => {
     setIsLike(prev => prev.map((status, i) => i === index ? !status : status));
   };
 
-  if (loading) return <p className="bg-gray-100 w-full h-screen py-4 pl-4 sm:pl-0">Loading...</p>;
-  if (error) return <p className="bg-gray-100 w-full h-screen py-4 pl-4 sm:pl-0 text-red-500">{error}</p>;
+  if (isloading) return <p className="bg-gray-100 w-full h-screen py-4 pl-4 sm:pl-0">Loading...</p>;
+  if (isError) return <p className="bg-gray-100 w-full h-screen py-4 pl-4 sm:pl-0 text-red-500">{error}</p>;
 
   return (
     <main className="flex flex-col gap-3">
@@ -63,7 +66,7 @@ const PostFeed = () => {
           <div key={index} className="shadow-md rounded-xl bg-white">
             <Image
               src={post.postPicture}
-              alt='Picture of post'
+              alt="Picture of post"
               width={675}
               height={200}
               className='w-full h-[200px] rounded-t-xl object-cover'
@@ -86,7 +89,7 @@ const PostFeed = () => {
                     </svg>}
                 </Button>
 
-                <div className='flex gap-4 py-2.5'>
+                <div className="flex gap-4 py-2.5">
                   <svg
                     onClick={() => handleLikeClick(index)}
                     className={`${isLike[index] ? 'fill-red-500 stroke-red-500' : 'fill-none stroke-black'} cursor-pointer w-5 h-5`} 
@@ -139,13 +142,12 @@ const PostFeed = () => {
                   </div>
                 ))}
               </div>
-
             </div>
           </div>
         ))}
       </section>
     </main>
   );
-}
+};
 
 export default PostFeed;

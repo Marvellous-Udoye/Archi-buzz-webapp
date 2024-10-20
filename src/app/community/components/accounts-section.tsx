@@ -1,49 +1,35 @@
 import AccountCard from '@/app/component/common/accounts';
 import Button from '@/app/component/common/archi-button';
 import { useEffect, useState } from 'react';
+import useFetch from "@/hooks/fetchData";
 
 interface AccountProps {
   accountName: string;
   authorsPicture: string;
 }
 
-export async function fetchData(url: string): Promise<AccountProps[] | undefined> {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error("Unable to fetch accounts data");
-    }
-    const data: AccountProps[] = await response.json();
-    return data;
-  } catch (error) {
-    return undefined;
-  }
-}
-
 const AccountSection = () => {
-  const [accountData, setAccountData] = useState<AccountProps[]>([])
-  const [isAccountFollowing, setIsAccountFollowing] = useState<boolean[]>([]);
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
+  const [accountData, setAccountData] = useState<AccountProps[]>([]);
+  const [isAccountFollowing, setIsAccountFollowing] = useState<boolean[]>(
+    new Array(accountData.length).fill(false)
+  );
+  const [isloading, setLoading] = useState(true);
+
+  const { data, loading, error } = useFetch(
+    "/accountsData.json",
+    "error fetching accounts data"
+  );
 
   useEffect(() => {
-    fetchData('/accountsData.json')
-      .then((data) => {
-        if (data) {
-          setAccountData(data);
-          setIsAccountFollowing(new Array(data.length).fill(false));
-        } else {
-          setError('Unable to fetch accounts data');
-        }
-      })
-      .finally(() => setLoading(false));
-  }, []);
+    setLoading(loading);
+    setAccountData(data);
+  }, [data, loading, error]);
 
   const handleAccountFollowClick = (index: number) => {
     setIsAccountFollowing(prev => prev.map((status, i) => i === index ? !status : status));
   };
 
-  if (loading) return <p className="text-center py-4">Loading...</p>;
+  if (isloading) return <p className="text-center py-4">Loading...</p>;
   if (error) return <p className="text-center py-4 text-red-500">{error}</p>;
 
   return (
@@ -74,6 +60,6 @@ const AccountSection = () => {
       ))}
     </div>
   );
-}
+};
 
 export default AccountSection;
