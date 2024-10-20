@@ -37,7 +37,10 @@ const PostFeed = () => {
   const [isLike, setIsLike] = useState<boolean[]>([]);
 
   // !using the custom fetching hook
-  const { data, loading, error } = useFetch("/postData.json");
+  const { data, loading, error } = useFetch(
+    "/postData.json",
+    "error fetching posts"
+  );
 
   useEffect(() => {
     setPostData(data);
@@ -45,7 +48,7 @@ const PostFeed = () => {
     setLoading(loading);
     setIsPostFollowing(new Array(data.length).fill(false));
     setIsLike(new Array(data.length).fill(false));
-  }, [data]);
+  }, [data, loading, error]);
 
   const handleFollowClick = (index: number) => {
     const updatedFollowStatus = [...isPostFollowing];

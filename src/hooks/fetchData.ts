@@ -6,11 +6,10 @@ function useFetch(url: string, message: string) {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    // setLoading(true);
     fetch(url)
       .then((data) => data.json())
       .then((res) => setData(res))
-      .catch((err) => setError(message))
+      .catch((err) => setError(err + message))
       .finally(() => setLoading(false));
   }, [url]);
 

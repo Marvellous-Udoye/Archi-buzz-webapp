@@ -24,7 +24,7 @@ const AccountSection = () => {
   useEffect(() => {
     setLoading(loading);
     setAccountData(data);
-  });
+  }, [data, loading, error]);
 
   const handleAccountFollowClick = (index: number) => {
     const updatedFollowStatus = [...isAccountFollowing];

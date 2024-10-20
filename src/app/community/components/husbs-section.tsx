@@ -23,7 +23,7 @@ const HubSection = () => {
       setHubsData(data);
       console.log(data);
     }
-  }, [data]);
+  }, [data, loading, error]);
 
   const handleJoinHub = () => {
     router.push("/hubs");
