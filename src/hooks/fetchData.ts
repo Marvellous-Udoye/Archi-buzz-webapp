@@ -11,7 +11,7 @@ function useFetch(url: string, message: string) {
       .then((res) => setData(res))
       .catch((err) => setError(err + message))
       .finally(() => setLoading(false));
-  }, [url]);
+  }, [url, message]);
 
   return { data, loading, error };
 }

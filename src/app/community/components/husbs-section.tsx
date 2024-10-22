@@ -43,7 +43,7 @@ const HubSection = () => {
           numbers={hub.members}
         >
           <Button
-            styles="bg-[#FFE4B2] px-2 py-1 rounded-[16px] flex items-center gap-1 text-xs lg:text-sm lg:px-3 lg:py-1.5"
+            styles="bg-[#FFE4B2] px-2 py-1 rounded-[16px] flex items-center gap-0 sm:gap-1 text-xs lg:text-sm lg:px-3 lg:py-1.5"
             handleClick={handleJoinHub}
           >
             <p>Join</p>

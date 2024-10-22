@@ -1,6 +1,6 @@
-import AccountCard from '@/app/component/common/accounts';
-import Button from '@/app/component/common/archi-button';
-import { useEffect, useState } from 'react';
+import AccountCard from "@/app/component/common/accounts";
+import Button from "@/app/component/common/archi-button";
+import { useEffect, useState } from "react";
 import useFetch from "@/hooks/fetchData";
 
 interface AccountProps {
@@ -13,52 +13,49 @@ const AccountSection = () => {
   const [isAccountFollowing, setIsAccountFollowing] = useState<boolean[]>(
     new Array(accountData.length).fill(false)
   );
-  const [isloading, setLoading] = useState(true);
-
   const { data, loading, error } = useFetch(
     "/accountsData.json",
-    "error fetching accounts data"
+    "error fetching hubs data"
   );
 
   useEffect(() => {
-    setLoading(loading);
     setAccountData(data);
   }, [data, loading, error]);
 
   const handleAccountFollowClick = (index: number) => {
-    setIsAccountFollowing(prev => prev.map((status, i) => i === index ? !status : status));
+    setIsAccountFollowing(prev => {
+      const updated = [...prev];
+      updated[index] = !updated[index];
+      return updated;
+    });
   };
 
-  if (isloading) return <p className="text-center py-4">Loading...</p>;
-  if (error) return <p className="text-center py-4 text-red-500">{error}</p>;
+  if (loading) return <p className="bg-[#F6F5F5] w-full h-screen py-4 pl-4 sm:pl-0">Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
-    <div className="flex flex-col gap-4">
+    <section className="flex flex-col gap-4 w-full xl:max-w-[700px] pb-4 sm:py-3 sm:px-3 rounded-bl-2xl rounded-br-2xl sm:rounded-2xl bg-[#F6F5F5]">
       {accountData.map((account, accountIndex) => (
         <AccountCard
           key={accountIndex}
-          styles="shadow-md rounded-2xl p-4 bg-white"
+          styles="shadow-custom rounded-[16px] p-3 sm:p-2.5 lg:p-4 "
           text={account.accountName}
           profilePicture={account.authorsPicture}
         >
           <Button
-            styles={`${
-              isAccountFollowing[accountIndex]
-                ? 'bg-gray-300 text-black'
-                : 'bg-yellow-500 text-white hover:bg-yellow-600 active:bg-yellow-700'
-            } px-3 py-1.5 rounded-2xl flex items-center gap-1 min-w-[80px] sm:min-w-[120px] transition duration-200 ease-in-out text-sm`}
+            styles={`${isAccountFollowing[accountIndex] ? 'bg-[#D8D8D8] text-black' : 'bg-[#FFA809] text-white active:bg-[#CC8400]'} h-[30px] sm:h-auto px-2 py-1 rounded-[16px] flex items-center gap-0 sm:gap-1 text-xs lg:text-sm lg:px-3 lg:py-1.5 w-[80px] sm:w-[120px] transition duration-100 ease-in-out`}
             handleClick={() => handleAccountFollowClick(accountIndex)}
           >
             <p>{isAccountFollowing[accountIndex] ? 'Following' : 'Follow'}</p>
             {!isAccountFollowing[accountIndex] && (
-              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="18" viewBox="0 0 21 21" fill="none" className="w-4 h-4">
-                <path d="M5.66797 10.833H10.668M10.668 10.833H15.668M10.668 10.833V5.83301M10.668 10.833V15.833" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 21 21" fill="none">
+                <path d="M5.66797 10.833H10.668M10.668 10.833H15.668M10.668 10.833V5.83301M10.668 10.833V15.833" stroke="white" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             )}
           </Button>
         </AccountCard>
       ))}
-    </div>
+    </section>
   );
 };
 

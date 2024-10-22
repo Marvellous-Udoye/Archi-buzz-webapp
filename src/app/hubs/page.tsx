@@ -21,26 +21,26 @@ const HubsPage = () => {
   const [hubChat, setHubChat] = useState<Hubs[]>([]);
   const isActive = "border-l-4 border-solid border-l-[#FFA500] bg-[#FFE4B2]";
 
-  const mockhubChat: Hubs[] = [
-    {
-      hub: "Midjourney AI",
-      user: ["Joseph Melody"],
-      chatBox: [
-        "Guys, have you heard of prome AIs latest features bro, we can now make our images for free!",
-        "I heard that we just have to login today, Then we will see the update.",
-      ],
-    },
-    {
-      hub: "LookX",
-      user: ["Olivia Jewel"],
-      chatBox: [
-        "Have you heard of prome AIs latest features bro, it is the AI tools, it is amazing!",
-        "Share it with me, I want to see the update.",
-      ],
-    },
-  ];
-
   useEffect(() => {
+    const mockhubChat: Hubs[] = [
+      {
+        hub: "Midjourney AI",
+        user: ["Joseph Melody"],
+        chatBox: [
+          "Guys, have you heard of prome AIs latest features bro, we can now make our images for free!",
+          "I heard that we just have to login today, Then we will see the update.",
+        ],
+      },
+      {
+        hub: "LookX",
+        user: ["Olivia Jewel"],
+        chatBox: [
+          "Have you heard of prome AIs latest features bro, it is the AI tools, it is amazing!",
+          "Share it with me, I want to see the update.",
+        ],
+      },
+    ];
+
     const fetchHubs = async (): Promise<Hubs[] | undefined> => {
       try {
         const response = await fetch("/api/hubs");
@@ -108,49 +108,43 @@ const HubsPage = () => {
           </h2>
           <ul className="flex flex-col text-center text-[12px] sm:text-base font-medium leading-8 w-full content-center h-full">
             <li
-              className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${
-                selectedHub === 0 ? isActive : ""
-              }`}
+              className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 0 ? isActive : ""
+                }`}
               onClick={() => setSelectedHub(0)}
             >
               Midjourney AI
             </li>
             <li
-              className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${
-                selectedHub === 1 ? isActive : ""
-              }`}
+              className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 1 ? isActive : ""
+                }`}
               onClick={() => setSelectedHub(1)}
             >
               LookX Hub
             </li>
             <li
-              className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${
-                selectedHub === 2 ? isActive : ""
-              }`}
+              className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 2 ? isActive : ""
+                }`}
               onClick={() => setSelectedHub(2)}
             >
               Flex AI Hub
             </li>
             <li
-              className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${
-                selectedHub === 3 ? isActive : ""
-              }`}
+              className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 3 ? isActive : ""
+                }`}
               onClick={() => setSelectedHub(3)}
             >
               Prome Architects
             </li>
             <li
-              className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${
-                selectedHub === 4 ? isActive : ""
-              }`}
+              className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 4 ? isActive : ""
+                }`}
               onClick={() => setSelectedHub(4)}
             >
               Flux Bosses
             </li>
             <li
-              className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${
-                selectedHub === 5 ? isActive : ""
-              }`}
+              className={`flex flex-col gap-[8.33px] p-[12px] sm:p-[16.67px] border-l-[3px] border-transparent cursor-pointer hover:bg-[#FFE4B2] transition ease duration-100ms ${selectedHub === 5 ? isActive : ""
+                }`}
               onClick={() => setSelectedHub(5)}
             >
               Archi Innovations
@@ -189,7 +183,7 @@ const HubsPage = () => {
                   alt="this is emoji image"
                   className="w-4 h-4 sm:h-5 sm:w-5"
                 />
-                <label htmlFor="user-input-text">{}</label>
+                <label htmlFor="user-input-text">{ }</label>
                 <input
                   type="text"
                   name="user-input-text"
