@@ -12,21 +12,6 @@ interface PostdataProps {
   postPicture: string;
 }
 
-// export async function fetchData(
-//   url: string
-// ): Promise<PostdataProps[] | undefined> {
-//   try {
-//     const response = await fetch(url);
-//     if (!response.ok) {
-//       throw new Error("Unable to fetch post data");
-//     }
-//     const data: PostdataProps[] = await response.json();
-//     return data;
-//   } catch (error) {
-//     return undefined;
-//   }
-// }
-
 const PostFeed = () => {
   const [postData, setPostData] = useState<PostdataProps[]>([]);
   const [isloading, setLoading] = useState(true);
@@ -34,7 +19,6 @@ const PostFeed = () => {
   const [isPostFollowing, setIsPostFollowing] = useState<boolean[]>([]);
   const [isLike, setIsLike] = useState<boolean[]>([]);
 
-  // !using the custom fetching hook
   const { data, loading, error } = useFetch(
     "/postData.json",
     "error fetching posts"
@@ -61,7 +45,7 @@ const PostFeed = () => {
 
   return (
     <main className="flex flex-col gap-3">
-      <section className="flex flex-col gap-4 sm:gap-5 px-1.5 py-3 sm:p-3 rounded-2xl bg-gray-100">
+      <section className="flex flex-col gap-4 sm:gap-5 px-1.5 pb-3 sm:py-3 sm:px-3 rounded-bl-2xl rounded-br-2xl sm:rounded-2xl bg-gray-100">
         {postData.map((post, index) => (
           <div key={index} className="shadow-md rounded-xl bg-white">
             <Image
@@ -75,11 +59,7 @@ const PostFeed = () => {
             <div className="px-2 pb-3 flex flex-col gap-4 mt-5">
               <div className="flex items-center justify-between">
                 <Button
-                  styles={`${
-                    isPostFollowing[index]
-                      ? 'bg-gray-300 text-black'
-                      : 'bg-yellow-500 text-white active:bg-yellow-600'
-                  } py-1.5 px-3 rounded-2xl min-w-[80px] sm:min-w-[120px] transition duration-200 ease-in-out`}
+                  styles={`${isPostFollowing[index] ? 'bg-[#D8D8D8] text-black' : 'bg-[#FFA809] text-white active:bg-[#CC8400]'} h-[30px] sm:h-auto py-1.5 px-3 flex items-center gap-0 sm:gap-1 text-xs sm:text-sm rounded-2xl min-w-[80px] sm:min-w-[120px] transition duration-200 ease-in-out`}
                   handleClick={() => handleFollowClick(index)}
                 >
                   <p>{isPostFollowing[index] ? 'Following' : 'Follow'}</p>
@@ -92,7 +72,7 @@ const PostFeed = () => {
                 <div className="flex gap-4 py-2.5">
                   <svg
                     onClick={() => handleLikeClick(index)}
-                    className={`${isLike[index] ? 'fill-red-500 stroke-red-500' : 'fill-none stroke-black'} cursor-pointer w-5 h-5`} 
+                    className={`${isLike[index] ? 'fill-red-500 stroke-red-500' : 'fill-none stroke-black'} cursor-pointer w-5 h-5`}
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18">
                     <path d="M18.1667 6.38518C18.1667 7.67392 17.6718 8.91175 16.7882 9.82742C14.7541 11.9358 12.7812 14.1344 10.6711 16.1664C10.1874 16.6254 9.42016 16.6087 8.95733 16.1289L2.87813 9.82742C1.04062 7.92267 1.04062 4.84769 2.87813 2.94297C4.7337 1.01954 7.75661 1.01954 9.61216 2.94297L9.83316 3.17202L10.054 2.94311C10.9437 2.02042 12.1553 1.5 13.4211 1.5C14.6868 1.5 15.8984 2.02037 16.7882 2.94297C17.6719 3.85871 18.1667 5.09647 18.1667 6.38518Z" stroke-width="1.25" stroke-linejoin="round" />
                   </svg>
@@ -116,18 +96,17 @@ const PostFeed = () => {
               </div>
 
               <div className="flex items-center justify-between">
-                <div className='flex items-center gap-3'>
+                <div className='flex items-center gap-2 sm:gap-3'>
                   <Image
                     src={post.profilePicture}
                     alt="Author's Picture"
                     width={50}
                     height={50}
-                    className="rounded-full w-[50px] h-[50px] object-cover"
+                    className="rounded-full w-10 sm:w-[50px] h-10 sm:h-[50px] object-cover"
                   />
-                  <p className='text-3xl font-medium'>{post.name}</p>
+                  <p className='text-xl sm:text-3xl font-medium'>{post.name}</p>
                 </div>
-
-                <span className='text-sm font-medium leading-7'>{post.timePosted} ago</span>
+                <span className='text-sm font-medium sm:leading-7'>{post.timePosted} ago</span>
               </div>
 
               <div className="flex items-center gap-1 flex-wrap">
@@ -135,7 +114,7 @@ const PostFeed = () => {
                   <div key={tagIndex}>
                     <Button
                       cssStyle={{ backgroundColor: post.hashtagsColor[tagIndex] }}
-                      styles="py-1.5 px-3 rounded-2xl text-xs text-white"
+                      styles="py-1.5 px-2 sm:px-3 rounded-2xl sm:rounded-2xl text-[9px] sm:text-xs text-white"
                     >
                       <p>{tags}</p>
                     </Button>

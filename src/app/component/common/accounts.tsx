@@ -10,14 +10,14 @@ interface AccountCardProps {
 
 const AccountCard = ({ children, styles, text, profilePicture }: AccountCardProps) => {
   return (
-    <div className={`${styles} bg-[#fff] flex justify-between items-center shadow-custom p-4`}>
+    <div className={`${styles} bg-[#fff] flex justify-between items-center shadow-custom`}>
       <div className='flex items-center'>
         <Image
           src={profilePicture}
-          alt='Picture of post'
+          alt='Profile Picture'
           width={50}
           height={50}
-          className='rounded-full mr-[26px]'
+          className='rounded-full mr-4 sm:mr-[26px] w-10 h-10 sm:w-[50px] sm:h-[50px]'
         />
         <p>{text}</p>
       </div>

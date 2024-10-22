@@ -34,20 +34,16 @@ const PeopleFeed = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <section className="flex flex-col gap-4 w-full xl:max-w-[700px] p-[13px] rounded-[16px] bg-[#F6F5F5]">
+    <section className="flex flex-col gap-4 w-full xl:max-w-[700px] pb-4 sm:py-3 px-3 rounded-bl-2xl rounded-br-2xl sm:rounded-2xl bg-[#F6F5F5]">
       {accountData.map((account, accountIndex) => (
         <AccountCard
           key={accountIndex}
-          styles="shadow-custom rounded-[16px] p-4 lg:p-4 sm:p-2.5"
+          styles="shadow-custom rounded-[16px] p-2 lg:p-4 sm:p-2.5"
           text={account.accountName}
           profilePicture={account.authorsPicture}
         >
           <Button
-            styles={`${
-              isAccountFollowing[accountIndex]
-                ? 'bg-[#D8D8D8] text-black'
-                : 'bg-[#FFA809] text-white active:bg-[#CC8400]'
-            } px-2 py-1 rounded-[16px] flex items-center gap-1 text-xs lg:text-sm lg:px-3 lg:py-1.5 min-w-[80px] sm:min-w-[120px] transition duration-100 ease-in-out`}
+            styles={`${isAccountFollowing[accountIndex] ? 'bg-[#D8D8D8] text-black' : 'bg-[#FFA809] text-white active:bg-[#CC8400]' } h-[30px] sm:h-auto px-2 py-1 rounded-[16px] flex items-center gap-0 sm:gap-1 text-xs lg:text-sm lg:px-3 lg:py-1.5 min-w-[80px] sm:min-w-[120px] transition duration-100 ease-in-out`}
             handleClick={() => handleAccountFollowClick(accountIndex)}
           >
             <p>{isAccountFollowing[accountIndex] ? 'Following' : 'Follow'}</p>

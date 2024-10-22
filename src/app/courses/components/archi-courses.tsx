@@ -23,9 +23,10 @@ const ArchiCourses = () => {
     liked: false,
     addToCart: false,
   }));
+
   useEffect(() => {
     setCourses(updatedCourses);
-  }, [data]);
+  }, [data, updatedCourses]);
 
   const handleLikeToggle = (index: number) => {
     const updatedCourses = courses.map((course, i) =>

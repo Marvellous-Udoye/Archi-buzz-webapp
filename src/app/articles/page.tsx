@@ -18,7 +18,7 @@ const Article = () => {
 
   useEffect(() => {
     setArticles(data);
-  });
+  }, [data]);
 
   if (loading)
     return (
