@@ -56,10 +56,10 @@ const PostFeed = () => {
               className='w-full h-[200px] rounded-t-xl object-cover'
             />
 
-            <div className="px-2 pb-3 flex flex-col gap-4 mt-5">
+            <div className="px-2 pb-3 flex flex-col gap-2 sm:gap-4 mt-3 sm:mt-5">
               <div className="flex items-center justify-between">
                 <Button
-                  styles={`${isPostFollowing[index] ? 'bg-[#D8D8D8] text-black' : 'bg-[#FFA809] text-white active:bg-[#CC8400]'} h-[30px] sm:h-auto py-1.5 px-3 flex items-center gap-0 sm:gap-1 text-xs sm:text-sm rounded-2xl min-w-[80px] sm:min-w-[120px] transition duration-200 ease-in-out`}
+                  styles={`${isPostFollowing[index] ? 'bg-[#D8D8D8] text-black' : 'bg-[#FFA809] text-white active:bg-[#CC8400]'} h-[30px] sm:h-auto py-1.5 px-3 flex items-center gap-0 sm:gap-1 text-xs sm:text-sm rounded-2xl w-[80px] sm:w-[120px] transition duration-200 ease-in-out`}
                   handleClick={() => handleFollowClick(index)}
                 >
                   <p>{isPostFollowing[index] ? 'Following' : 'Follow'}</p>
@@ -106,7 +106,7 @@ const PostFeed = () => {
                   />
                   <p className='text-xl sm:text-3xl font-medium'>{post.name}</p>
                 </div>
-                <span className='text-sm font-medium sm:leading-7'>{post.timePosted} ago</span>
+                <span className='text-xs sm:text-sm font-medium sm:leading-7'>{post.timePosted} ago</span>
               </div>
 
               <div className="flex items-center gap-1 flex-wrap">

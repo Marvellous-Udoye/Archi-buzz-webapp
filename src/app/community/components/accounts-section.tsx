@@ -43,7 +43,7 @@ const AccountSection = () => {
           profilePicture={account.authorsPicture}
         >
           <Button
-            styles={`${isAccountFollowing[accountIndex] ? 'bg-[#D8D8D8] text-black' : 'bg-[#FFA809] text-white active:bg-[#CC8400]'} h-[30px] sm:h-auto px-2 py-1 rounded-[16px] flex items-center gap-0 sm:gap-1 text-xs lg:text-sm lg:px-3 lg:py-1.5 min-w-[80px] sm:min-w-[120px] transition duration-100 ease-in-out`}
+            styles={`${isAccountFollowing[accountIndex] ? 'bg-[#D8D8D8] text-black' : 'bg-[#FFA809] text-white active:bg-[#CC8400]'} h-[30px] sm:h-auto px-2 py-1 rounded-[16px] flex items-center gap-0 sm:gap-1 text-xs lg:text-sm lg:px-3 lg:py-1.5 w-[80px] sm:w-[120px] transition duration-100 ease-in-out`}
             handleClick={() => handleAccountFollowClick(accountIndex)}
           >
             <p>{isAccountFollowing[accountIndex] ? 'Following' : 'Follow'}</p>
